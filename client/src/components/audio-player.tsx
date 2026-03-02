@@ -105,7 +105,7 @@ export function AudioPlayer({ title, src, subtitle }: AudioPlayerProps) {
           disabled={!hasSource}
           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
             hasSource
-              ? "bg-[#CC0000] text-white cursor-pointer"
+              ? "bg-[#d42027] text-white cursor-pointer"
               : "bg-gray-700 text-gray-500 cursor-not-allowed"
           }`}
           data-testid={`button-play-${title.toLowerCase().replace(/\s+/g, "-")}`}
@@ -158,7 +158,7 @@ export function AudioPlayer({ title, src, subtitle }: AudioPlayerProps) {
             data-testid={`progress-${title.toLowerCase().replace(/\s+/g, "-")}`}
           >
             <div
-              className="absolute inset-y-0 left-0 rounded-full bg-[#CC0000] transition-all duration-100"
+              className="absolute inset-y-0 left-0 rounded-full bg-[#d42027] transition-all duration-100"
               style={{ width: `${progress}%` }}
             />
             {hasSource && progress > 0 && (

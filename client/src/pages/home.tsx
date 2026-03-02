@@ -142,7 +142,7 @@ function Navigation() {
           data-testid="link-home"
         >
           <span className="font-light">VOICEOVER</span>
-          <span className="text-[#CC0000]">GUY</span>
+          <span className="text-[#d42027]">GUY</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1 flex-wrap">
@@ -162,7 +162,7 @@ function Navigation() {
           ))}
           <Button
             size="sm"
-            className="ml-2 bg-[#CC0000] text-white border-[#CC0000]"
+            className="ml-2 bg-[#d42027] text-white border-[#d42027]"
             onClick={() => handleNavClick("#contact")}
             data-testid="button-nav-contact"
           >
@@ -205,7 +205,7 @@ function Navigation() {
                 </Button>
               ))}
               <Button
-                className="mt-2 bg-[#CC0000] text-white border-[#CC0000]"
+                className="mt-2 bg-[#d42027] text-white border-[#d42027]"
                 onClick={() => handleNavClick("#contact")}
                 data-testid="button-mobile-contact"
               >
@@ -228,15 +228,15 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(204,0,0,0.08)_0%,_transparent_70%)]" />
 
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#CC0000]/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#CC0000]/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#d42027]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#d42027]/30 to-transparent" />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[#CC0000] text-sm font-semibold tracking-[0.3em] uppercase mb-6"
+          className="text-[#d42027] text-sm font-semibold tracking-[0.3em] uppercase mb-6"
         >
           Guy Harris
         </motion.p>
@@ -249,7 +249,7 @@ function HeroSection() {
           style={{ fontFamily: "'Montserrat', sans-serif" }}
         >
           VOICE OF{" "}
-          <span className="text-[#CC0000]">GOD</span>
+          <span className="text-[#d42027]">GOD</span>
         </motion.h1>
 
         <motion.p
@@ -270,7 +270,7 @@ function HeroSection() {
         >
           <Button
             size="lg"
-            className="bg-[#CC0000] text-white border-[#CC0000] text-base px-8"
+            className="bg-[#d42027] text-white border-[#d42027] text-base px-8"
             onClick={() =>
               document
                 .querySelector("#contact")
@@ -331,7 +331,7 @@ function StatsBar() {
           {STATS.map((stat) => (
             <StaggerItem key={stat.label}>
               <div className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <stat.icon className="h-5 w-5 text-[#CC0000] mx-auto mb-2" />
+                <stat.icon className="h-5 w-5 text-[#d42027] mx-auto mb-2" />
                 <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
                   {stat.value}
                 </div>
@@ -352,7 +352,7 @@ function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <ScrollAnimation variant="fadeLeft">
             <div>
-              <p className="text-[#CC0000] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                 About
               </p>
               <h2
@@ -399,8 +399,8 @@ function AboutSection() {
                 </h3>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">
-                    <div className="h-8 w-8 rounded-md bg-[#CC0000]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Zap className="h-4 w-4 text-[#CC0000]" />
+                    <div className="h-8 w-8 rounded-md bg-[#d42027]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Zap className="h-4 w-4 text-[#d42027]" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">
@@ -413,8 +413,8 @@ function AboutSection() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="h-8 w-8 rounded-md bg-[#CC0000]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Award className="h-4 w-4 text-[#CC0000]" />
+                    <div className="h-8 w-8 rounded-md bg-[#d42027]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Award className="h-4 w-4 text-[#d42027]" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">
@@ -427,8 +427,8 @@ function AboutSection() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="h-8 w-8 rounded-md bg-[#CC0000]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Users className="h-4 w-4 text-[#CC0000]" />
+                    <div className="h-8 w-8 rounded-md bg-[#d42027]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Users className="h-4 w-4 text-[#d42027]" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">
@@ -442,8 +442,8 @@ function AboutSection() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -top-3 -left-3 w-20 h-20 border-t-2 border-l-2 border-[#CC0000]/20 rounded-tl-md pointer-events-none" />
-              <div className="absolute -bottom-3 -right-3 w-20 h-20 border-b-2 border-r-2 border-[#CC0000]/20 rounded-br-md pointer-events-none" />
+              <div className="absolute -top-3 -left-3 w-20 h-20 border-t-2 border-l-2 border-[#d42027]/20 rounded-tl-md pointer-events-none" />
+              <div className="absolute -bottom-3 -right-3 w-20 h-20 border-b-2 border-r-2 border-[#d42027]/20 rounded-br-md pointer-events-none" />
             </div>
           </ScrollAnimation>
         </div>
@@ -461,7 +461,7 @@ function ServicesSection() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#CC0000] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Services
           </p>
           <h2
@@ -483,8 +483,8 @@ function ServicesSection() {
                 className="bg-white rounded-md p-8 h-full transition-all duration-300 border border-gray-100"
                 data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="h-12 w-12 rounded-md bg-[#CC0000]/10 flex items-center justify-center mb-6">
-                  <service.icon className="h-6 w-6 text-[#CC0000]" />
+                <div className="h-12 w-12 rounded-md bg-[#d42027]/10 flex items-center justify-center mb-6">
+                  <service.icon className="h-6 w-6 text-[#d42027]" />
                 </div>
                 <h3
                   className="text-xl font-bold text-gray-900 mb-3"
@@ -513,7 +513,7 @@ function VideosSection() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#CC0000] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Watch
           </p>
           <h2
@@ -585,7 +585,7 @@ function AudioSection() {
     >
       <div className="max-w-3xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-12">
-          <p className="text-[#CC0000] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Listen
           </p>
           <h2
@@ -640,7 +640,7 @@ function ClientsSection() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#CC0000] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Clients
           </p>
           <h2
@@ -707,7 +707,7 @@ function ReviewsBanner() {
               href="https://www.google.com/search?q=VoiceoverGuy+Wakefield&ludocid=13238741027900894876#lrd=0x48795b5b8bb4d61d:0xb7a63f64e244a5ec,1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#CC0000] font-medium text-sm transition-colors"
+              className="inline-flex items-center gap-2 text-[#d42027] font-medium text-sm transition-colors"
               data-testid="link-google-reviews"
             >
               Read Google Reviews
@@ -766,7 +766,7 @@ function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <ScrollAnimation variant="fadeLeft">
             <div>
-              <p className="text-[#CC0000] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                 Contact
               </p>
               <h2
@@ -788,7 +788,7 @@ function ContactSection() {
                   data-testid="link-email"
                 >
                   <div className="h-10 w-10 rounded-md bg-white/5 flex items-center justify-center shrink-0">
-                    <Mail className="h-5 w-5 text-[#CC0000]" />
+                    <Mail className="h-5 w-5 text-[#d42027]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Email</p>
@@ -803,7 +803,7 @@ function ContactSection() {
                   data-testid="link-phone"
                 >
                   <div className="h-10 w-10 rounded-md bg-white/5 flex items-center justify-center shrink-0">
-                    <Phone className="h-5 w-5 text-[#CC0000]" />
+                    <Phone className="h-5 w-5 text-[#d42027]" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Phone</p>
@@ -911,7 +911,7 @@ function ContactSection() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-[#CC0000] text-white border-[#CC0000]"
+                className="w-full bg-[#d42027] text-white border-[#d42027]"
                 disabled={isSubmitting}
                 data-testid="button-submit-contact"
               >
@@ -943,7 +943,7 @@ function Footer() {
           <div className="flex items-center gap-2">
             <span className="font-bold text-sm text-white tracking-tight">
               <span className="font-light">VOICEOVER</span>
-              <span className="text-[#CC0000]">GUY</span>
+              <span className="text-[#d42027]">GUY</span>
             </span>
             <span className="text-gray-600 text-sm">
               &copy; 2000 &ndash; {new Date().getFullYear()} Guy Harris. All rights reserved.
