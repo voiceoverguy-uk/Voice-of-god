@@ -528,8 +528,8 @@ function VideosSection() {
           </p>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <ScrollAnimation variant="fadeLeft" delay={0}>
+        <StaggerContainer className="grid md:grid-cols-2 gap-8" staggerDelay={0.12}>
+          <StaggerItem>
             <div data-testid="video-masked-singer">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
@@ -548,9 +548,9 @@ function VideosSection() {
                 Voice of God show announcer at Butlins
               </p>
             </div>
-          </ScrollAnimation>
+          </StaggerItem>
 
-          <ScrollAnimation variant="fadeRight" delay={0.15}>
+          <StaggerItem>
             <div data-testid="video-ant-and-dec">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
@@ -569,8 +569,50 @@ function VideosSection() {
                 Voice of God announcer for the live arena tour
               </p>
             </div>
-          </ScrollAnimation>
-        </div>
+          </StaggerItem>
+
+          <StaggerItem>
+            <div data-testid="video-vog-demo">
+              <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
+                <iframe
+                  src="https://www.youtube.com/embed/4Le6P6sk7cs"
+                  title="Voice of God Demo | Guy Harris"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mt-4">
+                Voice of God Demo
+              </h3>
+              <p className="text-sm text-gray-500">
+                Live event announcing highlights
+              </p>
+            </div>
+          </StaggerItem>
+
+          <StaggerItem>
+            <div data-testid="video-showreel">
+              <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
+                <iframe
+                  src="https://www.youtube.com/embed/5jEcPyu2S5s"
+                  title="VoiceoverGuy Showreel | Guy Harris"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  loading="lazy"
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mt-4">
+                VoiceoverGuy Showreel
+              </h3>
+              <p className="text-sm text-gray-500">
+                Voiceover highlights and credits
+              </p>
+            </div>
+          </StaggerItem>
+        </StaggerContainer>
       </div>
     </section>
   );
