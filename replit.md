@@ -15,7 +15,7 @@ Premium single-page portfolio website for Guy Harris, the UK's leading Voice of 
 - Hero section with dramatic dark background
 - 4 YouTube video embeds (The Masked Singer, Ant & Dec's Saturday Night Takeaway, Voice of God Demo, Showreel)
 - 3 custom audio players for MP3 demo uploads
-- Client logos section: auto-scrolling dual-row marquee + static grid with 35 brand logos (grayscale-to-color hover effect)
+- Client logos section: static grid with 35 brand logos (grayscale-to-color hover, name label pops up on hover)
 - 5-star Google Reviews banner
 - Contact form with validation
 - Comprehensive SEO (meta tags, Open Graph, Twitter Cards, JSON-LD Schema)

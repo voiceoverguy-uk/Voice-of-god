@@ -714,34 +714,7 @@ function AudioSection() {
   );
 }
 
-function LogoMarquee({ clients, direction = "left" }: { clients: { name: string; logo: string }[]; direction?: "left" | "right" }) {
-  const doubled = [...clients, ...clients];
-  return (
-    <div className="marquee-container overflow-hidden relative group" data-testid={`marquee-${direction}`}>
-      <div
-        className={`flex items-center gap-12 ${direction === "left" ? "marquee-scroll-left" : "marquee-scroll-right"}`}
-        style={{ width: "max-content" }}
-      >
-        {doubled.map((client, i) => (
-          <div key={`${client.name}-${i}`} className="flex-shrink-0 flex items-center justify-center h-12 w-28 md:w-32">
-            <img
-              src={client.logo}
-              alt={client.name}
-              className="max-h-10 max-w-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
-              loading="lazy"
-              data-testid={`marquee-logo-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}-${i}`}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function ClientsSection() {
-  const row1 = CLIENTS.slice(0, Math.ceil(CLIENTS.length / 2));
-  const row2 = CLIENTS.slice(Math.ceil(CLIENTS.length / 2));
-
   return (
     <section
       id="clients"
@@ -765,13 +738,6 @@ function ClientsSection() {
           </p>
         </ScrollAnimation>
 
-        <ScrollAnimation className="mb-16">
-          <div className="space-y-8">
-            <LogoMarquee clients={row1} direction="left" />
-            <LogoMarquee clients={row2} direction="right" />
-          </div>
-        </ScrollAnimation>
-
         <StaggerContainer
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4"
           staggerDelay={0.03}
@@ -779,16 +745,22 @@ function ClientsSection() {
           {CLIENTS.map((client) => (
             <StaggerItem key={client.name}>
               <div
-                className="flex items-center justify-center h-20 rounded-lg bg-gray-50 border border-gray-100 p-3 grayscale hover:grayscale-0 transition-all duration-500"
+                className="group relative flex flex-col items-center justify-center h-24 rounded-lg bg-gray-50 border border-gray-100 p-3 grayscale hover:grayscale-0 transition-all duration-500 cursor-default"
                 data-testid={`client-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-12 max-w-full object-contain"
+                  className="max-h-12 max-w-full object-contain transition-transform duration-300 group-hover:-translate-y-1"
                   loading="lazy"
                   data-testid={`logo-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                 />
+                <span
+                  className="absolute bottom-1.5 left-0 right-0 text-center text-[10px] font-semibold text-gray-600 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                  data-testid={`name-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                >
+                  {client.name}
+                </span>
               </div>
             </StaggerItem>
           ))}

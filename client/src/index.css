@@ -165,50 +165,6 @@
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
 }
 
-@keyframes marquee-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes marquee-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.marquee-scroll-left {
-  animation: marquee-left 30s linear infinite;
-}
-
-.marquee-scroll-right {
-  animation: marquee-right 30s linear infinite;
-}
-
-.marquee-container:hover .marquee-scroll-left,
-.marquee-container:hover .marquee-scroll-right {
-  animation-play-state: paused;
-}
-
-.marquee-container::before,
-.marquee-container::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 80px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.marquee-container::before {
-  left: 0;
-  background: linear-gradient(to right, hsl(var(--background)), transparent);
-}
-
-.marquee-container::after {
-  right: 0;
-  background: linear-gradient(to left, hsl(var(--background)), transparent);
-}
-
 @layer base {
   * {
     @apply border-border;
