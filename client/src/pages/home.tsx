@@ -34,6 +34,42 @@ import { contactFormSchema, type ContactForm } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 
+import logoAltonTowers from "@assets/voiceoverguy-clients-alton-towers_1772482508721.png";
+import logoApple from "@assets/voiceoverguy-clients-apple_1772482508721.png";
+import logoAsda from "@assets/voiceoverguy-clients-asda_1772482508721.png";
+import logoBarclays from "@assets/voiceoverguy-clients-barclays_1772482508721.png";
+import logoBaxi from "@assets/voiceoverguy-clients-baxi_1772482508722.png";
+import logoBbc2 from "@assets/voiceoverguy-clients-bbc-2_1772482508722.png";
+import logoBbcRadio1 from "@assets/voiceoverguy-clients-bbc-radio-1_1772482508722.png";
+import logoBecks from "@assets/voiceoverguy-clients-becks_1772482508722.png";
+import logoBetfred from "@assets/voiceoverguy-clients-betfred_1772482538649.png";
+import logoBiffa from "@assets/voiceoverguy-clients-biffa_1772482538649.png";
+import logoBoomBeach from "@assets/voiceoverguy-clients-boom-beach_1772482538649.png";
+import logoBoomRadio from "@assets/voiceoverguy-clients-boom-radio_1772482508719.png";
+import logoBupa from "@assets/voiceoverguy-clients-bupa_1772482538649.png";
+import logoButlins from "@assets/voiceoverguy-clients-butlins_1772482538649.png";
+import logoCapital from "@assets/voiceoverguy-clients-capital_1772482538650.png";
+import logoCbeebies from "@assets/voiceoverguy-clients-cbeebies_1772482538650.png";
+import logoCentreParcs from "@assets/voiceoverguy-clients-centre-parcs_1772482538650.png";
+import logoCocaCola from "@assets/voiceoverguy-clients-coca-cola_1772482538650.png";
+import logoDpd from "@assets/voiceoverguy-clients-dpd_1772482538651.png";
+import logoDreamworks from "@assets/voiceoverguy-clients-dreamworks_1772482538651.png";
+import logoEmirates from "@assets/voiceoverguy-clients-emirates_1772482538651.png";
+import logoHarpic from "@assets/voiceoverguy-clients-harpic_1772482538651.png";
+import logoHeart from "@assets/voiceoverguy-clients-heart_1772482538652.png";
+import logoHorlicks from "@assets/voiceoverguy-clients-horlicks_1772482538652.png";
+import logoHotels from "@assets/voiceoverguy-clients-hotels-brand_1772482538652.png";
+import logoItv from "@assets/voiceoverguy-clients-itv_1772482538652.png";
+import logoJustEat from "@assets/voiceoverguy-clients-just-eat_1772482508720.png";
+import logoKelloggs from "@assets/voiceoverguy-clients-kelloggs_1772482538652.png";
+import logoMazuma from "@assets/voiceoverguy-clients-mazuma_1772482538653.png";
+import logoMcDonalds from "@assets/voiceoverguy-clients-mcd_1772482538653.png";
+import logoPandO from "@assets/voiceoverguy-clients-p&o_1772482508719.png";
+import logoSnowDome from "@assets/voiceoverguy-clients-snow-dome_1772482508720.png";
+import logoSpar from "@assets/voiceoverguy-clients-spar_1772482508720.png";
+import logoTheRange from "@assets/voiceoverguy-clients-the-range_1772482508720.png";
+import logoBooking from "@assets/voiceoverguy-booking-dot-com-brand_1772482508721.png";
+
 const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
@@ -43,37 +79,42 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const CLIENTS = [
-  "ITV",
-  "BBC",
-  "Butlins",
-  "The Masked Singer",
-  "Britain's Got Talent",
-  "BBC Radio 1",
-  "BBC Radio 2",
-  "National History Museum",
-  "TV Choice",
-  "Ant & Dec",
-  "Ninja Warrior UK",
-  "Poundland",
-  "Bestway",
-  "Apple",
-  "Disney",
-  "Samsung",
-  "Tesco",
-  "Asda",
-  "Coca-Cola",
-  "McDonald's",
-  "Hotels.com",
-  "Thomas & Friends",
-  "Heart Radio",
-  "Capital FM",
-  "CBeebies",
-  "GB News",
-  "Centre Parcs",
-  "Alton Towers",
-  "DPD",
-  "Just Eat",
+const CLIENTS: { name: string; logo: string }[] = [
+  { name: "ITV", logo: logoItv },
+  { name: "BBC Two", logo: logoBbc2 },
+  { name: "BBC Radio 1", logo: logoBbcRadio1 },
+  { name: "CBeebies", logo: logoCbeebies },
+  { name: "Apple", logo: logoApple },
+  { name: "Coca-Cola", logo: logoCocaCola },
+  { name: "McDonald's", logo: logoMcDonalds },
+  { name: "Hotels.com", logo: logoHotels },
+  { name: "Booking.com", logo: logoBooking },
+  { name: "Barclays", logo: logoBarclays },
+  { name: "Emirates", logo: logoEmirates },
+  { name: "DreamWorks", logo: logoDreamworks },
+  { name: "Kellogg's", logo: logoKelloggs },
+  { name: "Just Eat", logo: logoJustEat },
+  { name: "Asda", logo: logoAsda },
+  { name: "DPD", logo: logoDpd },
+  { name: "Heart Radio", logo: logoHeart },
+  { name: "Capital FM", logo: logoCapital },
+  { name: "Boom Radio", logo: logoBoomRadio },
+  { name: "Centre Parcs", logo: logoCentreParcs },
+  { name: "Alton Towers", logo: logoAltonTowers },
+  { name: "Butlins", logo: logoButlins },
+  { name: "Bupa", logo: logoBupa },
+  { name: "Betfred", logo: logoBetfred },
+  { name: "Beck's", logo: logoBecks },
+  { name: "Biffa", logo: logoBiffa },
+  { name: "Baxi", logo: logoBaxi },
+  { name: "Boom Beach", logo: logoBoomBeach },
+  { name: "Harpic", logo: logoHarpic },
+  { name: "Horlicks", logo: logoHorlicks },
+  { name: "Mazuma", logo: logoMazuma },
+  { name: "P&O", logo: logoPandO },
+  { name: "SnowDome", logo: logoSnowDome },
+  { name: "Spar", logo: logoSpar },
+  { name: "The Range", logo: logoTheRange },
 ];
 
 const SERVICES = [
@@ -673,7 +714,34 @@ function AudioSection() {
   );
 }
 
+function LogoMarquee({ clients, direction = "left" }: { clients: { name: string; logo: string }[]; direction?: "left" | "right" }) {
+  const doubled = [...clients, ...clients];
+  return (
+    <div className="marquee-container overflow-hidden relative group" data-testid={`marquee-${direction}`}>
+      <div
+        className={`flex items-center gap-12 ${direction === "left" ? "marquee-scroll-left" : "marquee-scroll-right"}`}
+        style={{ width: "max-content" }}
+      >
+        {doubled.map((client, i) => (
+          <div key={`${client.name}-${i}`} className="flex-shrink-0 flex items-center justify-center h-12 w-28 md:w-32">
+            <img
+              src={client.logo}
+              alt={client.name}
+              className="max-h-10 max-w-full object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+              loading="lazy"
+              data-testid={`marquee-logo-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}-${i}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ClientsSection() {
+  const row1 = CLIENTS.slice(0, Math.ceil(CLIENTS.length / 2));
+  const row2 = CLIENTS.slice(Math.ceil(CLIENTS.length / 2));
+
   return (
     <section
       id="clients"
@@ -697,19 +765,30 @@ function ClientsSection() {
           </p>
         </ScrollAnimation>
 
+        <ScrollAnimation className="mb-16">
+          <div className="space-y-8">
+            <LogoMarquee clients={row1} direction="left" />
+            <LogoMarquee clients={row2} direction="right" />
+          </div>
+        </ScrollAnimation>
+
         <StaggerContainer
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4"
-          staggerDelay={0.04}
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4"
+          staggerDelay={0.03}
         >
           {CLIENTS.map((client) => (
-            <StaggerItem key={client}>
+            <StaggerItem key={client.name}>
               <div
-                className="flex items-center justify-center h-16 rounded-md bg-gray-50 border border-gray-100 px-4"
-                data-testid={`client-${client.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                className="flex items-center justify-center h-20 rounded-lg bg-gray-50 border border-gray-100 p-3 grayscale hover:grayscale-0 transition-all duration-500"
+                data-testid={`client-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
               >
-                <span className="text-xs sm:text-sm font-semibold text-gray-400 text-center leading-tight">
-                  {client}
-                </span>
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="max-h-12 max-w-full object-contain"
+                  loading="lazy"
+                  data-testid={`logo-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                />
               </div>
             </StaggerItem>
           ))}
