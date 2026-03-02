@@ -126,19 +126,19 @@ const SERVICES = [
     icon: Mic,
     title: "Live Voice of God",
     description:
-      "Commanding live announcements at your event. From arena tours to award ceremonies, I deliver powerful, perfectly-timed intros that lift the entire atmosphere.",
+      "You can book a Live Voice of God voiceover, or pre-recorded to save you money. From arena tours to award ceremonies, I deliver powerful, perfectly-timed announcements.",
   },
   {
     icon: Headphones,
     title: "Pre-Recorded",
     description:
-      "Broadcast-quality pre-recorded announcements delivered from my professional studio. Same-day turnaround available with seamless integration into your event.",
+      "Technology allows 99% of Voice of God to be pre-recorded and played at the event. Broadcast-quality audio delivered from my professional studio.",
   },
   {
     icon: Clock,
     title: "Last Minute",
     description:
-      "Don't panic. Technology allows for last-minute changes, same-day audio delivery and seamless integration. I've got it covered, even at short notice.",
+      "Urgent and last minute Voice of God audio can be changed and delivered within an hour. Don\u2019t panic \u2014 I\u2019ve got it covered.",
   },
 ];
 
@@ -436,7 +436,7 @@ function HeroSection() {
                 <X className="h-8 w-8" />
               </button>
               <iframe
-                src="https://www.youtube.com/embed/4Le6P6sk7cs?autoplay=1"
+                src="https://www.youtube.com/embed/4Le6P6sk7cs?autoplay=1&vq=hd1080"
                 title="Voice of God Demo | Guy Harris"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -660,7 +660,7 @@ function VideosSection() {
             <div data-testid="video-masked-singer">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/e0vZ9cxdilo"
+                  src="https://www.youtube.com/embed/e0vZ9cxdilo?vq=hd1080"
                   title="The Masked Singer – Voice of God Show Announcer | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -681,7 +681,7 @@ function VideosSection() {
             <div data-testid="video-ant-and-dec">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/W99pMUr6G8Q"
+                  src="https://www.youtube.com/embed/W99pMUr6G8Q?vq=hd1080"
                   title="Ant & Dec's Saturday Night Takeaway Tour – Voice of God Announcer | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -702,7 +702,7 @@ function VideosSection() {
             <div data-testid="video-vog-demo">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/4yTnVRDXZfQ"
+                  src="https://www.youtube.com/embed/4yTnVRDXZfQ?vq=hd1080"
                   title="TV Choice Awards – Voice of God | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -723,7 +723,7 @@ function VideosSection() {
             <div data-testid="video-showreel">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/5jEcPyu2S5s"
+                  src="https://www.youtube.com/embed/5jEcPyu2S5s?vq=hd1080"
                   title="VoiceoverGuy Showreel | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -923,6 +923,64 @@ function ReviewsBanner() {
             </a>
           </div>
         </ScrollAnimation>
+      </div>
+    </section>
+  );
+}
+
+const TESTIMONIALS = [
+  {
+    quote: "Guy has worked for us on many occasions as his voice is perfect for so many applications, he is professional and always follows direction. It\u2019s always a pleasure to work with him.",
+    name: "Phil Peacock",
+    title: "Creative Manager, Butlins",
+  },
+  {
+    quote: "Guy Harris has been a regular Voice of God at a number of events for our client Reward Gateway and also features at the annual Benefits Excellence Awards. His efficiency, accuracy and speed never fail to amaze me and I can\u2019t recommend his services enough!",
+    name: "Phil Miller",
+    title: "Managing Director, D.R.",
+  },
+  {
+    quote: "Awesome Events have utilised Guy\u2019s supreme service for the last couple of years and we have found his professionalism to be outstanding and his ability to always deliver has assisted us with the planning of hundreds of events and conferences.",
+    name: "Denis McCourt",
+    title: "Director, Awesome Events",
+  },
+];
+
+function TestimonialsSection() {
+  return (
+    <section className="bg-white py-24 md:py-32" data-testid="section-testimonials">
+      <div className="max-w-6xl mx-auto px-6">
+        <ScrollAnimation className="text-center mb-16">
+          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            Testimonials
+          </p>
+          <h2
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            What Clients Say
+          </h2>
+        </ScrollAnimation>
+
+        <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.1}>
+          {TESTIMONIALS.map((testimonial) => (
+            <StaggerItem key={testimonial.name}>
+              <div
+                className="relative bg-gray-50 border border-gray-100 rounded-xl p-6 lg:p-8 h-full flex flex-col"
+                data-testid={`testimonial-${testimonial.name.toLowerCase().replace(/\s+/g, "-")}`}
+              >
+                <div className="text-[#d42027]/30 text-5xl font-serif leading-none mb-4">&ldquo;</div>
+                <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-6">
+                  {testimonial.quote}
+                </p>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
+                  <p className="text-xs text-gray-400">{testimonial.title}</p>
+                </div>
+              </div>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -1191,6 +1249,7 @@ export default function Home() {
       <AudioSection />
       <ClientsSection />
       <ReviewsBanner />
+      <TestimonialsSection />
       <ContactSection />
       <Footer />
     </div>
