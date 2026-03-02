@@ -70,6 +70,9 @@ import logoSpar from "@assets/voiceoverguy-clients-spar_1772482508720.png";
 import logoTheRange from "@assets/voiceoverguy-clients-the-range_1772482508720.png";
 import logoBooking from "@assets/voiceoverguy-booking-dot-com-brand_1772482508721.png";
 import heroBackground from "@assets/guy-harris-voice-of-god-on-stage_1772493275715.jpg";
+import guyPhoto1 from "@assets/guy-harris-vog-1_1772493713393.jpg";
+import guyPhoto2 from "@assets/guy-harris-vog-2_1772493713393.jpg";
+import guyPhoto3 from "@assets/guy-harris-vog-3_1772493713393.jpg";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -262,6 +265,22 @@ function Navigation() {
 }
 
 function HeroSection() {
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowVideo(false);
+    };
+    if (showVideo) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "";
+    };
+  }, [showVideo]);
+
   return (
     <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950"
@@ -344,10 +363,28 @@ function HeroSection() {
           </Button>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="flex flex-col items-center gap-3 mb-8"
+        >
+          <button
+            onClick={() => setShowVideo(true)}
+            className="relative group flex items-center justify-center w-16 h-16 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-[#d42027] hover:bg-[#d42027]/20"
+            data-testid="button-hero-play-video"
+            aria-label="Watch showreel video"
+          >
+            <Play className="h-6 w-6 text-white ml-1" fill="currentColor" />
+            <span className="absolute inset-0 rounded-full border-2 border-white/20 animate-ping" />
+          </button>
+          <span className="text-xs text-gray-400 tracking-wider uppercase">Watch Showreel</span>
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.3 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
           className="text-sm text-gray-500"
         >
           Trusted by ITV, BBC, Butlins, The Masked Singer & more
@@ -357,7 +394,7 @@ function HeroSection() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.5 }}
+        transition={{ duration: 0.6, delay: 1.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
@@ -367,6 +404,48 @@ function HeroSection() {
           <ChevronDown className="h-6 w-6 text-gray-500" />
         </motion.div>
       </motion.div>
+
+      <AnimatePresence>
+        {showVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+            onClick={() => setShowVideo(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Video player"
+            data-testid="modal-hero-video"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full max-w-4xl aspect-video"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowVideo(false)}
+                className="absolute -top-10 right-0 text-white/70 hover:text-white transition-colors"
+                data-testid="button-close-hero-video"
+                aria-label="Close video"
+              >
+                <X className="h-8 w-8" />
+              </button>
+              <iframe
+                src="https://www.youtube.com/embed/4Le6P6sk7cs?autoplay=1"
+                title="Voice of God Demo | Guy Harris"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full rounded-lg"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
@@ -623,8 +702,8 @@ function VideosSection() {
             <div data-testid="video-vog-demo">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/4Le6P6sk7cs"
-                  title="Voice of God Demo | Guy Harris"
+                  src="https://www.youtube.com/embed/4yTnVRDXZfQ"
+                  title="TV Choice Awards – Voice of God | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
@@ -632,10 +711,10 @@ function VideosSection() {
                 />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mt-4">
-                Voice of God Demo
+                TV Choice Awards
               </h3>
               <p className="text-sm text-gray-500">
-                Live event announcing highlights
+                Voice of God at the TV Choice Awards
               </p>
             </div>
           </StaggerItem>
@@ -779,8 +858,37 @@ function ClientsSection() {
 
 function ReviewsBanner() {
   return (
-    <section className="bg-gray-950 py-16" data-testid="section-reviews">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="bg-gray-950 py-16 md:py-24" data-testid="section-reviews">
+      <div className="max-w-5xl mx-auto px-6">
+        <ScrollAnimation className="mb-12">
+          <div className="flex items-end justify-center gap-3 sm:gap-5 md:gap-6 max-w-full overflow-hidden">
+            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0">
+              <img
+                src={guyPhoto1}
+                alt="Guy Harris performing"
+                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-white/10"
+                data-testid="img-guy-photo-1"
+              />
+            </div>
+            <div className="w-32 sm:w-40 md:w-52 flex-shrink-0 -mb-2">
+              <img
+                src={guyPhoto2}
+                alt="Guy Harris portrait"
+                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-white/20 shadow-2xl"
+                data-testid="img-guy-photo-2"
+              />
+            </div>
+            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0">
+              <img
+                src={guyPhoto3}
+                alt="Guy Harris with microphone"
+                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-white/10"
+                data-testid="img-guy-photo-3"
+              />
+            </div>
+          </div>
+        </ScrollAnimation>
+
         <ScrollAnimation variant="scale">
           <div className="text-center">
             <div className="flex items-center justify-center gap-1 mb-4">
