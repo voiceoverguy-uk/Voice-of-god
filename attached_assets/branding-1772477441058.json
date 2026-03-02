@@ -1,0 +1,137 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Ubuntu",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#337AB7",
+    "accent": "#CC0000",
+    "background": "#FFFFFF",
+    "textPrimary": "#444444",
+    "link": "#9C060B"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Ubuntu",
+      "heading": "Ubuntu"
+    },
+    "fontStacks": {
+      "heading": [
+        "Ubuntu",
+        "times new roman",
+        "times",
+        "roman",
+        "serif"
+      ],
+      "body": [
+        "Ubuntu",
+        "times new roman",
+        "times",
+        "roman",
+        "serif"
+      ],
+      "paragraph": [
+        "Ubuntu",
+        "times new roman",
+        "times",
+        "roman",
+        "serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "30px",
+      "h2": "22px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "4px"
+  },
+  "components": {
+    "input": {
+      "background": "#FFFFFF",
+      "textColor": "#333333",
+      "borderColor": "#999999",
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    },
+    "buttonPrimary": {
+      "background": "#CC0000",
+      "textColor": "#FFFFFF",
+      "borderRadius": "6px",
+      "borderRadiusCorners": {
+        "topLeft": "6px",
+        "topRight": "6px",
+        "bottomRight": "6px",
+        "bottomLeft": "6px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "https://www.voiceoverguy.co.uk/assets/images/guy-harris-voiceover.png",
+    "favicon": "https://www.voiceoverguy.co.uk/assets/images/favicon/apple-touch-icon-57x57.png",
+    "ogImage": "https://www.voiceoverguy.co.uk/assets/images/voice-of-god-voice-og.jpg",
+    "logoHref": "https://www.voiceoverguy.co.uk",
+    "logoAlt": "Guy Harris - Voiceover Guy"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 2,
+    "reasoning": "Selected #2 because it is a visible, large logo with the alt text 'Guy Harris - Voiceover Guy', which aligns with the brand inferred from the URL and page title. It is also located prominently in the body, suggesting it is the main brand representation.",
+    "confidence": 0.85,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "⭐ Read Google Reviews",
+      "reasoning": "The button '⭐ Read Google Reviews' uses a vibrant red color (#CC0000), which is a strong indicator of a primary call-to-action due to its visibility and prominence."
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "There is only one button detected, so no secondary button can be selected."
+    },
+    "confidence": 0.9
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "event organizers and professionals seeking voiceover services"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.9,
+    "colors": 0.9,
+    "overall": 0.9
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 2,
+        "selectedLogoReasoning": "Selected #2 because it is a visible, large logo with the alt text 'Guy Harris - Voiceover Guy', which aligns with the brand inferred from the URL and page title. It is also located prominently in the body, suggesting it is the main brand representation.",
+        "confidence": 0.85
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}
