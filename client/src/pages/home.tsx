@@ -188,6 +188,7 @@ function Navigation() {
         >
           <span className="font-light">VOICEOVER</span>
           <span className="text-[#d42027]">GUY</span>
+          <span className="font-light text-sm ml-1.5 hidden sm:inline opacity-60">- Voice of God</span>
         </a>
 
         <div className="hidden md:flex items-center gap-1 flex-wrap">
@@ -488,6 +489,7 @@ function AboutSection() {
               >
                 What is Voice of God?
               </h2>
+              <motion.div className="w-16 h-0.5 bg-[#d42027] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
                   The Voice of God is the powerful, unmistakable live or pre-recorded
@@ -597,6 +599,7 @@ function ServicesSection() {
           >
             How I Work
           </h2>
+          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
             Whether you need a commanding live presence or a polished pre-recorded
             announcer, I deliver on time, every time.
@@ -649,6 +652,7 @@ function VideosSection() {
           >
             See It In Action
           </h2>
+          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
             Watch highlights from some of my biggest Voice of God performances
             at major events across the UK.
@@ -763,6 +767,7 @@ function AudioSection() {
           >
             Audio Demos
           </h2>
+          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
             Listen to Voice of God demo reels showcasing live event announcements,
             awards intros and arena tours.
@@ -818,6 +823,7 @@ function ClientsSection() {
           >
             Trusted By
           </h2>
+          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
             Brands and broadcasters across the UK and worldwide trust my voice
             for their biggest moments.
@@ -960,6 +966,7 @@ function TestimonialsSection() {
           >
             What Clients Say
           </h2>
+          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
         </ScrollAnimation>
 
         <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.1}>
@@ -1041,6 +1048,7 @@ function ContactSection() {
               >
                 Let's Make Your Event Unforgettable
               </h2>
+              <motion.div className="w-16 h-0.5 bg-[#d42027] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
               <p className="text-gray-400 leading-relaxed mb-8">
                 Whether you need a bold live announcer or a perfectly timed
                 pre-recorded voice, I'm in the studio and ready to help.
