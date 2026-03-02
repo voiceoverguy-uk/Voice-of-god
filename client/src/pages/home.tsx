@@ -69,6 +69,7 @@ import logoSnowDome from "@assets/voiceoverguy-clients-snow-dome_1772482508720.p
 import logoSpar from "@assets/voiceoverguy-clients-spar_1772482508720.png";
 import logoTheRange from "@assets/voiceoverguy-clients-the-range_1772482508720.png";
 import logoBooking from "@assets/voiceoverguy-booking-dot-com-brand_1772482508721.png";
+import heroBackground from "@assets/guy-harris-voice-of-god-on-stage_1772493275715.jpg";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -266,8 +267,14 @@ function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-950"
       data-testid="section-hero"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(204,0,0,0.08)_0%,_transparent_70%)]" />
+      <img
+        src={heroBackground}
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <div className="absolute inset-0 bg-gray-950/65" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-transparent to-gray-950/90" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#d42027]/30 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#d42027]/30 to-transparent" />
@@ -277,7 +284,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[#d42027] text-sm font-semibold tracking-[0.3em] uppercase mb-6"
+          className="text-[#d42027] text-lg md:text-xl lg:text-2xl font-semibold tracking-[0.3em] uppercase mb-6"
         >
           Guy Harris
         </motion.p>
