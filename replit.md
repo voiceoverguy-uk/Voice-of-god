@@ -26,8 +26,14 @@ Premium single-page portfolio website for Guy Harris, the UK's leading Voice of 
 - `client/src/components/scroll-animation.tsx` - Framer Motion scroll animation wrappers
 - `client/src/components/audio-player.tsx` - Custom HTML5 audio player component
 - `shared/schema.ts` - Contact form Zod validation schema
-- `server/routes.ts` - Contact form POST endpoint (/api/contact)
+- `server/routes.ts` - Contact form POST endpoint (/api/contact) (Express, for Replit dev)
 - `server/storage.ts` - In-memory contact submission storage
+- `api/contact.ts` - Vercel serverless function for contact form
+- `vercel.json` - Vercel deployment configuration
+
+## Deployment
+- **Replit**: Runs via `npm run dev` (Express backend + Vite frontend)
+- **Vercel**: Deploys as static frontend (Vite build to `dist/public`) + serverless function (`api/contact.ts`) for the contact form API
 
 ## Brand Colors
 - Primary red: #d42027 (HSL: 358 74% 48%)
