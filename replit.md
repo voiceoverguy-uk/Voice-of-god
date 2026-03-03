@@ -6,7 +6,7 @@ Premium single-page portfolio website for Guy Harris, the UK's leading Voice of 
 ## Architecture
 - **Frontend**: React SPA with Framer Motion animations, Tailwind CSS
 - **Backend**: Express.js with contact form API
-- **Styling**: White background with brand red (#d42027) accent
+- **Styling**: White background with brand red (#9C060B) accent
 - **Fonts**: Ubuntu (body), Montserrat (headings)
 
 ## Key Features
@@ -36,7 +36,7 @@ Premium single-page portfolio website for Guy Harris, the UK's leading Voice of 
 - **Vercel**: Deploys as static frontend (Vite build to `dist/public`) + serverless function (`api/contact.ts`) for the contact form API
 
 ## Brand Colors
-- Primary red: #d42027 (HSL: 358 74% 48%)
+- Primary red: #9C060B (HSL: 358 74% 48%)
 - Background: White (#FFFFFF)
 - Dark sections: Gray-950 (#0a0a0a)
 - Text: Gray-900 for headings, Gray-600 for body

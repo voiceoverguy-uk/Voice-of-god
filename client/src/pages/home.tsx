@@ -144,6 +144,7 @@ function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -195,7 +196,7 @@ function Navigation() {
           data-testid="link-home"
         >
           <span className="font-light">VOICEOVER</span>
-          <span className="text-[#d42027]">GUY</span>
+          <span className="text-[#9C060B]">GUY</span>
           <span className="font-light text-sm ml-1.5 hidden sm:inline opacity-60">- Voice of God</span>
         </a>
 
@@ -206,6 +207,8 @@ function Navigation() {
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
+                onMouseEnter={() => setHoveredLink(link.href)}
+                onMouseLeave={() => setHoveredLink(null)}
                 className={`relative px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer ${
                   isActive
                     ? scrolled
@@ -221,8 +224,18 @@ function Navigation() {
                 {isActive && (
                   <motion.div
                     layoutId="nav-underline"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#d42027] rounded-full"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#9C060B] rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                {!isActive && hoveredLink === link.href && (
+                  <motion.div
+                    initial={{ opacity: 0, scaleX: 0 }}
+                    animate={{ opacity: 1, scaleX: 1 }}
+                    exit={{ opacity: 0, scaleX: 0 }}
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#9C060B]/60 rounded-full"
+                    transition={{ duration: 0.2 }}
+                    style={{ originX: 0.5 }}
                   />
                 )}
               </button>
@@ -230,7 +243,7 @@ function Navigation() {
           })}
           <Button
             size="sm"
-            className="ml-2 bg-[#d42027] text-white border-[#d42027]"
+            className="ml-2 bg-[#9C060B] hover:bg-[#7E0408] text-white border-[#9C060B]"
             onClick={() => handleNavClick("#contact")}
             data-testid="button-nav-contact"
           >
@@ -273,7 +286,7 @@ function Navigation() {
                 </Button>
               ))}
               <Button
-                className="mt-2 bg-[#d42027] text-white border-[#d42027]"
+                className="mt-2 bg-[#9C060B] hover:bg-[#7E0408] text-white border-[#9C060B]"
                 onClick={() => handleNavClick("#contact")}
                 data-testid="button-mobile-contact"
               >
@@ -318,15 +331,15 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gray-950/65" />
       <div className="absolute inset-0 bg-gradient-to-b from-gray-950/80 via-transparent to-gray-950/90" />
 
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#d42027]/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#d42027]/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9C060B]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#9C060B]/30 to-transparent" />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-[#d42027] text-lg md:text-xl lg:text-2xl font-semibold tracking-[0.3em] uppercase mb-6"
+          className="text-[#9C060B] text-lg md:text-xl lg:text-2xl font-semibold tracking-[0.3em] uppercase mb-6"
         >
           Guy Harris
         </motion.p>
@@ -337,10 +350,11 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-none mb-6"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
-          aria-hidden="true"
+          role="heading"
+          aria-level={2}
         >
           VOICE OF{" "}
-          <span className="text-[#d42027]">GOD</span>
+          <span className="text-[#9C060B]">GOD</span>
         </motion.div>
         <h1 className="sr-only">Voice of God UK – Live Event Announcer & Awards Voiceover</h1>
 
@@ -363,7 +377,7 @@ function HeroSection() {
         >
           <Button
             size="lg"
-            className="bg-[#d42027] text-white border-[#d42027] text-base px-8"
+            className="bg-[#9C060B] hover:bg-[#7E0408] text-white border-[#9C060B] text-base px-8"
             onClick={() =>
               document
                 .querySelector("#contact")
@@ -406,7 +420,7 @@ function HeroSection() {
         >
           <button
             onClick={() => setShowVideo(true)}
-            className="relative group flex items-center justify-center w-16 h-16 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-[#d42027] hover:bg-[#d42027]/20"
+            className="relative group flex items-center justify-center w-16 h-16 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-[#9C060B] hover:bg-[#9C060B]/20"
             data-testid="button-hero-play-video"
             aria-label="Watch showreel video"
           >
@@ -480,7 +494,7 @@ function StatsBar() {
           {STATS.map((stat) => (
             <StaggerItem key={stat.label}>
               <div className="text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                <stat.icon className="h-5 w-5 text-[#d42027] mx-auto mb-2" />
+                <stat.icon className="h-5 w-5 text-[#9C060B] mx-auto mb-2" />
                 <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
                   {stat.value}
                 </div>
@@ -521,7 +535,7 @@ function EventsTicker() {
   return (
     <section className="bg-gray-950 py-4 overflow-hidden" data-testid="section-events-ticker">
       <div className="max-w-6xl mx-auto px-6 mb-2">
-        <p className="text-[#d42027] text-xs font-semibold tracking-[0.2em] uppercase text-center">
+        <p className="text-[#9C060B] text-xs font-semibold tracking-[0.2em] uppercase text-center">
           THE VOICE BEHIND
         </p>
       </div>
@@ -540,7 +554,7 @@ function EventsTicker() {
               >
                 {event}
               </span>
-              <span className="text-[#d42027] text-lg">•</span>
+              <span className="text-[#9C060B] text-lg">•</span>
             </span>
           ))}
         </div>
@@ -556,7 +570,7 @@ function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <ScrollAnimation variant="fadeLeft">
             <div>
-              <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                 About
               </p>
               <h2
@@ -565,7 +579,7 @@ function AboutSection() {
               >
                 What is Voice of God?
               </h2>
-              <motion.div className="w-16 h-0.5 bg-[#d42027] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
+              <motion.div className="w-16 h-0.5 bg-[#9C060B] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p className="text-lg font-medium text-gray-900 italic">
                   The moment before the applause.
@@ -594,7 +608,7 @@ function AboutSection() {
                     href="https://www.voiceoverguy.co.uk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#d42027] font-medium hover:underline"
+                    className="text-[#9C060B] font-medium hover:underline"
                     data-testid="link-about-main-site"
                   >
                     VoiceoverGuy.co.uk
@@ -615,8 +629,8 @@ function AboutSection() {
                 </h3>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">
-                    <div className="h-8 w-8 rounded-md bg-[#d42027]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Zap className="h-4 w-4 text-[#d42027]" />
+                    <div className="h-8 w-8 rounded-md bg-[#9C060B]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Zap className="h-4 w-4 text-[#9C060B]" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">
@@ -629,8 +643,8 @@ function AboutSection() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="h-8 w-8 rounded-md bg-[#d42027]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Award className="h-4 w-4 text-[#d42027]" />
+                    <div className="h-8 w-8 rounded-md bg-[#9C060B]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Award className="h-4 w-4 text-[#9C060B]" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">
@@ -643,8 +657,8 @@ function AboutSection() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="h-8 w-8 rounded-md bg-[#d42027]/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Users className="h-4 w-4 text-[#d42027]" />
+                    <div className="h-8 w-8 rounded-md bg-[#9C060B]/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <Users className="h-4 w-4 text-[#9C060B]" />
                     </div>
                     <div>
                       <h4 className="font-medium text-gray-900 mb-1">
@@ -658,8 +672,8 @@ function AboutSection() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -top-3 -left-3 w-20 h-20 border-t-2 border-l-2 border-[#d42027]/20 rounded-tl-md pointer-events-none" />
-              <div className="absolute -bottom-3 -right-3 w-20 h-20 border-b-2 border-r-2 border-[#d42027]/20 rounded-br-md pointer-events-none" />
+              <div className="absolute -top-3 -left-3 w-20 h-20 border-t-2 border-l-2 border-[#9C060B]/20 rounded-tl-md pointer-events-none" />
+              <div className="absolute -bottom-3 -right-3 w-20 h-20 border-b-2 border-r-2 border-[#9C060B]/20 rounded-br-md pointer-events-none" />
             </div>
           </ScrollAnimation>
         </div>
@@ -677,7 +691,7 @@ function ServicesSection() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Services
           </p>
           <h2
@@ -686,7 +700,7 @@ function ServicesSection() {
           >
             How It Works On The Night
           </h2>
-          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
+          <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
             Live, pre-recorded or last-minute — delivered with calm authority and perfect timing.
           </p>
@@ -699,8 +713,8 @@ function ServicesSection() {
                 className="bg-white rounded-md p-8 h-full transition-all duration-300 border border-gray-100"
                 data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="h-12 w-12 rounded-md bg-[#d42027]/10 flex items-center justify-center mb-6">
-                  <service.icon className="h-6 w-6 text-[#d42027]" />
+                <div className="h-12 w-12 rounded-md bg-[#9C060B]/10 flex items-center justify-center mb-6">
+                  <service.icon className="h-6 w-6 text-[#9C060B]" />
                 </div>
                 <h3
                   className="text-xl font-bold text-gray-900 mb-3"
@@ -729,7 +743,7 @@ function VideosSection() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Watch
           </p>
           <h2
@@ -738,7 +752,7 @@ function VideosSection() {
           >
             See It In Action
           </h2>
-          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
+          <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
             Watch highlights from some of my biggest Voice of God performances
             at major events across the UK.
@@ -844,7 +858,7 @@ function AudioSection() {
     >
       <div className="max-w-5xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-12">
-          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Listen
           </p>
           <h2
@@ -853,7 +867,7 @@ function AudioSection() {
           >
             Audio Demos
           </h2>
-          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
+          <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
             Listen to Voice of God demo reels showcasing live event announcements,
             awards intros and arena tours.
@@ -946,7 +960,7 @@ function ClientsSection() {
     >
       <div className="max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Clients
           </p>
           <h2
@@ -955,7 +969,7 @@ function ClientsSection() {
           >
             Trusted By
           </h2>
-          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
+          <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-400 max-w-xl mx-auto">
             Brands and broadcasters across the UK and worldwide trust my voice
             for their biggest moments.
@@ -1053,7 +1067,7 @@ function ReviewsBanner() {
               href="https://www.google.com/search?q=VoiceoverGuy+Wakefield&ludocid=13238741027900894876#lrd=0x48795b5b8bb4d61d:0xb7a63f64e244a5ec,1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#d42027] font-medium text-sm transition-colors"
+              className="inline-flex items-center gap-2 text-[#9C060B] font-medium text-sm transition-colors"
               data-testid="link-google-reviews"
             >
               Read Google Reviews
@@ -1089,7 +1103,7 @@ function TestimonialsSection() {
     <section className="bg-white py-24 md:py-32" data-testid="section-testimonials">
       <div className="max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Testimonials
           </p>
           <h2
@@ -1098,7 +1112,7 @@ function TestimonialsSection() {
           >
             What Clients Say
           </h2>
-          <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
+          <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
         </ScrollAnimation>
 
         <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.1}>
@@ -1108,7 +1122,7 @@ function TestimonialsSection() {
                 className="relative bg-gray-50 border border-gray-100 rounded-xl p-6 lg:p-8 h-full flex flex-col"
                 data-testid={`testimonial-${testimonial.name.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="text-[#d42027]/30 text-5xl font-serif leading-none mb-4">&ldquo;</div>
+                <div className="text-[#9C060B]/30 text-5xl font-serif leading-none mb-4">&ldquo;</div>
                 <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-6">
                   {testimonial.quote}
                 </p>
@@ -1148,7 +1162,7 @@ function ContactSection() {
         title: "Enquiry sent ✅",
         description:
           "Thanks — I've got it. I'll reply within 24 hours.",
-        duration: 2500,
+        duration: 3500,
       });
       form.reset();
     } catch {
@@ -1172,7 +1186,7 @@ function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <ScrollAnimation variant="fadeLeft">
             <div>
-              <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                 Contact
               </p>
               <h2
@@ -1181,7 +1195,7 @@ function ContactSection() {
               >
                 Let's Make Your Event Unforgettable
               </h2>
-              <motion.div className="w-16 h-0.5 bg-[#d42027] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
+              <motion.div className="w-16 h-0.5 bg-[#9C060B] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
               <p className="text-gray-400 leading-relaxed mb-6">
                 Whether you need a bold live announcer or a perfectly timed
                 pre-recorded voice, I'm in the studio and ready to help.
@@ -1291,7 +1305,7 @@ function ContactSection() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-[#d42027] text-white border-[#d42027]"
+                className="w-full bg-[#9C060B] hover:bg-[#7E0408] text-white border-[#9C060B]"
                 disabled={isSubmitting}
                 data-testid="button-submit-contact"
               >
@@ -1326,7 +1340,7 @@ function Footer() {
           <div className="flex items-center gap-2">
             <span className="font-bold text-sm text-white tracking-tight">
               <span className="font-light">VOICEOVER</span>
-              <span className="text-[#d42027]">GUY</span>
+              <span className="text-[#9C060B]">GUY</span>
             </span>
             <span className="text-gray-600 text-sm">
               &copy; 2000 &ndash; {new Date().getFullYear()} Guy Harris. All rights reserved.
