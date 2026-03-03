@@ -1,0 +1,61 @@
+You are working in a Vite (React) + Express project (and also a Vercel serverless function at api/contact.ts). Make ONLY the changes below. No refactors, no new routes, no layout redesigns, no new libraries.
+
+GOAL A (UX): Increase contact form submissions with “human signal” microcopy, improve success toast copy, and auto-hide the toast after ~2.5 seconds.
+
+GUARDRAILS:
+- Do NOT change header/nav/footer/routing
+- Do NOT change section layout or grid
+- Do NOT change form fields (keep Name/Email/Phone/Event Type/Message)
+- Only small text additions + toast tweak + auto-dismiss timer
+- Keep existing API response shape unchanged
+- No new packages
+
+TASK A1: Add “human signal” microcopy around the submit button
+File: client/src/pages/home.tsx
+In the Contact section, near the form submit button:
+1) Add a single subtle line ABOVE the button (muted text, small):
+   "Your enquiry goes directly to Guy — no call centres, no middlemen."
+2) Change the button label from "Send Message" to "Send Enquiry" (keep icon etc.)
+3) Add a single subtle line BELOW the button (muted text, small):
+   "Every enquiry is read personally by Guy — you'll hear back within 24 hours (Mon–Fri)."
+Styling: match existing muted text style used in the section (e.g. text-gray-400/500, text-sm). Keep spacing tidy (mt-2/mt-3 etc). Do not move columns.
+
+TASK A2: Improve the success toast message + auto-dismiss
+File: client/src/pages/home.tsx (where the toast is triggered after successful submit)
+1) Update success toast title/body to something more reassuring, e.g.:
+   Title: "Enquiry sent ✅"
+   Description: "Thanks — I’ve got it. I’ll reply within 24 hours (Mon–Fri)."
+2) Ensure the toast auto-dismisses after ~2500ms (2.5 seconds).
+   - If your toast library supports a `duration` option, set duration: 2500 on success toast.
+   - If it does not, implement a minimal setTimeout-based dismiss ONLY for this success toast (no refactors).
+
+GOAL B (EMAIL): Standardise Resend defaults to enquiries@voiceoverguy.co.uk and improve deliverability by using a no-reply sender, while keeping reply-to as the user’s email.
+
+GUARDRAILS:
+- Do NOT hardcode secrets
+- Keep env var overrides intact
+- Email failure must NOT block success response
+- Keep existing DB save logic as-is
+- Keep response shape unchanged
+
+TASK B1: Update email defaults (Express + Vercel function)
+Files:
+- server/routes.ts
+- api/contact.ts
+
+In BOTH files:
+1) Set TO fallback to: "enquiries@voiceoverguy.co.uk"
+   (still prefer process.env.CONTACT_TO_EMAIL if set)
+2) Set FROM fallback to a no-reply on the verified domain:
+   "noreply@voiceoverguy.co.uk"
+   (still prefer process.env.CONTACT_FROM_EMAIL if set)
+3) Ensure replyTo is set to the user’s submitted email address (so Guy can reply normally)
+4) Keep subject logic:
+   `Voice of God enquiry${eventType ? `: ${eventType}` : ""}`
+5) Keep timestamp + originating IP in the email body (as already implemented)
+6) Keep resend send wrapped in its own try/catch; log warning on failure; still return success.
+
+DELIVERABLE:
+- Implement A1, A2, B1 only.
+- No other changes.
+- After edits, quickly sanity-check: build passes, no TS errors, contact form still submits, toast auto-dismisses, email sends (or at least fails gracefully).

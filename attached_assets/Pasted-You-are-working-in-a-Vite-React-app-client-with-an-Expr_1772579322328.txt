@@ -1,0 +1,80 @@
+You are working in a Vite React app (client/) with an Express backend (server/) and a Vercel serverless function (api/). Make ONLY the SEO changes below. No refactors, no UI/layout redesigns, no new libraries/packages.
+
+GOAL: Add an SEO-strengthening H1 and add a minimal FAQPage JSON-LD block for voiceofgod.co.uk targeting:
+- Voice of God UK
+- Live Event Announcer UK
+- Awards voiceover / awards ceremonies
+Without cannibalising voiceoverguy.co.uk (keep wording specific to Voice of God event announcing).
+
+NON-NEGOTIABLE:
+- Do NOT change header/nav/footer/routing
+- Do NOT change spacing/layout/visual design
+- No new components, no new routes
+- No new packages
+- Keep existing meta tags/schema blocks unless explicitly replaced below
+
+TASK S1: Add a real H1 to the hero (no visual change)
+File: client/src/pages/home.tsx
+In the HERO section near the main headline ("VOICE OF GOD" or equivalent):
+1) Add a semantic <h1> element that contains:
+   "Voice of God UK – Live Event Announcer & Awards Voiceover"
+2) The H1 must NOT change the visible design.
+   - Use the Tailwind class "sr-only" so it is screen-reader only and does not affect layout.
+   - Example:
+     <h1 className="sr-only">Voice of God UK – Live Event Announcer & Awards Voiceover</h1>
+3) Place it high in the hero section (inside the hero container) so it’s clearly associated with the hero content.
+
+TASK S2: Add a minimal FAQPage JSON-LD (no UI change)
+File: client/index.html
+1) Find the existing <script type="application/ld+json"> block(s).
+2) Keep the existing schema as-is.
+3) Add ONE additional <script type="application/ld+json"> block for FAQPage beneath existing schema blocks.
+
+Use EXACT JSON-LD like this (update only the URLs if needed):
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Voice of God announcer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Voice of God announcer provides the live or pre-recorded voice heard by the audience during an event — introducing speakers, cueing awards, delivering safety announcements, and keeping the show running smoothly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide live Voice of God announcing across the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Voice of God announcing is available for awards ceremonies, arena tours, corporate events and live productions across the UK, with options for live announcing or perfectly timed pre-recorded playback."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you supply pre-recorded awards intros and stings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Pre-recorded awards intros, category stings, walk-ons and sponsor reads can be produced with broadcast-quality audio, supplied as clearly labelled files ready for playback on the night."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you turn around changes or last-minute updates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fast turnaround is available for last-minute script changes. If timings change close to showtime, updated lines can be delivered quickly so the production stays on track."
+      }
+    }
+  ]
+}
+
+4) Also ensure the FAQPage is aligned with the site by confirming (or adding if missing) a canonical tag in client/index.html pointing to:
+   https://voiceofgod.co.uk/
+   (Do not alter other meta unless canonical is missing or incorrect.)
+
+DELIVERABLE:
+- Implement S1 and S2 only.
+- Build should pass with no errors.
+- No visual/layout changes on the page.
