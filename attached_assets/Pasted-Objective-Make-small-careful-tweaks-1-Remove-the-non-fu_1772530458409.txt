@@ -1,0 +1,90 @@
+Objective
+Make small, careful tweaks:
+1) Remove the non-functional hero down-arrow
+2) Speed up the sideways ticker ~20%
+3) Restore full-colour client logos (remove monochrome filters)
+4) Improve KillerStatement background image visibility (+15% visible) and add a subtle divider so it doesn’t merge into Clients
+5) Wire up the Contact form to actually send email using Resend (API key already added in Replit Secrets)
+
+Non-Negotiable Guardrails
+- No refactors, no new routes, no new libraries
+- Do NOT change header/nav/footer/routing
+- Do NOT touch hero video modal logic or CTAs
+- Keep ticker as sideways (horizontal) scrolling; only speed change
+- Keep Clients section dark background styling as-is; only revert logo filters back to colour
+- Keep KillerStatement text content unchanged
+- Use environment variables for secrets; DO NOT hardcode keys
+
+Tasks
+
+T001: Remove the hero down-arrow (non-functional)
+Files: client/src/pages/home.tsx
+Details:
+- Find the small down-arrow/chevron element near the bottom of the hero (the one that currently does nothing when clicked).
+- Remove it entirely (remove the icon/button/link and any wrapper).
+Acceptance:
+- No arrow appears in the hero.
+- Nothing else in the hero layout breaks.
+
+T002: Speed up THE VOICE BEHIND ticker by ~20%
+Files: client/src/pages/home.tsx and/or client/src/index.css (wherever duration/speed is defined)
+Details:
+- Keep the ticker direction and structure the same (sideways/horizontal).
+- Increase speed about 20% by reducing the animation duration (e.g., duration * 0.8).
+- Keep prefers-reduced-motion behaviour intact.
+Acceptance:
+- Ticker scrolls noticeably faster (~20%).
+- Reduced-motion users still get the paused/static experience.
+
+T003: Restore full-colour client logos (remove monochrome filter)
+Files: client/src/pages/home.tsx
+Details:
+- In the Clients section, remove the inline CSS filter that forces grayscale/brightness/contrast.
+- Remove hover filter changes too.
+- Keep the dark section background and the logo card styling.
+Optional (only if it looks better, but keep minimal):
+- Slightly increase logo opacity by default and brighten a touch on hover using simple opacity (NOT filters).
+Acceptance:
+- Logos show in their original colours and are clearly visible on the dark background.
+- The grid/cards/layout remain unchanged.
+
+T004: Improve KillerStatement background visibility + add subtle divider
+Files: client/src/pages/home.tsx
+Details:
+- Keep the same background image and layout.
+- Reduce the overlay darkness slightly so the booth photo is ~15% more visible.
+  (Example: change overlay from bg-black/85 to bg-black/75 or similar.)
+- Reposition the background image so the subject is more visible:
+  Use backgroundPosition like "center 35%" (or similar) rather than dead-center if needed.
+- Add a subtle divider to separate KillerStatement from Clients:
+  Option A: add a thin bottom border on KillerStatement: border-b border-white/10
+  OR
+  Option B: add a subtle bottom gradient fade inside KillerStatement (absolute positioned) that transitions to the Clients background
+Pick the simplest option that looks clean (prefer Option A unless it looks too harsh).
+Acceptance:
+- Booth photo is more visible but text remains highly readable.
+- There is a clear separation between KillerStatement and the Clients section.
+
+T005: Fix Contact form to send email via Resend
+Files:
+- Find where the contact form submission is handled:
+  likely client/src/pages/home.tsx calls an API endpoint.
+  Locate the API handler file (e.g., server/api/contact.ts, api/contact.ts, or similar).
+Details:
+- Use Resend with environment variable RESEND_API_KEY (already in Replit Secrets).
+- Do NOT hardcode the API key.
+- Send an email containing:
+  name, email, phone, event type, message
+- Use env vars if present:
+  CONTACT_TO_EMAIL (fallback to "guy@voiceoverguy.co.uk")
+  CONTACT_FROM_EMAIL (fallback to a safe default like "onboarding@resend.dev" ONLY if allowed by Resend; otherwise return a helpful error)
+- Return clear success/failure JSON to the frontend.
+- On the frontend, show a success message when sent and a helpful error when it fails (minimal UI change).
+Acceptance:
+- Submitting the form sends an email successfully (when Resend sender settings allow).
+- No console errors.
+- User gets a clear success state and the form resets or disables appropriately after send.
+
+Final check
+- Run the app and verify: hero arrow removed, ticker faster, logos in colour, killer statement improved with divider, contact form sends via Resend.
+- Keep all changes minimal and confined to the specified files/areas.
