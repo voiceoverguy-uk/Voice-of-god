@@ -77,6 +77,7 @@ import heroBackground from "@assets/guy-harris-voice-of-god-on-stage_17724932757
 import guyPhoto1 from "@assets/guy-harris-vog-1_1772493713393.jpg";
 import guyPhoto2 from "@assets/guy-harris-vog-2_1772493713393.jpg";
 import guyPhoto3 from "@assets/guy-harris-vog-3_1772493713393.jpg";
+import vogLogo from "@assets/VoiceoverGuy_SPonsor_Banner_1772497822725.png";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -199,11 +200,9 @@ function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
         <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
+          href="https://www.voiceoverguy.co.uk"
+          target="_blank"
+          rel="noopener noreferrer"
           className={`font-bold text-lg tracking-tight transition-colors ${
             scrolled ? "text-gray-900" : "text-white"
           }`}
@@ -612,6 +611,18 @@ function AboutSection() {
                   arrived at Butlins, they needed the full Voice of God treatment. When{" "}
                   <span className="font-medium text-gray-900">Britain's Got Talent</span>{" "}
                   needed a competition voice, they called me.
+                </p>
+                <p>
+                  Voice of God is part of{" "}
+                  <a
+                    href="https://www.voiceoverguy.co.uk"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#d42027] font-medium hover:underline"
+                    data-testid="link-about-main-site"
+                  >
+                    VoiceoverGuy.co.uk
+                  </a>
                 </p>
               </div>
             </div>
@@ -1333,7 +1344,15 @@ function Footer() {
             </span>
           </div>
           <div className="flex items-center gap-6 flex-wrap">
-            <span className="text-sm text-gray-600">Guy Harris — Voice of God</span>
+            <a
+              href="https://www.voiceoverguy.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-70 hover:opacity-100 transition-opacity"
+              data-testid="link-footer-main-site"
+            >
+              <img src={vogLogo} alt="VoiceoverGuy - www.voiceoverguy.co.uk" className="h-8 w-auto" />
+            </a>
           </div>
         </div>
       </div>
