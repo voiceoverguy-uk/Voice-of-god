@@ -6,7 +6,6 @@ import {
   Mic,
   Headphones,
   Clock,
-  ChevronDown,
   Star,
   Mail,
   Phone,
@@ -439,19 +438,6 @@ function HeroSection() {
         </motion.p>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          <ChevronDown className="h-6 w-6 text-gray-500" />
-        </motion.div>
-      </motion.div>
 
       <AnimatePresence>
         {showVideo && (
@@ -556,7 +542,7 @@ function EventsTicker() {
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none" />
         <div
           className="flex whitespace-nowrap"
-          style={{ animation: "ticker-scroll 40s linear infinite" }}
+          style={{ animation: "ticker-scroll 32s linear infinite" }}
         >
           {[...RECENT_EVENTS, ...RECENT_EVENTS].map((event, i) => (
             <span key={i} className="flex items-center shrink-0">
@@ -924,11 +910,11 @@ function AudioSection() {
 function KillerStatement() {
   return (
     <section
-      className="relative py-20 md:py-28 overflow-hidden"
-      style={{ backgroundImage: `url(${killerBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      className="relative py-20 md:py-28 overflow-hidden border-b border-white/10"
+      style={{ backgroundImage: `url(${killerBg})`, backgroundSize: "cover", backgroundPosition: "center 35%" }}
       data-testid="section-killer-statement"
     >
-      <div className="absolute inset-0 bg-black/85" />
+      <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 max-w-5xl mx-auto px-6">
         <ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
@@ -1001,11 +987,8 @@ function ClientsSection() {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-12 max-w-full object-contain transition-all duration-300 group-hover:-translate-y-1"
+                  className="max-h-12 max-w-full object-contain transition-all duration-300 group-hover:-translate-y-1 opacity-90 hover:opacity-100"
                   loading="lazy"
-                  style={{ filter: "grayscale(1) brightness(2) contrast(0.8)" }}
-                  onMouseEnter={(e) => { (e.target as HTMLImageElement).style.filter = "grayscale(0.3) brightness(1.8) contrast(0.9)"; }}
-                  onMouseLeave={(e) => { (e.target as HTMLImageElement).style.filter = "grayscale(1) brightness(2) contrast(0.8)"; }}
                   data-testid={`logo-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                 />
                 <span
