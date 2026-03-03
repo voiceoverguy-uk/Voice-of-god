@@ -33,6 +33,7 @@ import { AudioPlayer } from "@/components/audio-player";
 import audioTakeaway from "@assets/takeaway-on-tour-voice-of-god-demo-guy-harris_1772496115970.mp3";
 import audioButlins from "@assets/butlins-voice-of-god-guy-harris_1772496115971.mp3";
 import audioMaskedSinger from "@assets/the-masked-singer-voice-of-god-guy-harris_1772496115971.mp3";
+import audioBgt from "@assets/bgt-competition-spot-2025-guy-harris_1772496384632.mp3";
 import { contactFormSchema, type ContactForm } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
@@ -337,7 +338,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
         >
           <Button
             size="lg"
@@ -366,6 +367,15 @@ function HeroSection() {
             Listen to Demos
           </Button>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.3 }}
+          className="text-sm text-gray-400 italic tracking-wide mb-12"
+        >
+          Voice of the TV Choice Awards — February 2026
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -759,7 +769,7 @@ function AudioSection() {
       className="bg-gray-50 py-24 md:py-32"
       data-testid="section-demos"
     >
-      <div className="max-w-3xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-12">
           <p className="text-[#d42027] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Listen
@@ -777,7 +787,7 @@ function AudioSection() {
           </p>
         </ScrollAnimation>
 
-        <StaggerContainer className="space-y-4" staggerDelay={0.15}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-4" staggerDelay={0.1}>
           <StaggerItem>
             <AudioPlayer
               title="Ant & Dec's Takeaway on Tour"
@@ -797,6 +807,13 @@ function AudioSection() {
               title="The Masked Singer"
               subtitle="Voice of God"
               src={audioMaskedSinger}
+            />
+          </StaggerItem>
+          <StaggerItem>
+            <AudioPlayer
+              title="Britain's Got Talent"
+              subtitle="Competition Spot 2025"
+              src={audioBgt}
             />
           </StaggerItem>
         </StaggerContainer>
