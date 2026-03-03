@@ -1,0 +1,44 @@
+You are working in a Vite (React) + Express backend project deployed on Vercel.
+
+Implement ONLY the changes described below. Do not refactor, do not move routes, do not touch the frontend, and do not hardcode any secrets.
+
+Context:
+- Contact form POST endpoint is handled in: server/routes.ts (Express).
+- Keep existing DB storage logic exactly as-is.
+- Resend API key is in env var: RESEND_API_KEY.
+- Optional env vars: CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL.
+
+TASK (server/routes.ts only):
+1) Update the TO email fallback:
+   - Change fallback TO from "guy@voiceoverguy.co.uk" to "vog@voiceoverguy.co.uk"
+   - Use: process.env.CONTACT_TO_EMAIL || "vog@voiceoverguy.co.uk"
+
+2) Update the subject line to match spec:
+   - Subject must be exactly:
+     Voice of God enquiry${eventType ? `: ${eventType}` : ""}
+   - eventType comes from the form body (existing field).
+
+3) Add ISO timestamp + originating IP to the email body:
+   - Add a timestamp like: new Date().toISOString()
+   - Add originating IP from req.ip (and if available also include x-forwarded-for for Vercel proxy visibility):
+     const forwardedFor = req.headers["x-forwarded-for"];
+     const ip = (Array.isArray(forwardedFor) ? forwardedFor[0] : (forwardedFor?.split(",")[0]))?.trim() || req.ip;
+
+   - Include both timestamp and ip in the plain-text body and/or HTML body.
+
+4) Email send must NOT block success response:
+   - Wrap ONLY the resend.emails.send(...) call in its own try/catch.
+   - If it fails: console.warn a clear message + error, but still return success (assuming DB save already succeeded).
+   - Do NOT change the DB save behaviour or error handling around it.
+
+Resend sending details:
+- Instantiate Resend with process.env.RESEND_API_KEY.
+- FROM: process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev"
+- TO: process.env.CONTACT_TO_EMAIL || "vog@voiceoverguy.co.uk"
+- Include form fields in the email: name, email, phone, eventType, message (whatever the endpoint currently receives).
+
+Acceptance checks:
+- Subject line matches spec (with eventType suffix when provided).
+- Email body includes ISO timestamp and originating IP.
+- If Resend fails, request still returns { success: true } (DB save already succeeded), and logs a warning.
+- No frontend changes. No new routes/files.

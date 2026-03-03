@@ -1,0 +1,77 @@
+Implement Resend email sending for the existing Contact form.
+
+Context / Guardrails
+- Do NOT change layout, routing, header/nav/footer, or page structure.
+- Do NOT refactor unrelated code.
+- Do NOT hardcode secrets.
+- Use environment variables (Replit Secrets).
+- Keep any existing “store enquiry in DB” logic exactly as-is; email sending is in addition.
+
+Goal
+When the Contact form is submitted, the server should:
+1) validate basic fields
+2) keep existing storage logic
+3) send an email via Resend containing the enquiry details
+4) return a clear JSON success/error response
+
+Files
+- server/routes.ts (or wherever the contact POST endpoint currently lives)
+- package.json / lockfile as needed
+
+Steps
+1) Install dependency:
+   - Add the `resend` npm package.
+
+2) Backend: update the existing POST handler for the contact form
+   - Import Resend:
+     import { Resend } from "resend";
+
+   - Instantiate once (not per request if there’s already a module-level pattern):
+     const resend = new Resend(process.env.RESEND_API_KEY);
+
+   - Read env vars:
+     const toEmail = process.env.CONTACT_TO_EMAIL || "vog@voiceoverguy.co.uk";
+     const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+
+   - Build subject:
+     const subject = `Voice of God enquiry${eventType ? `: ${eventType}` : ""}`;
+
+   - Send email with plain text body including:
+     Name
+     Email
+     Phone (if provided)
+     Event Type (if provided)
+     Message
+     Timestamp (ISO string)
+     Also include the request’s originating IP if available in your framework.
+
+   - IMPORTANT: Set reply-to so I can reply directly to the user:
+     replyTo: email
+
+   - Keep existing DB/store call.
+     Suggested order:
+       a) store (existing)
+       b) send email
+     If you prefer resilience, wrap email send in try/catch and still return success if storage succeeded BUT include a warning. Otherwise treat email failure as 500.
+
+3) Response contract
+   - On success:
+     res.json({ success: true })
+   - On failure:
+     res.status(500).json({ success: false, error: "Failed to send message" })
+
+4) Frontend
+- Do not change any UI unless the current frontend expects a different response shape.
+- If it already shows success/error toasts, keep it.
+
+Environment variables (Replit Secrets)
+- RESEND_API_KEY (already set)
+- CONTACT_TO_EMAIL = vog@voiceoverguy.co.uk
+- CONTACT_FROM_EMAIL = vog@voiceofgod.co.uk  (ONLY if Resend allows sending from that verified domain; otherwise leave unset and fallback will use onboarding@resend.dev)
+
+Acceptance tests
+- Submit the form with test values.
+- Confirm an email arrives at vog@voiceoverguy.co.uk with all fields.
+- Confirm Reply-To is the user’s email.
+- Confirm the server returns { success: true }.
+- Confirm no console/server errors.
