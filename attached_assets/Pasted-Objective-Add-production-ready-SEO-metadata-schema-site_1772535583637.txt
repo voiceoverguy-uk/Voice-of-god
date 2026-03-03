@@ -1,0 +1,149 @@
+Objective
+Add production-ready SEO metadata + schema + sitemap/robots for voiceofgod.co.uk (Vite + React). Target keywords: Voice of God Voiceover, Voice of God UK, Live Event Announcer UK, Awards Ceremonies. Keep changes minimal. No new libraries.
+
+Non-Negotiable Guardrails
+- Do NOT refactor app structure or routes
+- Do NOT add new dependencies (no react-helmet)
+- Keep existing UI unchanged
+- Implement SEO via static HTML head (Vite entry) and static public files
+
+Tasks
+
+T001: Add/Update SEO meta tags in the HTML <head>
+Files: client/index.html (or the Vite HTML entry file in your repo; use the existing one)
+
+Set EXACT values:
+
+<title>
+Voice of God UK | Live Event Announcer & Awards Voiceover
+</title>
+
+<meta name="description" content="Premium Voice of God voiceover for award ceremonies, arena tours and corporate events across the UK. Epic, cinematic announcing with authority — by Guy Harris." />
+
+<link rel="canonical" href="https://voiceofgod.co.uk/" />
+
+Add Open Graph:
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Voice of God" />
+<meta property="og:title" content="Voice of God UK | Live Event Announcer & Awards Voiceover" />
+<meta property="og:description" content="Premium Voice of God voiceover for award ceremonies, arena tours and corporate events across the UK. Epic, cinematic announcing with authority — by Guy Harris." />
+<meta property="og:url" content="https://voiceofgod.co.uk/" />
+<meta property="og:image" content="https://voiceofgod.co.uk/og-voiceofgod.jpg" />
+
+Add Twitter:
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Voice of God UK | Live Event Announcer & Awards Voiceover" />
+<meta name="twitter:description" content="Premium Voice of God voiceover for award ceremonies, arena tours and corporate events across the UK. Epic, cinematic announcing with authority — by Guy Harris." />
+<meta name="twitter:image" content="https://voiceofgod.co.uk/og-voiceofgod.jpg" />
+<meta name="twitter:site" content="@voiceoverman" />
+
+Also ensure basic meta:
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+
+Notes:
+- Do not include www in canonical unless the live site uses www.
+- If og image does not exist yet, create a placeholder file in /public named og-voiceofgod.jpg (can be a copy of an existing suitable image for now).
+
+Acceptance:
+- View source shows the title/description/canonical/OG/Twitter tags exactly.
+- No UI changes.
+
+T002: Add Schema.org JSON-LD (no library)
+Files: client/index.html (or same HTML entry file), inside <head> as a <script type="application/ld+json">
+
+Add ONE combined JSON-LD graph that includes:
+- WebSite
+- WebPage (Home)
+- Person (Guy Harris)
+- Service (Voice of God Announcing)
+
+Use this exact JSON-LD (adjust only if you must to match existing URLs):
+
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://voiceofgod.co.uk/#website",
+      "url": "https://voiceofgod.co.uk/",
+      "name": "Voice of God",
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://voiceofgod.co.uk/#webpage",
+      "url": "https://voiceofgod.co.uk/",
+      "name": "Voice of God UK | Live Event Announcer & Awards Voiceover",
+      "isPartOf": { "@id": "https://voiceofgod.co.uk/#website" },
+      "about": { "@id": "https://voiceofgod.co.uk/#person" },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://voiceofgod.co.uk/#person",
+      "name": "Guy Harris",
+      "jobTitle": "Voice of God Announcer",
+      "url": "https://voiceofgod.co.uk/",
+      "image": "https://www.voiceoverguy.co.uk/images/guy-harris-profile.jpg",
+      "sameAs": [
+        "https://www.voiceoverguy.co.uk/",
+        "https://twitter.com/voiceoverman"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://voiceofgod.co.uk/#service",
+      "name": "Voice of God Announcer",
+      "description": "Professional Voice of God voiceover and live event announcing for award ceremonies, arena tours and corporate events across the UK.",
+      "provider": { "@id": "https://voiceofgod.co.uk/#person" },
+      "areaServed": { "@type": "Country", "name": "United Kingdom" },
+      "serviceType": [
+        "Voice of God voiceover",
+        "Live event announcing",
+        "Awards ceremony announcing"
+      ]
+    }
+  ]
+}
+
+Acceptance:
+- JSON-LD validates (no trailing commas, proper quotes).
+- No new libs.
+- No runtime errors.
+
+T003: Add robots.txt
+Files: client/public/robots.txt (or public/robots.txt depending on repo)
+
+Contents:
+
+User-agent: *
+Allow: /
+Sitemap: https://voiceofgod.co.uk/sitemap.xml
+
+Acceptance:
+- https://voiceofgod.co.uk/robots.txt loads in production.
+
+T004: Add sitemap.xml
+Files: client/public/sitemap.xml (or public/sitemap.xml depending on repo)
+
+Contents (minimal single-page sitemap is fine):
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://voiceofgod.co.uk/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+
+Acceptance:
+- https://voiceofgod.co.uk/sitemap.xml loads in production.
+
+Final checks
+- Confirm canonical is https://voiceofgod.co.uk/
+- Confirm OG/Twitter tags exist
+- Confirm schema script exists and is valid JSON
+- Confirm robots + sitemap load
+- Do not change any UI or routes

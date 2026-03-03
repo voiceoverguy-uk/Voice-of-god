@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://voiceofgod.co.uk/sitemap.xml
