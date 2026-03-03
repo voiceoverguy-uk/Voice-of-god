@@ -37,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (resend) {
       const { name, email, phone, eventType, message } = result.data;
       const toEmail = process.env.CONTACT_TO_EMAIL || "enquiries@voiceoverguy.co.uk";
-      const fromEmail = process.env.CONTACT_FROM_EMAIL || "enquiries@voiceoverguy.co.uk";
+      const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@voiceoverguy.co.uk";
       const timestamp = new Date().toISOString();
       const xff = req.headers["x-forwarded-for"];
       const ip = (Array.isArray(xff) ? xff[0] : (xff || "")).toString().split(",")[0].trim() || req.socket?.remoteAddress || "";

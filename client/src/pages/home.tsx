@@ -331,16 +331,18 @@ function HeroSection() {
           Guy Harris
         </motion.p>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-none mb-6"
           style={{ fontFamily: "'Montserrat', sans-serif" }}
+          aria-hidden="true"
         >
           VOICE OF{" "}
           <span className="text-[#d42027]">GOD</span>
-        </motion.h1>
+        </motion.div>
+        <h1 className="sr-only">Voice of God UK – Live Event Announcer & Awards Voiceover</h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -1143,9 +1145,10 @@ function ContactSection() {
     try {
       await apiRequest("POST", "/api/contact", data);
       toast({
-        title: "Message sent",
+        title: "Enquiry sent ✅",
         description:
-          "Thanks for getting in touch. I'll get back to you shortly.",
+          "Thanks — I've got it. I'll reply within 24 hours.",
+        duration: 2500,
       });
       form.reset();
     } catch {
@@ -1282,6 +1285,9 @@ function ContactSection() {
                 )}
               </div>
 
+              <p className="text-gray-500 text-sm mt-2 mb-3" data-testid="text-above-submit">
+                Your enquiry goes directly to Guy — no call centres, no middlemen.
+              </p>
               <Button
                 type="submit"
                 size="lg"
@@ -1294,10 +1300,13 @@ function ContactSection() {
                 ) : (
                   <>
                     <Send className="h-4 w-4 mr-2" />
-                    Send Message
+                    Send Enquiry
                   </>
                 )}
               </Button>
+              <p className="text-gray-500 text-sm mt-3" data-testid="text-below-submit">
+                Every enquiry is read personally by Guy — you'll hear back within 24 hours.
+              </p>
             </form>
           </ScrollAnimation>
         </div>

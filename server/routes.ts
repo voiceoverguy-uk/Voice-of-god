@@ -26,7 +26,7 @@ export async function registerRoutes(
 
       if (resend) {
         const toEmail = process.env.CONTACT_TO_EMAIL || "enquiries@voiceoverguy.co.uk";
-        const fromEmail = process.env.CONTACT_FROM_EMAIL || "enquiries@voiceoverguy.co.uk";
+        const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@voiceoverguy.co.uk";
         const { name, email, phone, eventType, message } = result.data;
         const timestamp = new Date().toISOString();
         const forwardedFor = req.headers["x-forwarded-for"];
