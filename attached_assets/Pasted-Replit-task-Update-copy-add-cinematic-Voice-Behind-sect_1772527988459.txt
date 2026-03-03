@@ -1,0 +1,150 @@
+Replit task: Update copy + add cinematic “Voice Behind” section + premium styling tweaks (NO REBUILD)
+
+Project context
+- This is the existing Voice of God website for Guy Harris.
+- DO NOT refactor, redesign from scratch, or restructure the whole site.
+- Keep the current layout, components, routes, and styling system.
+- Make careful, minimal edits: copy changes, small visual tweaks, and add ONE new section.
+- Ensure nothing breaks: no console errors, nav links still work, responsiveness stays intact.
+
+Goal
+Make the site feel more epic/cinematic/premium with authority and gravitas, specifically for live events and awards.
+
+High-level changes (minimal and safe)
+1) Replace hero copy (keep CTA buttons, keep “Watch the showreel” functionality exactly as-is)
+2) Add a new section: “THE VOICE BEHIND” as a scrolling ticker like movie credits (CSS animation; respect prefers-reduced-motion)
+3) Update “What is Voice of God?” section copy to cinematic version (keep layout)
+4) Rename + trim “How I Work” section to “How It Works On The Night” and tighten card copy (keep 3 cards)
+5) Improve Trust/Clients logo section styling: slightly darker background, more spacing, logos in monochrome white on dark (without changing the logo assets; use CSS filters)
+6) Add a “killer statement” stats block (4 lines) somewhere strong (ideal placement: just below hero OR just above Clients/Trust section). Keep it clean and bold.
+
+Implementation details
+
+A) HERO SECTION (copy only + keep buttons)
+Replace current hero text with:
+
+- Small label (above title):
+  "GUY HARRIS"
+
+- Main title:
+  "VOICE OF GOD"
+
+- New subhead (2 lines max):
+  "When the lights dim and the room falls silent…"
+  "this is the voice they hear."
+
+- Supporting line (single sentence):
+  "Live event announcing for award ceremonies, arena tours, corporate shows and major productions across the UK."
+
+Buttons:
+- Keep existing CTA buttons and their click targets.
+- Keep “Watch the showreel” wording and behaviour exactly as it currently works.
+- If there is another button (e.g., Book / Get in touch), keep it.
+
+B) ADD NEW SECTION: “THE VOICE BEHIND” scrolling credits ticker
+Add a new section immediately below the hero (or directly after the hero’s existing “Trusted by…” line if present).
+
+Section heading:
+"THE VOICE BEHIND"
+
+Create a horizontally scrolling “movie credits” ticker line (repeat items to loop smoothly):
+- ANT & DEC’S SATURDAY NIGHT TAKEAWAY TOUR
+- THE MASKED SINGER
+- GB NEWS
+- B&M AWARDS
+- DPD AWARDS
+- DUKE OF EDINBURGH AWARDS
+- EAST MIDLANDS CHAMBER BUSINESS AWARDS
+- NISA
+- BESTWAY
+- BUTLINS
+- IGA AWARDS
+- PURINA AWARDS
+- EON AWARDS
+- AWESOME EVENTS CHRISTMAS SHOWS
+
+Design notes:
+- Use uppercase, wide letter spacing, subtle separators (•) between items.
+- Background: dark, cinematic (match the hero dark tone).
+- Text: off-white / light grey; small accent red for separators or label.
+- Add CSS animation scroll (left-to-right or right-to-left).
+- Respect accessibility:
+  - If user prefers reduced motion (prefers-reduced-motion: reduce), disable animation and show items in a wrapped/static line.
+- Keep it lightweight: pure CSS animation, no libraries.
+
+C) “WHAT IS VOICE OF GOD?” section rewrite (keep layout)
+Replace current text with the cinematic version:
+
+Heading stays: "What is Voice of God?"
+
+Body copy:
+"The moment before the applause.
+
+When 2,000 guests are seated.
+When the finalists are waiting backstage.
+When the lights fall to black.
+
+That’s when the voice matters.
+
+From arena tours to black-tie award ceremonies, I deliver perfectly timed, broadcast-quality announcements that set the tone for the entire night."
+
+Add one short closing line at the end:
+"I make your awards feel like the BAFTAs."
+
+D) “How I Work” section rename + tighten (keep 3 cards)
+Change section title from “How I Work” to:
+"How It Works On The Night"
+
+Change the short intro line to:
+"Live, pre-recorded or last-minute — delivered with calm authority and perfect timing."
+
+Update the three cards (titles can remain similar, but tighten copy):
+
+Card 1 title: "Live Voice of God"
+Copy:
+"Commanding live announcing for awards, arena tours and major events — delivered with presence, timing and control."
+
+Card 2 title: "Pre-Recorded Intros"
+Copy:
+"Cinematic, broadcast-quality announcements supplied in advance — ready for playback with perfect pacing."
+
+Card 3 title: "Last-Minute Changes"
+Copy:
+"Schedule shift? Script tweak? I can turn updates around fast — without the panic."
+
+E) Trust / Clients logo section styling (CSS-only tweaks)
+Where the client logos grid appears:
+- Darken background slightly (a premium dark, not black; keep brand red accents).
+- Increase vertical padding (more breathing room).
+- Make logos appear monochrome white on dark WITHOUT changing image files:
+  - Apply CSS filter on logo images for this section only (e.g., grayscale + brightness + contrast).
+- Ensure logos are still readable and not muddy.
+- On hover, optionally reduce filter slightly to add subtle emphasis (keep minimal).
+
+F) Add “killer statement” block (4 lines)
+Add a simple bold stats strip (not big cards, just clean lines) either:
+- below the hero + ticker, OR
+- just above the Clients/Trust section
+
+Text lines (exact):
+"Over 200,000 scripts voiced."
+"25+ years experience."
+"10,000+ happy clients."
+"Trusted by ITV, BBC and the UK’s biggest live productions."
+
+Design:
+- Keep it premium: dark background or transparent over dark, large-ish text, strong spacing, no clutter.
+- Can be a 2x2 grid on desktop and stacked on mobile.
+
+Guardrails (very important)
+- NO major refactors.
+- NO new routing.
+- NO library additions.
+- Keep existing nav + sections intact.
+- Only edit the content for the specified areas and add the single new “Voice Behind” ticker section + optional stats block.
+- Ensure the site still builds and runs with no errors.
+
+Output required
+- Implement the above changes in the existing code.
+- Tell me which files were edited.
+- Confirm the hero button “Watch the showreel” still opens the same YouTube video as before.
