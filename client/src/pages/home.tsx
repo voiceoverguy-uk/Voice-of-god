@@ -156,11 +156,30 @@ const STATS = [
 function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map((l) => l.href.replace("#", ""));
+    const observers: IntersectionObserver[] = [];
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   const handleNavClick = (href: string) => {
@@ -196,20 +215,34 @@ function Navigation() {
         </a>
 
         <div className="hidden md:flex items-center gap-1 flex-wrap">
-          {NAV_LINKS.map((link) => (
-            <button
-              key={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors cursor-pointer ${
-                scrolled
-                  ? "text-gray-600 hover:text-gray-900"
-                  : "text-white/80 hover:text-white"
-              }`}
-              data-testid={`link-${link.label.toLowerCase()}`}
-            >
-              {link.label}
-            </button>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <button
+                key={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`relative px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer ${
+                  isActive
+                    ? scrolled
+                      ? "text-gray-900"
+                      : "text-white"
+                    : scrolled
+                      ? "text-gray-600 hover:text-gray-900"
+                      : "text-white/80 hover:text-white"
+                }`}
+                data-testid={`link-${link.label.toLowerCase()}`}
+              >
+                {link.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="nav-underline"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#d42027] rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </button>
+            );
+          })}
           <Button
             size="sm"
             className="ml-2 bg-[#d42027] text-white border-[#d42027]"
@@ -1073,9 +1106,14 @@ function ContactSection() {
               </p>
 
               <div className="space-y-4">
-                <a
-                  href="mailto:guy@voiceoverguy.co.uk?subject=Website%20enquiry"
-                  className="flex items-center gap-3 text-gray-300 transition-colors group"
+                <button
+                  type="button"
+                  onClick={() => {
+                    const u = "guy";
+                    const d = "voiceoverguy.co.uk";
+                    window.location.href = `mailto:${u}@${d}?subject=Website%20enquiry`;
+                  }}
+                  className="flex items-center gap-3 text-gray-300 transition-colors group cursor-pointer text-left"
                   data-testid="link-email"
                 >
                   <div className="h-10 w-10 rounded-md bg-white/5 flex items-center justify-center shrink-0">
@@ -1084,10 +1122,10 @@ function ContactSection() {
                   <div>
                     <p className="text-sm text-gray-500">Email</p>
                     <p className="font-medium group-hover:text-white transition-colors">
-                      guy@voiceoverguy.co.uk
+                      {"guy"}&#64;{"voiceoverguy"}.{"co.uk"}
                     </p>
                   </div>
-                </a>
+                </button>
                 <a
                   href="tel:+447973350178"
                   className="flex items-center gap-3 text-gray-300 transition-colors group"
@@ -1241,20 +1279,7 @@ function Footer() {
             </span>
           </div>
           <div className="flex items-center gap-6 flex-wrap">
-            <a
-              href="mailto:guy@voiceoverguy.co.uk"
-              className="text-sm text-gray-500"
-              data-testid="link-footer-email"
-            >
-              guy@voiceoverguy.co.uk
-            </a>
-            <a
-              href="tel:+447973350178"
-              className="text-sm text-gray-500"
-              data-testid="link-footer-phone"
-            >
-              +44 7973 350 178
-            </a>
+            <span className="text-sm text-gray-600">Guy Harris — Voice of God</span>
           </div>
         </div>
       </div>
