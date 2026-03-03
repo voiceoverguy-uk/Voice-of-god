@@ -519,6 +519,60 @@ function StatsBar() {
   );
 }
 
+const RECENT_EVENTS = [
+  "GB News",
+  "NISA",
+  "East Midlands Chamber Business Awards",
+  "Ant and Dec's Saturday Night Takeaway",
+  "Bestway",
+  "Butlins",
+  "IGA Awards",
+  "Awesome Events Christmas Shows",
+  "EON Awards",
+  "CGI Jersey",
+  "I&C Connect",
+  "Purina Awards",
+  "Welcome Break Awards",
+  "Iceland Supplier Awards",
+  "B&M Awards",
+  "DPD Awards",
+  "Duke of Edinburgh Awards",
+  "TEAS Awards Tenerife",
+  "Staracts",
+];
+
+function EventsTicker() {
+  return (
+    <section className="bg-gray-950 py-4 overflow-hidden" data-testid="section-events-ticker">
+      <div className="max-w-6xl mx-auto px-6 mb-2">
+        <p className="text-[#d42027] text-xs font-semibold tracking-[0.2em] uppercase text-center">
+          Recently Voiced
+        </p>
+      </div>
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-gray-950 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none" />
+        <div
+          className="flex whitespace-nowrap"
+          style={{ animation: "ticker-scroll 40s linear infinite" }}
+        >
+          {[...RECENT_EVENTS, ...RECENT_EVENTS].map((event, i) => (
+            <span key={i} className="flex items-center shrink-0">
+              <span
+                className="text-white/90 text-sm font-bold uppercase tracking-wider px-4"
+                style={{ fontFamily: "'Montserrat', sans-serif" }}
+              >
+                {event}
+              </span>
+              <span className="text-[#d42027] text-lg">•</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AboutSection() {
   return (
     <section id="about" className="bg-white py-24 md:py-32" data-testid="section-about">
@@ -1293,6 +1347,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <StatsBar />
+      <EventsTicker />
       <AboutSection />
       <ServicesSection />
       <VideosSection />
