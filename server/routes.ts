@@ -25,25 +25,35 @@ export async function registerRoutes(
       console.log("New contact submission:", JSON.stringify(submission, null, 2));
 
       if (resend) {
-        const toEmail = process.env.CONTACT_TO_EMAIL || "guy@voiceoverguy.co.uk";
+        const toEmail = process.env.CONTACT_TO_EMAIL || "vog@voiceoverguy.co.uk";
         const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
         const { name, email, phone, eventType, message } = result.data;
+        const timestamp = new Date().toISOString();
+        const forwardedFor = req.headers["x-forwarded-for"];
+        const ip = (Array.isArray(forwardedFor) ? forwardedFor[0] : (forwardedFor?.split(",")[0]))?.trim() || req.ip;
 
-        await resend.emails.send({
-          from: fromEmail,
-          to: toEmail,
-          subject: `New VOG enquiry from ${name}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-            <p><strong>Event Type:</strong> ${eventType || "Not specified"}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message}</p>
-          `,
-          replyTo: email,
-        });
+        try {
+          await resend.emails.send({
+            from: fromEmail,
+            to: toEmail,
+            subject: `Voice of God enquiry${eventType ? `: ${eventType}` : ""}`,
+            html: `
+              <h2>New Contact Form Submission</h2>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+              <p><strong>Event Type:</strong> ${eventType || "Not specified"}</p>
+              <p><strong>Message:</strong></p>
+              <p>${message}</p>
+              <hr />
+              <p><small><strong>Submitted:</strong> ${timestamp}</small></p>
+              <p><small><strong>IP:</strong> ${ip || "Unknown"}</small></p>
+            `,
+            replyTo: email,
+          });
+        } catch (emailError) {
+          console.warn("Resend email failed (submission saved to DB):", emailError);
+        }
       } else {
         console.warn("RESEND_API_KEY not set — email not sent, submission saved to database only.");
       }
