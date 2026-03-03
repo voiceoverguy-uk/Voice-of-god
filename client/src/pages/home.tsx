@@ -131,19 +131,19 @@ const SERVICES = [
     icon: Mic,
     title: "Live Voice of God",
     description:
-      "You can book a Live Voice of God voiceover, or pre-recorded to save you money. From arena tours to award ceremonies, I deliver powerful, perfectly-timed announcements.",
+      "Commanding live announcing for awards, arena tours and major events — delivered with presence, timing and control.",
   },
   {
     icon: Headphones,
-    title: "Pre-Recorded",
+    title: "Pre-Recorded Intros",
     description:
-      "Technology allows 99% of Voice of God to be pre-recorded and played at the event. Broadcast-quality audio delivered from my professional studio.",
+      "Cinematic, broadcast-quality announcements supplied in advance — ready for playback with perfect pacing.",
   },
   {
     icon: Clock,
-    title: "Last Minute",
+    title: "Last-Minute Changes",
     description:
-      "Urgent and last minute Voice of God audio can be changed and delivered within an hour. Don\u2019t panic \u2014 I\u2019ve got it covered.",
+      "Schedule shift? Script tweak? I can turn updates around fast — without the panic.",
   },
 ];
 
@@ -362,8 +362,9 @@ function HeroSection() {
           transition={{ duration: 0.7, delay: 0.7 }}
           className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed"
         >
-          The powerful, unmistakable voice that guides audiences through
-          major events, awards ceremonies and arena tours across the UK and beyond.
+          When the lights dim and the room falls silent…
+          <br />
+          this is the voice they hear.
         </motion.p>
 
         <motion.div
@@ -406,7 +407,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 1.3 }}
           className="text-sm text-gray-400 italic tracking-wide mb-12"
         >
-          Voice of the TV Choice Awards — February 2026
+          Live event announcing for award ceremonies, arena tours, corporate shows and major productions across the UK.
         </motion.p>
 
         <motion.div
@@ -519,23 +520,24 @@ function StatsBar() {
 }
 
 const RECENT_EVENTS = [
+  "Ant & Dec's Saturday Night Takeaway Tour",
+  "The Masked Singer",
   "GB News",
-  "NISA",
-  "East Midlands Chamber Business Awards",
-  "Ant and Dec's Saturday Night Takeaway",
-  "Bestway",
-  "Butlins",
-  "IGA Awards",
-  "Awesome Events Christmas Shows",
-  "EON Awards",
-  "CGI Jersey",
-  "I&C Connect",
-  "Purina Awards",
-  "Welcome Break Awards",
-  "Iceland Supplier Awards",
   "B&M Awards",
   "DPD Awards",
   "Duke of Edinburgh Awards",
+  "East Midlands Chamber Business Awards",
+  "NISA",
+  "Bestway",
+  "Butlins",
+  "IGA Awards",
+  "Purina Awards",
+  "EON Awards",
+  "Awesome Events Christmas Shows",
+  "CGI Jersey",
+  "I&C Connect",
+  "Welcome Break Awards",
+  "Iceland Supplier Awards",
   "TEAS Awards Tenerife",
   "Staracts",
 ];
@@ -545,7 +547,7 @@ function EventsTicker() {
     <section className="bg-gray-950 py-4 overflow-hidden" data-testid="section-events-ticker">
       <div className="max-w-6xl mx-auto px-6 mb-2">
         <p className="text-[#d42027] text-xs font-semibold tracking-[0.2em] uppercase text-center">
-          Recently Voiced
+          THE VOICE BEHIND
         </p>
       </div>
       <div className="relative">
@@ -590,27 +592,26 @@ function AboutSection() {
               </h2>
               <motion.div className="w-16 h-0.5 bg-[#d42027] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
               <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p>
-                  The Voice of God is the powerful, unmistakable live or pre-recorded
-                  voice that guides audiences through major events, theatre shows,
-                  awards ceremonies and arena tours.
+                <p className="text-lg font-medium text-gray-900 italic">
+                  The moment before the applause.
                 </p>
                 <p>
-                  I'm the voice behind:{" "}
-                  <span className="text-gray-900 font-medium italic">
-                    "Ladies and Gentlemen, please take your seats..."
-                  </span>{" "}
-                  and dozens of other iconic announcements heard across the UK and
-                  beyond.
+                  When 2,000 guests are seated.
+                  <br />
+                  When the finalists are waiting backstage.
+                  <br />
+                  When the lights fall to black.
+                </p>
+                <p className="font-medium text-gray-900">
+                  That's when the voice matters.
                 </p>
                 <p>
-                  From huge arena productions to corporate keynotes, brands trust me
-                  to deliver impactful, perfectly timed announcements that lift the
-                  entire event. When{" "}
-                  <span className="font-medium text-gray-900">The Masked Singer</span>{" "}
-                  arrived at Butlins, they needed the full Voice of God treatment. When{" "}
-                  <span className="font-medium text-gray-900">Britain's Got Talent</span>{" "}
-                  needed a competition voice, they called me.
+                  From arena tours to black-tie award ceremonies, I deliver perfectly
+                  timed, broadcast-quality announcements that set the tone for the
+                  entire night.
+                </p>
+                <p className="font-medium text-gray-900 italic">
+                  I make your awards feel like the BAFTAs.
                 </p>
                 <p>
                   Voice of God is part of{" "}
@@ -708,12 +709,11 @@ function ServicesSection() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            How I Work
+            How It Works On The Night
           </h2>
           <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
-            Whether you need a commanding live presence or a polished pre-recorded
-            announcer, I deliver on time, every time.
+            Live, pre-recorded or last-minute — delivered with calm authority and perfect timing.
           </p>
         </ScrollAnimation>
 
@@ -920,11 +920,48 @@ function AudioSection() {
   );
 }
 
+function KillerStatement() {
+  return (
+    <section className="bg-gray-950 py-20 md:py-28" data-testid="section-killer-statement">
+      <div className="max-w-5xl mx-auto px-6">
+        <ScrollAnimation>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+            <p
+              className="text-xl md:text-2xl font-bold text-white leading-snug"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Over 200,000 scripts voiced.
+            </p>
+            <p
+              className="text-xl md:text-2xl font-bold text-white leading-snug"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              25+ years experience.
+            </p>
+            <p
+              className="text-xl md:text-2xl font-bold text-white leading-snug"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              10,000+ happy clients.
+            </p>
+            <p
+              className="text-xl md:text-2xl font-bold text-white leading-snug"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Trusted by ITV, BBC and the UK's biggest live productions.
+            </p>
+          </div>
+        </ScrollAnimation>
+      </div>
+    </section>
+  );
+}
+
 function ClientsSection() {
   return (
     <section
       id="clients"
-      className="bg-white py-24 md:py-32"
+      className="bg-gray-950 py-28 md:py-36"
       data-testid="section-clients"
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -933,13 +970,13 @@ function ClientsSection() {
             Clients
           </p>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Trusted By
           </h2>
           <motion.div className="w-16 h-0.5 bg-[#d42027] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
-          <p className="text-gray-500 max-w-xl mx-auto">
+          <p className="text-gray-400 max-w-xl mx-auto">
             Brands and broadcasters across the UK and worldwide trust my voice
             for their biggest moments.
           </p>
@@ -952,18 +989,21 @@ function ClientsSection() {
           {CLIENTS.map((client) => (
             <StaggerItem key={client.name}>
               <div
-                className="group relative flex flex-col items-center justify-center h-24 rounded-lg bg-gray-50 border border-gray-100 p-3 grayscale hover:grayscale-0 transition-all duration-500 cursor-default"
+                className="group relative flex flex-col items-center justify-center h-24 rounded-lg bg-white/5 border border-white/10 p-3 transition-all duration-500 cursor-default"
                 data-testid={`client-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-12 max-w-full object-contain transition-transform duration-300 group-hover:-translate-y-1"
+                  className="max-h-12 max-w-full object-contain transition-all duration-300 group-hover:-translate-y-1"
                   loading="lazy"
+                  style={{ filter: "grayscale(1) brightness(2) contrast(0.8)" }}
+                  onMouseEnter={(e) => { (e.target as HTMLImageElement).style.filter = "grayscale(0.3) brightness(1.8) contrast(0.9)"; }}
+                  onMouseLeave={(e) => { (e.target as HTMLImageElement).style.filter = "grayscale(1) brightness(2) contrast(0.8)"; }}
                   data-testid={`logo-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                 />
                 <span
-                  className="absolute bottom-1.5 left-0 right-0 text-center text-[10px] font-semibold text-gray-600 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                  className="absolute bottom-1.5 left-0 right-0 text-center text-[10px] font-semibold text-gray-400 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
                   data-testid={`name-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
                 >
                   {client.name}
@@ -1371,6 +1411,7 @@ export default function Home() {
       <StatsBar />
       <VideosSection />
       <AudioSection />
+      <KillerStatement />
       <ClientsSection />
       <ReviewsBanner />
       <TestimonialsSection />
