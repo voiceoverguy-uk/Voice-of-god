@@ -25,8 +25,8 @@ export async function registerRoutes(
       console.log("New contact submission:", JSON.stringify(submission, null, 2));
 
       if (resend) {
-        const toEmail = process.env.CONTACT_TO_EMAIL || "vog@voiceoverguy.co.uk";
-        const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+        const toEmail = process.env.CONTACT_TO_EMAIL || "enquiries@voiceoverguy.co.uk";
+        const fromEmail = process.env.CONTACT_FROM_EMAIL || "enquiries@voiceoverguy.co.uk";
         const { name, email, phone, eventType, message } = result.data;
         const timestamp = new Date().toISOString();
         const forwardedFor = req.headers["x-forwarded-for"];

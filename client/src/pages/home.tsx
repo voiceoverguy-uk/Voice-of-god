@@ -58,19 +58,12 @@ import logoCocaCola from "@assets/voiceoverguy-clients-coca-cola_1772482538650.p
 import logoDpd from "@assets/voiceoverguy-clients-dpd_1772482538651.png";
 import logoDreamworks from "@assets/voiceoverguy-clients-dreamworks_1772482538651.png";
 import logoEmirates from "@assets/voiceoverguy-clients-emirates_1772482538651.png";
-import logoHarpic from "@assets/voiceoverguy-clients-harpic_1772482538651.png";
 import logoHeart from "@assets/voiceoverguy-clients-heart_1772482538652.png";
-import logoHorlicks from "@assets/voiceoverguy-clients-horlicks_1772482538652.png";
 import logoHotels from "@assets/voiceoverguy-clients-hotels-brand_1772482538652.png";
 import logoItv from "@assets/voiceoverguy-clients-itv_1772482538652.png";
 import logoJustEat from "@assets/voiceoverguy-clients-just-eat_1772482508720.png";
 import logoKelloggs from "@assets/voiceoverguy-clients-kelloggs_1772482538652.png";
-import logoMazuma from "@assets/voiceoverguy-clients-mazuma_1772482538653.png";
 import logoMcDonalds from "@assets/voiceoverguy-clients-mcd_1772482538653.png";
-import logoPandO from "@assets/voiceoverguy-clients-p&o_1772482508719.png";
-import logoSnowDome from "@assets/voiceoverguy-clients-snow-dome_1772482508720.png";
-import logoSpar from "@assets/voiceoverguy-clients-spar_1772482508720.png";
-import logoTheRange from "@assets/voiceoverguy-clients-the-range_1772482508720.png";
 import logoBooking from "@assets/voiceoverguy-booking-dot-com-brand_1772482508721.png";
 import heroBackground from "@assets/guy-harris-voice-of-god-on-stage_1772493275715.jpg";
 import guyPhoto1 from "@assets/guy-harris-vog-1_1772493713393.jpg";
@@ -117,13 +110,6 @@ const CLIENTS: { name: string; logo: string }[] = [
   { name: "Biffa", logo: logoBiffa },
   { name: "Baxi", logo: logoBaxi },
   { name: "Boom Beach", logo: logoBoomBeach },
-  { name: "Harpic", logo: logoHarpic },
-  { name: "Horlicks", logo: logoHorlicks },
-  { name: "Mazuma", logo: logoMazuma },
-  { name: "P&O", logo: logoPandO },
-  { name: "SnowDome", logo: logoSnowDome },
-  { name: "Spar", logo: logoSpar },
-  { name: "The Range", logo: logoTheRange },
 ];
 
 const SERVICES = [
@@ -1193,49 +1179,14 @@ function ContactSection() {
                 Let's Make Your Event Unforgettable
               </h2>
               <motion.div className="w-16 h-0.5 bg-[#d42027] mb-6" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} style={{ originX: 0 }} />
-              <p className="text-gray-400 leading-relaxed mb-8">
+              <p className="text-gray-400 leading-relaxed mb-6">
                 Whether you need a bold live announcer or a perfectly timed
                 pre-recorded voice, I'm in the studio and ready to help.
                 Get in touch today and let me know what needs voicing.
               </p>
-
-              <div className="space-y-4">
-                <button
-                  type="button"
-                  onClick={() => {
-                    const u = "guy";
-                    const d = "voiceoverguy.co.uk";
-                    window.location.href = `mailto:${u}@${d}?subject=Website%20enquiry`;
-                  }}
-                  className="flex items-center gap-3 text-gray-300 transition-colors group cursor-pointer text-left"
-                  data-testid="link-email"
-                >
-                  <div className="h-10 w-10 rounded-md bg-white/5 flex items-center justify-center shrink-0">
-                    <Mail className="h-5 w-5 text-[#d42027]" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Email</p>
-                    <p className="font-medium group-hover:text-white transition-colors">
-                      {"guy"}&#64;{"voiceoverguy"}.{"co.uk"}
-                    </p>
-                  </div>
-                </button>
-                <a
-                  href="tel:+447973350178"
-                  className="flex items-center gap-3 text-gray-300 transition-colors group"
-                  data-testid="link-phone"
-                >
-                  <div className="h-10 w-10 rounded-md bg-white/5 flex items-center justify-center shrink-0">
-                    <Phone className="h-5 w-5 text-[#d42027]" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Phone</p>
-                    <p className="font-medium group-hover:text-white transition-colors">
-                      +44 (0)7973 350 178
-                    </p>
-                  </div>
-                </a>
-              </div>
+              <p className="text-gray-500 text-sm" data-testid="text-reassurance">
+                Send a message using the form and I'll get back to you within 24 hours (Mon–Fri).
+              </p>
             </div>
           </ScrollAnimation>
 
