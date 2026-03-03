@@ -186,19 +186,17 @@ function Navigation() {
       data-testid="navigation"
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-        <a
-          href="https://www.voiceoverguy.co.uk"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`font-bold text-lg tracking-tight transition-colors ${
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className={`font-bold text-lg tracking-tight transition-colors cursor-pointer ${
             scrolled ? "text-gray-900" : "text-white"
           }`}
           data-testid="link-home"
         >
-          <span className="font-light">VOICEOVER</span>
+          <span className="font-medium">VOICEOVER</span>
           <span className="text-[#9C060B]">GUY</span>
-          <span className="font-light text-sm ml-1.5 hidden sm:inline opacity-60">- Voice of God</span>
-        </a>
+          <span className="font-normal text-sm ml-1.5 hidden sm:inline opacity-60">- Voice of God</span>
+        </button>
 
         <div className="hidden md:flex items-center gap-1 flex-wrap">
           {NAV_LINKS.map((link) => {
