@@ -150,7 +150,7 @@ const STATS = [
   { value: "25+", label: "Years Experience", icon: Award },
   { value: "200k+", label: "Scripts Voiced", icon: FileText },
   { value: "5.0", label: "Google Rating", icon: Star },
-  { value: "118", label: "Happy Clients", icon: Users },
+  { value: "10k+", label: "Happy Clients", icon: Users },
 ];
 
 function Navigation() {
@@ -483,7 +483,7 @@ function HeroSection() {
                 <X className="h-8 w-8" />
               </button>
               <iframe
-                src="https://www.youtube.com/embed/4Le6P6sk7cs?autoplay=1&vq=hd1080"
+                src="https://www.youtube.com/embed/4Le6P6sk7cs?autoplay=1&vq=hd1080&modestbranding=1&rel=0&showinfo=0"
                 title="Voice of God Demo | Guy Harris"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -764,7 +764,7 @@ function VideosSection() {
             <div data-testid="video-masked-singer">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/e0vZ9cxdilo?vq=hd1080"
+                  src="https://www.youtube.com/embed/e0vZ9cxdilo?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
                   title="The Masked Singer – Voice of God Show Announcer | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -785,7 +785,7 @@ function VideosSection() {
             <div data-testid="video-ant-and-dec">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/W99pMUr6G8Q?vq=hd1080"
+                  src="https://www.youtube.com/embed/W99pMUr6G8Q?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
                   title="Ant & Dec's Saturday Night Takeaway Tour – Voice of God Announcer | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -806,7 +806,7 @@ function VideosSection() {
             <div data-testid="video-vog-demo">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/4yTnVRDXZfQ?vq=hd1080"
+                  src="https://www.youtube.com/embed/4yTnVRDXZfQ?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
                   title="TV Choice Awards – Voice of God | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -827,7 +827,7 @@ function VideosSection() {
             <div data-testid="video-showreel">
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/5jEcPyu2S5s?vq=hd1080"
+                  src="https://www.youtube.com/embed/5jEcPyu2S5s?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
                   title="VoiceoverGuy Showreel | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -1014,7 +1014,7 @@ function ReviewsBanner() {
               className="text-2xl md:text-3xl font-bold text-white mb-2"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              Rated 5.0 by 118 Happy Clients
+              Rated 5.0 by 10,000+ Happy Clients
             </h3>
             <p className="text-gray-400 mb-6">
               Event clients include ITV, TV Choice, Butlins, Masked Singer,
@@ -1346,10 +1346,10 @@ export default function Home() {
     <div className="min-h-screen overflow-x-hidden">
       <Navigation />
       <HeroSection />
-      <StatsBar />
       <EventsTicker />
       <AboutSection />
       <ServicesSection />
+      <StatsBar />
       <VideosSection />
       <AudioSection />
       <ClientsSection />
