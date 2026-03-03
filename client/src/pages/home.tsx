@@ -78,6 +78,7 @@ import guyPhoto1 from "@assets/guy-harris-vog-1_1772493713393.jpg";
 import guyPhoto2 from "@assets/guy-harris-vog-2_1772493713393.jpg";
 import guyPhoto3 from "@assets/guy-harris-vog-3_1772493713393.jpg";
 import vogLogo from "@assets/VoiceoverGuy_SPonsor_Banner_1772497822725.png";
+import killerBg from "@assets/guy-harris-voiceover-1200_1772529168284.jpg";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -922,8 +923,13 @@ function AudioSection() {
 
 function KillerStatement() {
   return (
-    <section className="bg-gray-950 py-20 md:py-28" data-testid="section-killer-statement">
-      <div className="max-w-5xl mx-auto px-6">
+    <section
+      className="relative py-20 md:py-28 overflow-hidden"
+      style={{ backgroundImage: `url(${killerBg})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      data-testid="section-killer-statement"
+    >
+      <div className="absolute inset-0 bg-black/85" />
+      <div className="relative z-10 max-w-5xl mx-auto px-6">
         <ScrollAnimation>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
             <p
@@ -1408,7 +1414,6 @@ export default function Home() {
       <EventsTicker />
       <AboutSection />
       <ServicesSection />
-      <StatsBar />
       <VideosSection />
       <AudioSection />
       <KillerStatement />
