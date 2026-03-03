@@ -30,6 +30,9 @@ import {
   StaggerItem,
 } from "@/components/scroll-animation";
 import { AudioPlayer } from "@/components/audio-player";
+import audioTakeaway from "@assets/takeaway-on-tour-voice-of-god-demo-guy-harris_1772496115970.mp3";
+import audioButlins from "@assets/butlins-voice-of-god-guy-harris_1772496115971.mp3";
+import audioMaskedSinger from "@assets/the-masked-singer-voice-of-god-guy-harris_1772496115971.mp3";
 import { contactFormSchema, type ContactForm } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
@@ -777,29 +780,26 @@ function AudioSection() {
         <StaggerContainer className="space-y-4" staggerDelay={0.15}>
           <StaggerItem>
             <AudioPlayer
-              title="Voice of God Showreel"
-              subtitle="Live event announcements & arena tours"
+              title="Ant & Dec's Takeaway on Tour"
+              subtitle="Voice of God Demo"
+              src={audioTakeaway}
             />
           </StaggerItem>
           <StaggerItem>
             <AudioPlayer
-              title="Awards Ceremony Demo"
-              subtitle="Corporate awards & gala announcements"
+              title="Butlins Resorts"
+              subtitle="Voice of God"
+              src={audioButlins}
             />
           </StaggerItem>
           <StaggerItem>
             <AudioPlayer
-              title="Arena & Stage Demo"
-              subtitle="Large-scale live productions & tours"
+              title="The Masked Singer"
+              subtitle="Voice of God"
+              src={audioMaskedSinger}
             />
           </StaggerItem>
         </StaggerContainer>
-
-        <ScrollAnimation delay={0.4} className="text-center mt-8">
-          <p className="text-sm text-gray-400">
-            MP3 demos loading soon. Contact me directly for samples.
-          </p>
-        </ScrollAnimation>
       </div>
     </section>
   );
