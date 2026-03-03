@@ -355,6 +355,7 @@ function HeroSection() {
           <span className="text-[#9C060B]">GOD</span>
         </motion.div>
         <h1 className="sr-only">Voice of God UK – Live Event Announcer & Awards Voiceover</h1>
+        <p className="sr-only">Voice of God announcer UK – live event voiceover announcer for award ceremonies, arena tours and corporate events.</p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
