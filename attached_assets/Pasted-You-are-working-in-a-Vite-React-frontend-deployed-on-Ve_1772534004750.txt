@@ -1,0 +1,50 @@
+You are working in a Vite + React frontend deployed on Vercel, and the live contact form POSTs to /api/contact (a Vercel serverless function), NOT the Express backend.
+
+Goal: Update api/contact.ts to send the contact email via Resend, using env vars already set in Vercel:
+- RESEND_API_KEY
+- CONTACT_TO_EMAIL
+- CONTACT_FROM_EMAIL
+
+Rules:
+- Do NOT change any frontend code.
+- Do NOT hardcode secrets.
+- Keep the existing response shape (it currently returns JSON like {"success":true,"id":"..."}). Preserve the id logic/return exactly as it is now.
+- Keep any existing storage/DB/save logic in api/contact.ts exactly as-is. Just add email sending alongside it.
+- Email sending must be resilient: wrap resend.emails.send() in its own try/catch; if email fails, log a warning but STILL return success (because the submission/save already succeeded).
+- Subject must be exactly:
+  Voice of God enquiry${eventType ? `: ${eventType}` : ""}
+
+Implementation details:
+1) In api/contact.ts, import Resend and instantiate:
+   import { Resend } from "resend";
+   const resend = new Resend(process.env.RESEND_API_KEY);
+
+2) Read fields from the POST body (whatever the file currently expects). Ensure these fields are included in the email body:
+   name, email, phone, eventType, message
+
+3) Add ISO timestamp and originating IP to the email body.
+   IP extraction:
+   const xff = req.headers["x-forwarded-for"];
+   const ip = (Array.isArray(xff) ? xff[0] : (xff || "")).toString().split(",")[0].trim() || req.socket?.remoteAddress || "";
+
+4) Use:
+   const to = process.env.CONTACT_TO_EMAIL || "vog@voiceofgod.co.uk";
+   const from = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+   Set replyTo to the user's email if present (replyTo: email).
+
+5) Send HTML email like:
+
+   <h2>New Contact Form Submission</h2>
+   <p><strong>Name:</strong> ...</p>
+   <p><strong>Email:</strong> ...</p>
+   <p><strong>Phone:</strong> ...</p>
+   <p><strong>Event Type:</strong> ...</p>
+   <p><strong>Message:</strong><br/> ...</p>
+   <hr/>
+   <p><strong>Submitted:</strong> ISO_TIMESTAMP</p>
+   <p><strong>IP:</strong> IP</p>
+
+6) After editing api/contact.ts, ensure the resend package exists (add it if missing).
+7) Do not create new files. Only modify api/contact.ts (and package.json only if dependency truly missing).
+
+Finally: redeploy on Vercel after commit.
