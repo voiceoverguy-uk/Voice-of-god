@@ -7,6 +7,16 @@
   100% { transform: translateX(-50%); }
 }
 
+.ticker-animate {
+  animation: ticker-scroll 32s linear infinite;
+}
+
+@media (max-width: 767px) {
+  .ticker-animate {
+    animation-duration: 18s;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001s !important;
