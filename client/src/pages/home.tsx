@@ -117,27 +117,27 @@ const SERVICES = [
     icon: Mic,
     title: "Live Voice of God",
     description:
-      "Commanding live announcing for awards, arena tours and major events — delivered with presence, timing and control.",
+      "Commanding live announcing for awards, arena tours and major events, delivered with presence, timing and control.",
   },
   {
     icon: Headphones,
     title: "Pre-Recorded Intros",
     description:
-      "Cinematic, broadcast-quality announcements supplied in advance — ready for playback with perfect pacing.",
+      "Cinematic, broadcast-quality announcements supplied in advance, ready for playback with perfect pacing.",
   },
   {
     icon: Clock,
     title: "Last-Minute Changes",
     description:
-      "Schedule shift? Script tweak? I can turn updates around fast — without the panic.",
+      "Schedule shift? Script tweak? I can turn updates around fast, without the panic.",
   },
 ];
 
 const STATS = [
-  { value: "25+", label: "Years Experience", icon: Award },
+  { value: `${new Date().getFullYear() - 2000}+`, label: "Years Experience", icon: Award },
   { value: "200k+", label: "Scripts Voiced", icon: FileText },
   { value: "5.0", label: "Google Rating", icon: Star },
-  { value: "10k+", label: "Happy Clients", icon: Users },
+  { value: "15k+", label: "Happy Clients", icon: Users },
 ];
 
 function Navigation() {
@@ -419,11 +419,11 @@ function HeroSection() {
         >
           <button
             onClick={() => setShowVideo(true)}
-            className="relative group flex items-center justify-center w-16 h-16 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:border-[#9C060B] hover:bg-[#9C060B]/20"
+            className="relative group flex items-center justify-center w-24 h-24 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm shadow-[0_0_25px_rgba(255,255,255,0.25)] transition-all duration-300 hover:border-[#9C060B] hover:bg-[#9C060B]/20 hover:shadow-[0_0_35px_rgba(255,255,255,0.35)]"
             data-testid="button-hero-play-video"
             aria-label="Watch showreel video"
           >
-            <Play className="h-6 w-6 text-white ml-1" fill="currentColor" />
+            <Play className="h-8 w-8 text-white ml-1" fill="currentColor" />
             <span className="absolute inset-0 rounded-full border-2 border-white/20 animate-ping" />
           </button>
           <span className="text-xs text-gray-400 tracking-wider uppercase">Watch Showreel</span>
@@ -636,7 +636,7 @@ function AboutSection() {
                         Reliability & Speed
                       </h4>
                       <p className="text-sm text-gray-500">
-                        Same-day turnaround, broadcast-quality audio, and 25+ years of
+                        Same-day turnaround, broadcast-quality audio, and {new Date().getFullYear() - 2000}+ years of
                         experience means your project moves without fuss.
                       </p>
                     </div>
@@ -806,7 +806,7 @@ function VideosSection() {
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
                   src="https://www.youtube.com/embed/4yTnVRDXZfQ?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
-                  title="TV Choice Awards – Voice of God | Guy Harris"
+                  title="Britain's Got Talent Competition Voiceover | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
@@ -814,10 +814,10 @@ function VideosSection() {
                 />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mt-4">
-                TV Choice Awards
+                Britain's Got Talent Competition Voiceover
               </h3>
               <p className="text-sm text-gray-500">
-                Voice of God at the TV Choice Awards
+                Voice of the comp spots in 2025
               </p>
             </div>
           </StaggerItem>
@@ -827,7 +827,7 @@ function VideosSection() {
               <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
                 <iframe
                   src="https://www.youtube.com/embed/5jEcPyu2S5s?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
-                  title="VoiceoverGuy Showreel | Guy Harris"
+                  title="GB News Competition and Promo Voice | Guy Harris"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0 w-full h-full"
@@ -835,10 +835,10 @@ function VideosSection() {
                 />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mt-4">
-                VoiceoverGuy Showreel
+                GB News Competition and Promo Voice
               </h3>
               <p className="text-sm text-gray-500">
-                Voiceover highlights and credits
+                As heard on GB News TV & Radio giving away thousands of £££
               </p>
             </div>
           </StaggerItem>
@@ -929,19 +929,19 @@ function KillerStatement() {
               className="text-xl md:text-2xl font-bold text-white leading-snug"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              25+ years experience.
+              {`${new Date().getFullYear() - 2000}+ years experience.`}
             </p>
             <p
               className="text-xl md:text-2xl font-bold text-white leading-snug"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              10,000+ happy clients.
+              Over 15,000 happy clients.
             </p>
             <p
               className="text-xl md:text-2xl font-bold text-white leading-snug"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              Trusted by ITV, BBC and the UK's biggest live productions.
+              Trusted by ITV, BBC, Apple and the UK's biggest live productions.
             </p>
           </div>
         </ScrollAnimation>
@@ -1055,7 +1055,7 @@ function ReviewsBanner() {
               className="text-2xl md:text-3xl font-bold text-white mb-2"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              Rated 5.0 by 10,000+ Happy Clients
+              Rated 5.0 on Google by 118 Happy Clients
             </h3>
             <p className="text-gray-400 mb-6">
               Event clients include ITV, TV Choice, Butlins, Masked Singer,
