@@ -11,6 +11,53 @@ export async function registerRoutes(
   const resendApiKey = process.env.RESEND_API_KEY;
   const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
+  const OLD_WORDPRESS_PATHS = [
+    "/voice-of-god",
+    "/voice-of-god/",
+    "/about",
+    "/about/",
+    "/about-us",
+    "/about-us/",
+    "/contact",
+    "/contact/",
+    "/contact-us",
+    "/contact-us/",
+    "/services",
+    "/services/",
+    "/testimonials",
+    "/testimonials/",
+    "/portfolio",
+    "/portfolio/",
+    "/blog",
+    "/blog/",
+    "/demos",
+    "/demos/",
+    "/showreel",
+    "/showreel/",
+    "/voiceover",
+    "/voiceover/",
+    "/voice-over",
+    "/voice-over/",
+    "/wp-admin",
+    "/wp-login.php",
+    "/feed",
+    "/feed/",
+  ];
+
+  OLD_WORDPRESS_PATHS.forEach((oldPath) => {
+    app.get(oldPath, (_req, res) => {
+      res.redirect(301, "/");
+    });
+  });
+
+  app.get("/wp-content/{*path}", (_req, res) => {
+    res.redirect(301, "/");
+  });
+
+  app.get("/wp-includes/{*path}", (_req, res) => {
+    res.redirect(301, "/");
+  });
+
   app.post("/api/contact", async (req, res) => {
     try {
       const result = contactFormSchema.safeParse(req.body);

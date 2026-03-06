@@ -3,6 +3,27 @@
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "framework": null,
+  "redirects": [
+    { "source": "/voice-of-god", "destination": "/", "statusCode": 301 },
+    { "source": "/about", "destination": "/", "statusCode": 301 },
+    { "source": "/about-us", "destination": "/", "statusCode": 301 },
+    { "source": "/contact", "destination": "/", "statusCode": 301 },
+    { "source": "/contact-us", "destination": "/", "statusCode": 301 },
+    { "source": "/services", "destination": "/", "statusCode": 301 },
+    { "source": "/testimonials", "destination": "/", "statusCode": 301 },
+    { "source": "/portfolio", "destination": "/", "statusCode": 301 },
+    { "source": "/blog", "destination": "/", "statusCode": 301 },
+    { "source": "/demos", "destination": "/", "statusCode": 301 },
+    { "source": "/showreel", "destination": "/", "statusCode": 301 },
+    { "source": "/voiceover", "destination": "/", "statusCode": 301 },
+    { "source": "/voice-over", "destination": "/", "statusCode": 301 },
+    { "source": "/wp-admin", "destination": "/", "statusCode": 301 },
+    { "source": "/wp-login.php", "destination": "/", "statusCode": 301 },
+    { "source": "/feed", "destination": "/", "statusCode": 301 },
+    { "source": "/wp-content/:path*", "destination": "/", "statusCode": 301 },
+    { "source": "/wp-includes/:path*", "destination": "/", "statusCode": 301 },
+    { "source": "/:path*.php", "destination": "/", "statusCode": 301 }
+  ],
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
