@@ -17,6 +17,8 @@
     { "source": "/showreel", "destination": "/", "statusCode": 301 },
     { "source": "/voiceover", "destination": "/", "statusCode": 301 },
     { "source": "/voice-over", "destination": "/", "statusCode": 301 },
+    { "source": "/voice-over-guy", "destination": "/", "statusCode": 301 },
+    { "source": "/voiceover-production", "destination": "/", "statusCode": 301 },
     { "source": "/wp-admin", "destination": "/", "statusCode": 301 },
     { "source": "/wp-login.php", "destination": "/", "statusCode": 301 },
     { "source": "/feed", "destination": "/", "statusCode": 301 },

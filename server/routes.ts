@@ -38,11 +38,22 @@ export async function registerRoutes(
     "/voiceover/",
     "/voice-over",
     "/voice-over/",
+    "/voice-over-guy",
+    "/voice-over-guy/",
+    "/voiceover-production",
+    "/voiceover-production/",
     "/wp-admin",
     "/wp-login.php",
     "/feed",
     "/feed/",
   ];
+
+  app.get("/", (req, res, next) => {
+    if (req.query.page_id || req.query.p || req.query.cat) {
+      return res.redirect(301, "/");
+    }
+    next();
+  });
 
   OLD_WORDPRESS_PATHS.forEach((oldPath) => {
     app.get(oldPath, (_req, res) => {
