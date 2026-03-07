@@ -471,7 +471,7 @@ function HeroSection() {
                 <X className="h-8 w-8" />
               </button>
               <iframe
-                src="https://www.youtube.com/embed/4Le6P6sk7cs?autoplay=1&vq=hd1080&modestbranding=1&rel=0&showinfo=0"
+                src="https://www.youtube.com/embed/4Le6P6sk7cs?autoplay=1&mute=1&vq=hd1080&modestbranding=1&rel=0&showinfo=0"
                 title="Voice of God Demo | Guy Harris"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
