@@ -700,7 +700,7 @@ function ServicesSection() {
           </h2>
           <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
-            Live, pre-recorded or last-minute — delivered with calm authority and perfect timing.
+            Live, pre-recorded or last-minute, delivered with calm authority and perfect timing.
           </p>
         </ScrollAnimation>
 
@@ -1159,7 +1159,7 @@ function ContactSection() {
       toast({
         title: "Enquiry sent ✅",
         description:
-          "Thanks — I've got it. I'll reply within 24 hours.",
+          "Thanks, I've got it. I'll reply within 24 hours.",
         duration: 3500,
       });
       form.reset();
@@ -1298,7 +1298,7 @@ function ContactSection() {
               </div>
 
               <p className="text-gray-500 text-sm mt-2 mb-3" data-testid="text-above-submit">
-                Your enquiry goes directly to Guy — no call centres, no middlemen.
+                Your enquiry goes directly to Guy, no call centres, no middlemen.
               </p>
               <Button
                 type="submit"
@@ -1317,7 +1317,7 @@ function ContactSection() {
                 )}
               </Button>
               <p className="text-gray-500 text-sm mt-3" data-testid="text-below-submit">
-                Every enquiry is read personally by Guy — you'll hear back within 24 hours.
+                Every enquiry is read personally by Guy, you'll hear back within 24 hours.
               </p>
             </form>
           </ScrollAnimation>
