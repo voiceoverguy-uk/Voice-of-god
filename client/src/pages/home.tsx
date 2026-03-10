@@ -775,10 +775,8 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div data-testid={video.testId} className="group">
-      <div
-        className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 shadow-md transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-xl"
-      >
+    <div data-testid={video.testId} className="group rounded-2xl bg-gray-50 shadow-sm overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+      <div className="relative aspect-video overflow-hidden">
         {playing ? (
           <iframe
             src={`https://www.youtube.com/embed/${video.embedId}?autoplay=1&vq=hd1080&modestbranding=1&rel=0&showinfo=0`}
@@ -790,7 +788,7 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
         ) : (
           <button
             onClick={() => setPlaying(true)}
-            className="absolute inset-0 w-full h-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9C060B] focus-visible:ring-offset-2 rounded-xl"
+            className="absolute inset-0 w-full h-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9C060B] focus-visible:ring-offset-2"
             aria-label={`Play ${video.title}`}
             data-testid={`play-button-${video.id}`}
           >
@@ -814,9 +812,14 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
           </button>
         )}
       </div>
-      <p className="text-[15px] font-medium text-gray-800 mt-3 leading-snug">
-        {video.title}
-      </p>
+      <div className="px-4 py-3">
+        <p className="text-[15px] font-semibold text-gray-800 leading-snug">
+          {video.title}
+        </p>
+        <p className="text-sm text-gray-500 mt-0.5">
+          {video.description}
+        </p>
+      </div>
     </div>
   );
 }
