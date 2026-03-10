@@ -1,0 +1,218 @@
+PROJECT: voiceofgod.co.uk
+
+OBJECTIVE
+Update the video section on the Voice of God site to use custom thumbnail images instead of default YouTube thumbnails, while keeping the same YouTube links and overall page layout.
+
+IMPORTANT
+Do NOT redesign the page.
+Do NOT change the section layout, spacing, headings, or captions.
+Only replace the current embedded-thumbnail appearance with custom thumbnail images, a centred play button, and the same subtle dark gradient overlay style used on santaguy.co.uk.
+
+GOAL
+Make the video grid feel more premium, more intentional, and more like a broadcast portfolio.
+
+----------------------------------------------------
+TASK 1 — USE CUSTOM THUMBNAIL IMAGES
+----------------------------------------------------
+
+Please replace the current thumbnail images in the video cards with these custom WEBP files from /public/images/:
+
+1. /images/masked-singer-voice-of-god.webp
+2. /images/takeaway-on-tour-voice-of-god.webp
+3. /images/britains-got-talent-competition-voiceover.webp
+4. /images/gb-news-competition-voice.webp
+
+Use them in this order / mapping:
+
+- The Masked Singer
+  -> /images/masked-singer-voice-of-god.webp
+
+- Ant & Dec’s Saturday Night Takeaway
+  -> /images/takeaway-on-tour-voice-of-god.webp
+
+- Britain’s Got Talent Competition Voiceover
+  -> /images/britains-got-talent-competition-voiceover.webp
+
+- GB News Competition and Promo Voice
+  -> /images/gb-news-competition-voice.webp
+
+
+----------------------------------------------------
+TASK 2 — KEEP THE SAME YOUTUBE LINKS
+----------------------------------------------------
+
+Do NOT change the existing YouTube video links or embeds.
+
+The thumbnails should simply act as the preview image.
+When clicked, each one should still load/play the same YouTube video it currently links to.
+
+So:
+- same videos
+- same destinations
+- only improved preview images and interaction
+
+
+----------------------------------------------------
+TASK 3 — ADD CENTRED PLAY BUTTON OVERLAY
+----------------------------------------------------
+
+Add a centred red play button overlay on each image, matching the same style used on santaguy.co.uk.
+
+Requirements:
+- red play button
+- white triangle
+- centred vertically and horizontally
+- visible immediately on top of the thumbnail
+- scales slightly on hover
+- smooth transition
+- premium, subtle, modern
+
+The play button should sit above the image and above the gradient overlay.
+
+
+----------------------------------------------------
+TASK 4 — ADD THE SAME SUBTLE DARK GRADIENT OVERLAY
+----------------------------------------------------
+
+Please add the same subtle dark gradient overlay to every thumbnail image, like the SantaGuy video grid.
+
+Style:
+- transparent at top
+- darker at bottom
+- subtle, not heavy
+- premium / cinematic feel
+- helps unify the images visually
+
+Example direction:
+
+background: linear-gradient(
+  to top,
+  rgba(0,0,0,0.45),
+  rgba(0,0,0,0.18),
+  rgba(0,0,0,0)
+);
+
+This overlay should sit above the image but below the play button.
+
+Apply it consistently to all four video cards.
+
+
+----------------------------------------------------
+TASK 5 — KEEP THE SAME CARD LAYOUT / CAPTIONS
+----------------------------------------------------
+
+Please keep the current:
+- 2x2 grid layout
+- card spacing
+- card sizing
+- headings / captions underneath each video
+- section structure
+
+Do NOT redesign this section.
+The goal is just to make it feel more polished and custom.
+
+
+----------------------------------------------------
+TASK 6 — HOVER EFFECTS
+----------------------------------------------------
+
+Use the same restrained hover behaviour as the SantaGuy cards:
+
+- slight card lift
+- slightly deeper shadow
+- subtle thumbnail zoom
+- play button scales slightly
+
+Suggested direction:
+- transform: translateY(-4px to -6px)
+- image scale around 1.03 to 1.05
+- play button scale around 1.08 to 1.1
+- smooth transition around 200–300ms ease
+
+Keep it premium and subtle, not flashy.
+
+
+----------------------------------------------------
+TASK 7 — LAZY LOAD THE YOUTUBE IFRAMES
+----------------------------------------------------
+
+Like the SantaGuy implementation:
+
+- show the custom thumbnail first
+- only load the YouTube iframe when the user clicks the thumbnail/card
+
+This improves performance and keeps the section looking cleaner.
+
+Requirements:
+- preserve existing YouTube destinations
+- use click-to-load iframe
+- no autoplay unless it already exists intentionally
+- keep mobile responsiveness intact
+
+
+----------------------------------------------------
+TASK 8 — ALT TEXT
+----------------------------------------------------
+
+Please add good alt text for each image:
+
+1. The Masked Singer
+alt="Voice of God show announcer for The Masked Singer"
+
+2. Ant & Dec’s Saturday Night Takeaway
+alt="Voice of God announcer for Ant and Dec's Saturday Night Takeaway tour"
+
+3. Britain’s Got Talent Competition Voiceover
+alt="Competition voiceover for Britain's Got Talent"
+
+4. GB News Competition and Promo Voice
+alt="Competition and promo voiceover for GB News"
+
+
+----------------------------------------------------
+TASK 9 — IMAGE TREATMENT CONSISTENCY
+----------------------------------------------------
+
+Please make sure all four thumbnails share the same:
+- corner radius
+- shadow style
+- overflow handling
+- hover treatment
+- image fill / object-fit handling
+
+They should feel like one coherent premium video grid.
+
+
+----------------------------------------------------
+TASK 10 — DO NOT TOUCH ANYTHING ELSE
+----------------------------------------------------
+
+Do NOT change:
+- page copy
+- navigation
+- CTA buttons
+- metadata
+- schema
+- section order
+- site colours
+- text underneath each card unless needed for layout integrity
+
+Only improve the video cards with the custom thumbnails and overlay system.
+
+
+----------------------------------------------------
+ACCEPTANCE CHECKLIST
+----------------------------------------------------
+
+After implementation verify:
+
+- all 4 custom images are used
+- same YouTube links still work
+- play button appears centred on each thumbnail
+- subtle dark gradient overlay is applied to each image
+- hover behaviour is visible but restrained
+- YouTube iframes only load when clicked
+- captions below remain intact
+- grid layout remains the same
+- section feels more premium and polished
+- mobile version still works correctly
