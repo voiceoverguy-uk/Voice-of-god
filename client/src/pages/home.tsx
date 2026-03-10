@@ -732,6 +732,112 @@ function ServicesSection() {
   );
 }
 
+const VIDEO_CARDS = [
+  {
+    id: "masked-singer",
+    embedId: "e0vZ9cxdilo",
+    thumbnail: "/images/masked-singer-voice-of-god.webp",
+    alt: "Voice of God show announcer for The Masked Singer",
+    title: "The Masked Singer",
+    description: "Voice of God show announcer at Butlins",
+    testId: "video-masked-singer",
+  },
+  {
+    id: "ant-and-dec",
+    embedId: "W99pMUr6G8Q",
+    thumbnail: "/images/takeaway-on-tour-voice-of-god.webp",
+    alt: "Voice of God announcer for Ant and Dec's Saturday Night Takeaway tour",
+    title: "Ant & Dec's Saturday Night Takeaway",
+    description: "Voice of God announcer for the live arena tour",
+    testId: "video-ant-and-dec",
+  },
+  {
+    id: "bgt",
+    embedId: "4yTnVRDXZfQ",
+    thumbnail: "/images/britains-got-talent-competition-voiceover.webp",
+    alt: "Competition voiceover for Britain's Got Talent",
+    title: "Britain's Got Talent Competition Voiceover",
+    description: "Voice of the comp spots in 2025",
+    testId: "video-vog-demo",
+  },
+  {
+    id: "gb-news",
+    embedId: "5jEcPyu2S5s",
+    thumbnail: "/images/gb-news-competition-voice.webp",
+    alt: "Competition and promo voiceover for GB News",
+    title: "GB News Competition and Promo Voice",
+    description: "As heard on GB News TV & Radio giving away thousands of £££",
+    testId: "video-showreel",
+  },
+];
+
+function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <div data-testid={video.testId}>
+      <div
+        className="relative aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-lg group transition-all duration-250 ease-out hover:-translate-y-1 hover:shadow-xl"
+      >
+        {playing ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${video.embedId}?autoplay=1&vq=hd1080&modestbranding=1&rel=0&showinfo=0`}
+            title={`${video.title} | Guy Harris`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
+        ) : (
+          <button
+            onClick={() => setPlaying(true)}
+            className="absolute inset-0 w-full h-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9C060B] focus-visible:ring-offset-2 rounded-lg"
+            aria-label={`Play ${video.title}`}
+            data-testid={`play-button-${video.id}`}
+          >
+            <img
+              src={video.thumbnail}
+              alt={video.alt}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
+              loading="lazy"
+            />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.18), transparent)",
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div
+                className="w-16 h-16 rounded-full bg-[#9C060B] flex items-center justify-center shadow-lg transition-transform duration-250 ease-out group-hover:scale-110"
+              >
+                <Play className="h-7 w-7 text-white ml-0.5" fill="currentColor" />
+              </div>
+            </div>
+          </button>
+        )}
+      </div>
+      <h3 className="text-lg font-semibold text-gray-900 mt-4">
+        {video.title}
+      </h3>
+      <p className="text-sm text-gray-500">
+        {video.description}
+      </p>
+    </div>
+  );
+}
+
+function VideoGrid() {
+  return (
+    <StaggerContainer className="grid md:grid-cols-2 gap-8" staggerDelay={0.12}>
+      {VIDEO_CARDS.map((video) => (
+        <StaggerItem key={video.id}>
+          <VideoCard video={video} />
+        </StaggerItem>
+      ))}
+    </StaggerContainer>
+  );
+}
+
 function VideosSection() {
   return (
     <section
@@ -757,91 +863,7 @@ function VideosSection() {
           </p>
         </ScrollAnimation>
 
-        <StaggerContainer className="grid md:grid-cols-2 gap-8" staggerDelay={0.12}>
-          <StaggerItem>
-            <div data-testid="video-masked-singer">
-              <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/e0vZ9cxdilo?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
-                  title="The Masked Singer – Voice of God Show Announcer | Guy Harris"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mt-4">
-                The Masked Singer
-              </h3>
-              <p className="text-sm text-gray-500">
-                Voice of God show announcer at Butlins
-              </p>
-            </div>
-          </StaggerItem>
-
-          <StaggerItem>
-            <div data-testid="video-ant-and-dec">
-              <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/W99pMUr6G8Q?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
-                  title="Ant & Dec's Saturday Night Takeaway Tour – Voice of God Announcer | Guy Harris"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mt-4">
-                Ant & Dec's Saturday Night Takeaway
-              </h3>
-              <p className="text-sm text-gray-500">
-                Voice of God announcer for the live arena tour
-              </p>
-            </div>
-          </StaggerItem>
-
-          <StaggerItem>
-            <div data-testid="video-vog-demo">
-              <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/4yTnVRDXZfQ?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
-                  title="Britain's Got Talent Competition Voiceover | Guy Harris"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mt-4">
-                Britain's Got Talent Competition Voiceover
-              </h3>
-              <p className="text-sm text-gray-500">
-                Voice of the comp spots in 2025
-              </p>
-            </div>
-          </StaggerItem>
-
-          <StaggerItem>
-            <div data-testid="video-showreel">
-              <div className="relative aspect-video rounded-md overflow-hidden bg-gray-900 shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/5jEcPyu2S5s?vq=hd1080&modestbranding=1&rel=0&showinfo=0"
-                  title="GB News Competition and Promo Voice | Guy Harris"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mt-4">
-                GB News Competition and Promo Voice
-              </h3>
-              <p className="text-sm text-gray-500">
-                As heard on GB News TV & Radio giving away thousands of £££
-              </p>
-            </div>
-          </StaggerItem>
-        </StaggerContainer>
+        <VideoGrid />
       </div>
     </section>
   );
