@@ -809,6 +809,12 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
                 <path d="M45 24L27 14v20" fill="#fff" />
               </svg>
             </div>
+            <img
+              src="/images/youtube-logo.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute bottom-2 left-2 w-[60px] opacity-70 pointer-events-none drop-shadow-md"
+            />
           </button>
         )}
       </div>
@@ -840,10 +846,16 @@ function VideosSection() {
   return (
     <section
       id="videos"
-      className="bg-white py-24 md:py-32"
+      className="relative py-24 md:py-32 overflow-hidden"
       data-testid="section-videos"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/voice-of-god-youtube-bg.webp')" }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-white/[0.93]" aria-hidden="true" />
+      <div className="relative max-w-6xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-16">
           <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Watch
