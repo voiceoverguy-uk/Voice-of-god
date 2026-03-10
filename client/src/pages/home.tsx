@@ -775,9 +775,9 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div data-testid={video.testId}>
+    <div data-testid={video.testId} className="group">
       <div
-        className="relative aspect-video rounded-lg overflow-hidden bg-gray-900 shadow-lg group transition-all duration-250 ease-out hover:-translate-y-1 hover:shadow-xl"
+        className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 shadow-md transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:shadow-xl"
       >
         {playing ? (
           <iframe
@@ -790,7 +790,7 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
         ) : (
           <button
             onClick={() => setPlaying(true)}
-            className="absolute inset-0 w-full h-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9C060B] focus-visible:ring-offset-2 rounded-lg"
+            className="absolute inset-0 w-full h-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9C060B] focus-visible:ring-offset-2 rounded-xl"
             aria-label={`Play ${video.title}`}
             data-testid={`play-button-${video.id}`}
           >
@@ -800,27 +800,22 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
               loading="lazy"
             />
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: "linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.18), transparent)",
-              }}
-            />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div
-                className="w-16 h-16 rounded-full bg-[#9C060B] flex items-center justify-center shadow-lg transition-transform duration-250 ease-out group-hover:scale-110"
+              <svg
+                className="w-[68px] h-[48px] transition-transform duration-300 ease-out group-hover:scale-110 drop-shadow-lg"
+                viewBox="0 0 68 48"
+                aria-hidden="true"
+                focusable="false"
               >
-                <Play className="h-7 w-7 text-white ml-0.5" fill="currentColor" />
-              </div>
+                <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000" />
+                <path d="M45 24L27 14v20" fill="#fff" />
+              </svg>
             </div>
           </button>
         )}
       </div>
-      <h3 className="text-lg font-semibold text-gray-900 mt-4">
+      <p className="text-[15px] font-medium text-gray-800 mt-3 leading-snug">
         {video.title}
-      </h3>
-      <p className="text-sm text-gray-500">
-        {video.description}
       </p>
     </div>
   );
