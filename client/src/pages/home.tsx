@@ -1377,7 +1377,7 @@ function Footer() {
               &copy; 2000 &ndash; {new Date().getFullYear()} Guy Harris. All rights reserved.
             </span>
           </div>
-          <div className="flex items-center gap-6 flex-wrap">
+          <div className="flex flex-col items-center md:items-end gap-3">
             <a
               href="https://www.voiceoverguy.co.uk"
               target="_blank"
@@ -1387,6 +1387,38 @@ function Footer() {
             >
               <img src={vogLogo} alt="VoiceoverGuy - www.voiceoverguy.co.uk" className="h-8 w-auto" />
             </a>
+            <div className="flex items-center gap-1 flex-wrap justify-center md:justify-end">
+              <span className="text-gray-600 text-xs">Also by Guy:</span>
+              <a
+                href="https://www.pathevoice.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-500 hover:text-[#9C060B] transition-colors"
+                data-testid="link-footer-pathe-voice"
+              >
+                PathéVoice
+              </a>
+              <span className="text-gray-700 text-xs">&bull;</span>
+              <a
+                href="https://halloweenvoice.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-500 hover:text-[#9C060B] transition-colors"
+                data-testid="link-footer-halloween-voice"
+              >
+                HalloweenVoice
+              </a>
+              <span className="text-gray-700 text-xs">&bull;</span>
+              <a
+                href="https://www.santaguy.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-500 hover:text-[#9C060B] transition-colors"
+                data-testid="link-footer-santa-guy"
+              >
+                SantaGuy
+              </a>
+            </div>
           </div>
         </div>
       </div>
