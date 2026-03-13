@@ -418,7 +418,7 @@ function HeroSection() {
           className="flex flex-col items-center gap-3 mb-8"
         >
           <button
-            onClick={() => setShowVideo(true)}
+            onClick={() => document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth' })}
             className="relative group flex items-center justify-center w-24 h-24 rounded-full border-2 border-white/30 bg-white/10 backdrop-blur-sm shadow-[0_0_25px_rgba(255,255,255,0.25)] transition-all duration-300 hover:border-[#9C060B] hover:bg-[#9C060B]/20 hover:shadow-[0_0_35px_rgba(255,255,255,0.35)]"
             data-testid="button-hero-play-video"
             aria-label="Watch showreel video"
@@ -761,12 +761,12 @@ const VIDEO_CARDS = [
     testId: "video-vog-demo",
   },
   {
-    id: "gb-news",
-    embedId: "5jEcPyu2S5s",
-    thumbnail: "/images/gb-news-competition-voice.webp",
-    alt: "Competition and promo voiceover for GB News",
-    title: "GB News Competition and Promo Voice",
-    description: "As heard on GB News TV & Radio giving away thousands of £££",
+    id: "tv-choice-awards",
+    embedId: "4Le6P6sk7cs",
+    thumbnail: "/images/guy-tv-choice-awards-voice-of-god.jpg",
+    alt: "Guy Harris Voice of God at the TV Choice Awards",
+    title: "TV Choice Awards Voice of God",
+    description: "Heard every year in a room full of celebrities in a posh hotel in London!",
     testId: "video-showreel",
   },
 ];
@@ -798,6 +798,7 @@ function VideoCard({ video }: { video: typeof VIDEO_CARDS[number] }) {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
               loading="lazy"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <svg
                 className="w-[68px] h-[48px] transition-transform duration-300 ease-out group-hover:scale-110 drop-shadow-lg"
