@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -1040,6 +1041,13 @@ function ClientsSection() {
 }
 
 function ReviewsBanner() {
+  const { data: reviewData } = useQuery<{ rating: number; reviewCount: number }>({
+    queryKey: ["/api/reviews"],
+    staleTime: 60 * 60 * 1000,
+  });
+  const reviewCount = reviewData?.reviewCount ?? 119;
+  const rating = reviewData?.rating ?? 5.0;
+
   return (
     <section className="bg-gray-950 py-16 md:py-24" data-testid="section-reviews">
       <div className="max-w-5xl mx-auto px-6">
@@ -1087,7 +1095,7 @@ function ReviewsBanner() {
               className="text-2xl md:text-3xl font-bold text-white mb-2"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              Rated 5.0 on Google by 118 Happy Clients
+              Rated {rating.toFixed(1)} on Google by {reviewCount} Happy Clients
             </h3>
             <p className="text-gray-400 mb-6">
               Event clients include ITV, TV Choice, Butlins, Masked Singer,
