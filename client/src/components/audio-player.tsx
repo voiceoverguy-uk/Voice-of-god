@@ -57,6 +57,19 @@ export function AudioPlayer({ title, src, subtitle }: AudioPlayerProps) {
     };
   }, [src]);
 
+  useEffect(() => {
+    const onOtherPlay = (e: Event) => {
+      const detail = (e as CustomEvent<{ title: string }>).detail;
+      if (detail.title !== title) {
+        const audio = audioRef.current;
+        if (audio) audio.pause();
+        setIsPlaying(false);
+      }
+    };
+    window.addEventListener("vog:audio-play", onOtherPlay);
+    return () => window.removeEventListener("vog:audio-play", onOtherPlay);
+  }, [title]);
+
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
     if (!audio || !src) return;
@@ -64,10 +77,11 @@ export function AudioPlayer({ title, src, subtitle }: AudioPlayerProps) {
     if (isPlaying) {
       audio.pause();
     } else {
+      window.dispatchEvent(new CustomEvent("vog:audio-play", { detail: { title } }));
       audio.play();
     }
     setIsPlaying(!isPlaying);
-  }, [isPlaying, src]);
+  }, [isPlaying, src, title]);
 
   const toggleMute = useCallback(() => {
     const audio = audioRef.current;
