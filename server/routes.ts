@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { Resend } from "resend";
 import { contactFormSchema } from "@shared/schema";
+import { buildEnquiryEmail } from "@shared/email-template";
 import { storage } from "./storage";
 
 export async function registerRoutes(
@@ -95,18 +96,7 @@ export async function registerRoutes(
             from: fromEmail,
             to: toEmail,
             subject: `Voice of God enquiry${eventType ? `: ${eventType}` : ""}`,
-            html: `
-              <h2>New Contact Form Submission</h2>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-              <p><strong>Event Type:</strong> ${eventType || "Not specified"}</p>
-              <p><strong>Message:</strong></p>
-              <p>${message}</p>
-              <hr />
-              <p><small><strong>Submitted:</strong> ${timestamp}</small></p>
-              <p><small><strong>IP:</strong> ${ip || "Unknown"}</small></p>
-            `,
+            html: buildEnquiryEmail({ name, email, phone, eventType, message, timestamp, ip: ip || "" }),
             replyTo: email,
           });
         } catch (emailError) {
