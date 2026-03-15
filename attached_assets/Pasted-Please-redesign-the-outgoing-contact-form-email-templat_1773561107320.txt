@@ -1,0 +1,124 @@
+Please redesign the outgoing contact form email template so it looks polished, premium, and properly branded for VoiceoverGuy.
+
+GOAL
+Make the enquiry email that arrives in the inbox feel more stylish and trustworthy, using the VoiceoverGuy brand red prominently. It should still work well across major email clients like Gmail and Outlook.
+
+BRAND
+- Use VoiceoverGuy red: #9C060B
+- Use white background with subtle light grey sections/borders
+- Text should be dark charcoal/near black for readability
+- Clean, modern, professional style
+- Make it feel like a high-quality booking enquiry, not a plain system dump
+
+LAYOUT
+Build the email as a structured HTML email with inline CSS for compatibility.
+
+Use this structure:
+
+1. OUTER WRAPPER
+- Light grey background around the full email (#f4f4f4)
+- Centre a main email card/container
+- Max width around 640px
+- Rounded corners
+- Thin border
+- Soft but email-safe shadow effect where possible
+
+2. HEADER BAR
+- Full-width top header in brand red (#9C060B)
+- White text
+- Large heading: “New Voice of God Enquiry”
+- Smaller subheading beneath: “A new contact form submission has arrived from your website”
+- Add a small optional microphone / voice / enquiry emoji or icon only if it remains classy and email-safe
+
+3. MAIN CONTENT CARD
+Inside a white content panel, display each submitted field clearly.
+
+Show these fields as styled rows/cards:
+- Name
+- Email
+- Phone
+- Event Type
+- Message
+
+STYLE RULES FOR FIELDS
+- Each field should appear in its own boxed section or separated row
+- Label in small uppercase or bold style, using brand red or dark grey
+- Value beneath in larger readable text
+- Plenty of spacing and padding
+- Email address should be clickable
+- If a field is missing, show a softer muted value such as “Not provided”
+
+4. MESSAGE SECTION
+- Make the message stand out in its own larger panel
+- Add a left border in VoiceoverGuy red
+- Light background tint behind the message
+- Preserve line breaks from the submitted message
+- Make it easy to scan
+
+5. QUICK ACTION BUTTONS
+Below the enquiry details, add two strong call-to-action buttons:
+- “Reply to Enquiry” → mailto link using the sender’s email
+- “Call Sender” → tel link if phone number exists
+If phone is missing, hide the call button
+
+Button style:
+- Primary button in #9C060B with white text
+- Secondary button with white background, red border, red text
+- Rounded corners
+- Strong padding
+- Stack nicely on mobile
+
+6. FOOTER / META SECTION
+At the bottom, include a smaller admin/meta panel with:
+- Submitted date/time
+- IP address
+- Website/page source if available
+- Reply-To address if available
+
+Style this footer as:
+- Smaller font
+- Light grey panel
+- Monospace or neat admin-style formatting for technical details
+- Clearly separated from the main enquiry
+
+7. MOBILE / RESPONSIVE
+Ensure the email works on mobile:
+- Container should shrink gracefully
+- Buttons should stack vertically on smaller screens
+- Text should remain readable
+- No horizontal overflow
+
+TECHNICAL REQUIREMENTS
+- Use table-based or email-safe HTML structure where needed for compatibility
+- Inline CSS only, or whatever is safest for email rendering
+- Avoid JavaScript entirely
+- Avoid fancy unsupported CSS
+- Keep it robust for Gmail and Outlook
+- Preserve all current form values and logic
+- Do not break existing email sending functionality
+- Keep subject line logic as-is unless it needs a small tidy-up
+
+CONTENT EXAMPLE
+The email should still include the same data currently being sent, just presented beautifully:
+- Name: Test User
+- Email: test@test.com
+- Phone: Not provided
+- Event Type: Not specified
+- Message: Hello I would love to book you for our upcoming corporate awards ceremony event
+- Submitted: timestamp
+- IP: IP address
+
+OPTIONAL NICE TOUCHES
+If easy to implement, add:
+- A thin red accent line above or below the message section
+- Small “VoiceoverGuy Website Enquiry” tag/badge near the top
+- Conditional colouring for missing fields so they look muted, not broken
+
+IMPORTANT
+- Only restyle the email template output
+- Do not change form handling behaviour
+- Do not remove any submitted data
+- Keep it elegant, premium, and on-brand
+- Make the finished result feel like a proper professional lead notification for a high-end voiceover business
+
+Please update the relevant email template/code and show me the final HTML/template output you’ve changed.
