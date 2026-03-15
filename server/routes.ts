@@ -6,7 +6,7 @@ import { buildEnquiryEmail } from "@shared/email-template";
 import { storage } from "./storage";
 
 const GOOGLE_PLACE_ID = "ChIJL1W4QyVneUgRBV8j4XrOzaM";
-const REVIEWS_CACHE_TTL_MS = 60 * 60 * 1000;
+const REVIEWS_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 let reviewsCache: { rating: number; reviewCount: number; fetchedAt: number } | null = null;
 
 async function fetchGoogleReviews(): Promise<{ rating: number; reviewCount: number }> {

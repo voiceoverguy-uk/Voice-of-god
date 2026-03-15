@@ -1043,7 +1043,7 @@ function ClientsSection() {
 function ReviewsBanner() {
   const { data: reviewData } = useQuery<{ rating: number; reviewCount: number }>({
     queryKey: ["/api/reviews"],
-    staleTime: 60 * 60 * 1000,
+    staleTime: 24 * 60 * 60 * 1000,
   });
   const reviewCount = reviewData?.reviewCount ?? 119;
   const rating = reviewData?.rating ?? 5.0;
