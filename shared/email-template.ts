@@ -34,12 +34,6 @@ export function buildEnquiryEmail(data: EnquiryEmailData): string {
 
   const safeMsg = esc(message).replace(/\n/g, "<br>");
 
-  const callButton = phone
-    ? `<a href="tel:${esc(phone)}"
-         style="display:inline-block;padding:14px 28px;background:#ffffff;color:#9C060B;border:2px solid #9C060B;border-radius:6px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;text-decoration:none;margin:8px 0;">
-         📞 Call Sender
-       </a>`
-    : "";
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -167,7 +161,6 @@ export function buildEnquiryEmail(data: EnquiryEmailData): string {
                   </a>
                 </td>
               </tr>
-              ${callButton ? `<tr><td align="center">${callButton}</td></tr>` : ""}
             </table>
 
           </td>
