@@ -1323,6 +1323,21 @@ function ContactSection() {
                   {...form.register("message")}
                   data-testid="input-message"
                 />
+                {(() => {
+                  const val = form.watch("message") || "";
+                  const wordCount = val.trim() === "" ? 0 : val.trim().split(/\s+/).filter(Boolean).length;
+                  const remaining = Math.max(0, 10 - wordCount);
+                  if (val.trim() === "") return null;
+                  return remaining > 0 ? (
+                    <p className="text-xs text-amber-400 mt-1" data-testid="text-word-counter">
+                      {remaining} more word{remaining === 1 ? "" : "s"} needed
+                    </p>
+                  ) : (
+                    <p className="text-xs text-green-400 mt-1" data-testid="text-word-counter">
+                      ✓ Good to go
+                    </p>
+                  );
+                })()}
                 {form.formState.errors.message && (
                   <p className="text-xs text-red-400 mt-1">
                     {form.formState.errors.message.message}
