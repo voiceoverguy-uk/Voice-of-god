@@ -1121,58 +1121,103 @@ function ReviewsBanner() {
 
 const TESTIMONIALS = [
   {
-    quote: "Guy has worked for us on many occasions as his voice is perfect for so many applications, he is professional and always follows direction. It\u2019s always a pleasure to work with him.",
+    quote: "Guy has worked for us on many occasions as his voice is perfect for so many applications, he is professional and always follows direction. It's always a pleasure to work with him.",
     name: "Phil Peacock",
     title: "Creative Manager, Butlins",
   },
   {
-    quote: "Guy Harris has been a regular Voice of God at a number of events for our client Reward Gateway and also features at the annual Benefits Excellence Awards. His efficiency, accuracy and speed never fail to amaze me and I can\u2019t recommend his services enough!",
+    quote: "Guy Harris has been a regular Voice of God at a number of events for our client Reward Gateway and also features at the annual Benefits Excellence Awards. His efficiency, accuracy and speed never fail to amaze me and I can't recommend his services enough!",
     name: "Phil Miller",
     title: "Managing Director, D.R.",
   },
   {
-    quote: "Awesome Events have utilised Guy\u2019s supreme service for the last couple of years and we have found his professionalism to be outstanding and his ability to always deliver has assisted us with the planning of hundreds of events and conferences.",
+    quote: "Awesome Events have utilised Guy's supreme service for the last couple of years and we have found his professionalism to be outstanding and his ability to always deliver has assisted us with the planning of hundreds of events and conferences.",
     name: "Denis McCourt",
     title: "Director, Awesome Events",
+  },
+  {
+    quote: "Guy has worked with us on the TV Choice Awards for several years. He consistently delivers high-quality, expressive VO recordings with an impressively fast turnaround. Any amendments are quickly voiced and returned almost immediately, making him a reliable, professional voiceover partner and a supplier we're always happy to recommend.",
+    name: "Steve Horne",
+    title: "Producer, Stoneapple Productions Ltd",
   },
 ];
 
 function TestimonialsSection() {
+  const [current, setCurrent] = useState(0);
+  const total = TESTIMONIALS.length;
+  const prev = () => setCurrent((i) => (i - 1 + total) % total);
+  const next = () => setCurrent((i) => (i + 1) % total);
+
   return (
     <section className="bg-white py-24 md:py-32" data-testid="section-testimonials">
-      <div className="max-w-6xl mx-auto px-6">
-        <ScrollAnimation className="text-center mb-16">
-          <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-            Testimonials
-          </p>
+      <div className="max-w-3xl mx-auto px-6">
+        <ScrollAnimation className="text-center mb-12">
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
+            className="text-3xl md:text-4xl font-bold text-gray-900 mb-3"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             What Clients Say
           </h2>
+          <p className="text-gray-500 mb-4">Trusted by agencies, broadcasters, and brands across the UK</p>
           <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
         </ScrollAnimation>
 
-        <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.1}>
-          {TESTIMONIALS.map((testimonial) => (
-            <StaggerItem key={testimonial.name}>
-              <div
-                className="relative bg-gray-50 border border-gray-100 rounded-xl p-6 lg:p-8 h-full flex flex-col"
-                data-testid={`testimonial-${testimonial.name.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                <div className="text-[#9C060B]/30 text-5xl font-serif leading-none mb-4">&ldquo;</div>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1 mb-6">
-                  {testimonial.quote}
-                </p>
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35 }}
+              className="bg-white border border-gray-200 rounded-2xl shadow-md p-8 md:p-10"
+              data-testid={`testimonial-${TESTIMONIALS[current].name.toLowerCase().replace(/\s+/g, "-")}`}
+            >
+              <div className="text-[#9C060B]/20 text-7xl font-serif leading-none mb-2 select-none">&ldquo;&rdquo;</div>
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed italic mb-8">
+                &ldquo;{TESTIMONIALS[current].quote}&rdquo;
+              </p>
+              <div className="flex items-end justify-between gap-4">
                 <div>
-                  <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-gray-400">{testimonial.title}</p>
+                  <p className="font-bold text-gray-900">{TESTIMONIALS[current].name}</p>
+                  <p className="text-sm text-gray-400">{TESTIMONIALS[current].title}</p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    onClick={prev}
+                    aria-label="Previous testimonial"
+                    className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#9C060B] hover:text-[#9C060B] transition-colors"
+                    data-testid="button-testimonial-prev"
+                  >
+                    &#8249;
+                  </button>
+                  <button
+                    onClick={next}
+                    aria-label="Next testimonial"
+                    className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-[#9C060B] hover:text-[#9C060B] transition-colors"
+                    data-testid="button-testimonial-next"
+                  >
+                    &#8250;
+                  </button>
                 </div>
               </div>
-            </StaggerItem>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="flex items-center justify-center gap-2 mt-6">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              aria-label={`Go to testimonial ${i + 1}`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                i === current ? "bg-[#9C060B] w-4" : "bg-gray-300"
+              }`}
+              data-testid={`dot-testimonial-${i}`}
+            />
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );
@@ -1461,8 +1506,8 @@ export default function Home() {
       <AudioSection />
       <KillerStatement />
       <ClientsSection />
-      <ReviewsBanner />
       <TestimonialsSection />
+      <ReviewsBanner />
       <ContactSection />
       <Footer />
     </div>
