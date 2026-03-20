@@ -109,7 +109,7 @@ const SERVICES = [
     icon: Clock,
     title: "Last-Minute Changes",
     description:
-      "Schedule shift? Script tweak? I can turn updates around fast, without the panic.",
+      "Schedule shift? Script tweak? Last minute host change? I can turn updates around fast, without the panic.",
   },
 ];
 
