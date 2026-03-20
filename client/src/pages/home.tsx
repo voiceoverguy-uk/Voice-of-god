@@ -1028,7 +1028,7 @@ function ReviewsBanner() {
     <section className="bg-gray-950 py-16 md:py-24" data-testid="section-reviews">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollAnimation className="mb-12">
-          <div className="flex items-end justify-center gap-3 sm:gap-5 md:gap-6 max-w-full overflow-hidden">
+          <div className="flex items-end justify-center gap-3 sm:gap-5 md:gap-6 max-w-full overflow-visible pb-2">
             <div className="w-28 sm:w-36 md:w-44 flex-shrink-0 group cursor-pointer">
               <img
                 src={guyPhoto1}
