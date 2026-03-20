@@ -966,7 +966,7 @@ function ClientsSection() {
   return (
     <section
       id="clients"
-      className="bg-white py-24 md:py-32 overflow-hidden"
+      className="bg-white pt-24 md:pt-32 pb-8 overflow-hidden"
       data-testid="section-clients"
     >
       <div className="max-w-6xl mx-auto px-6 mb-12">
