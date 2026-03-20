@@ -1021,7 +1021,7 @@ function ClientsSection() {
       </div>
 
       <p className="text-center text-gray-500 mt-10 px-6 max-w-3xl mx-auto">
-        Event clients include Network Rail, TV Choice, Butlins, Masked Singer, Bestway, Welcome Break, EON, National History Museum, Muslim Aid, Go Local, IGT Gaming, Yeadon Town Hall, Bradford Theatres and more.
+        Event clients include Network Rail, TV Choice, Butlins, Masked Singer, Bestway, Welcome Break, EON, Muslim Aid, Go Local, IGT Gaming, Yeadon Town Hall, Bradford Theatres and more.
       </p>
     </section>
   );
