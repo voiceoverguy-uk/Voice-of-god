@@ -1245,7 +1245,7 @@ function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-gray-950 py-24 md:py-32"
+      className="bg-gray-950 pt-8 pb-24 md:pb-32"
       data-testid="section-contact"
     >
       <div className="max-w-6xl mx-auto px-6">
