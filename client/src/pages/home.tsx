@@ -966,10 +966,10 @@ function ClientsSection() {
   return (
     <section
       id="clients"
-      className="bg-white pt-24 md:pt-32 pb-8 overflow-hidden"
+      className="bg-white pt-24 md:pt-32 pb-20 overflow-hidden"
       data-testid="section-clients"
     >
-      <div className="max-w-6xl mx-auto px-6 mb-12">
+      <div className="max-w-6xl mx-auto px-6 mb-16">
         <ScrollAnimation className="text-center">
           <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Clients
