@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -1024,37 +1024,55 @@ function ReviewsBanner() {
   const reviewCount = reviewData?.reviewCount ?? 119;
   const rating = reviewData?.rating ?? 5.0;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
+  const leftX = useTransform(scrollYProgress, [0, 1], [200, 0]);
+  const rightX = useTransform(scrollYProgress, [0, 1], [-200, 0]);
+  const sideOpacity = useTransform(scrollYProgress, [0, 0.35], [0, 1]);
+
   return (
-    <section className="bg-gray-950 py-16 md:py-24" data-testid="section-reviews">
+    <section ref={sectionRef} className="relative bg-gray-950 py-16 md:py-24" data-testid="section-reviews">
       <div className="max-w-5xl mx-auto px-6">
-        <ScrollAnimation className="mb-12">
-          <div className="flex items-end justify-center gap-3 sm:gap-5 md:gap-6 max-w-full overflow-visible pb-2">
-            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0 group cursor-pointer">
-              <img
-                src={guyPhoto1}
-                alt="Guy Harris performing"
-                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_20px_rgba(156,6,11,0.5)]"
-                data-testid="img-guy-photo-1"
-              />
-            </div>
-            <div className="w-32 sm:w-40 md:w-52 flex-shrink-0 -mb-2 group cursor-pointer">
-              <img
-                src={guyPhoto2}
-                alt="Guy Harris portrait"
-                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] shadow-2xl transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_28px_rgba(156,6,11,0.6)]"
-                data-testid="img-guy-photo-2"
-              />
-            </div>
-            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0 group cursor-pointer">
-              <img
-                src={guyPhoto3}
-                alt="Guy Harris with microphone"
-                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_20px_rgba(156,6,11,0.5)]"
-                data-testid="img-guy-photo-3"
-              />
-            </div>
+        <div className="mb-12 flex items-end justify-center gap-3 sm:gap-5 md:gap-6 max-w-full overflow-visible pb-2">
+          {/* Left photo — slides in from behind centre */}
+          <motion.div
+            className="w-28 sm:w-36 md:w-44 flex-shrink-0 group cursor-pointer relative z-0"
+            style={{ x: leftX, opacity: sideOpacity }}
+          >
+            <img
+              src={guyPhoto1}
+              alt="Guy Harris performing"
+              className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_20px_rgba(156,6,11,0.5)]"
+              data-testid="img-guy-photo-1"
+            />
+          </motion.div>
+
+          {/* Centre photo — on top, stays in place */}
+          <div className="w-32 sm:w-40 md:w-52 flex-shrink-0 -mb-2 group cursor-pointer relative z-10">
+            <img
+              src={guyPhoto2}
+              alt="Guy Harris portrait"
+              className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] shadow-2xl transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_28px_rgba(156,6,11,0.6)]"
+              data-testid="img-guy-photo-2"
+            />
           </div>
-        </ScrollAnimation>
+
+          {/* Right photo — slides in from behind centre */}
+          <motion.div
+            className="w-28 sm:w-36 md:w-44 flex-shrink-0 group cursor-pointer relative z-0"
+            style={{ x: rightX, opacity: sideOpacity }}
+          >
+            <img
+              src={guyPhoto3}
+              alt="Guy Harris with microphone"
+              className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_20px_rgba(156,6,11,0.5)]"
+              data-testid="img-guy-photo-3"
+            />
+          </motion.div>
+        </div>
 
         <ScrollAnimation variant="scale">
           <div className="text-center">
