@@ -643,8 +643,7 @@ function AboutSection() {
                         Trusted by the Best
                       </h4>
                       <p className="text-sm text-gray-500">
-                        ITV, BBC, Apple, Disney, Samsung, and hundreds more global
-                        brands rely on my voice.
+                        ITV, BBC, Apple, Disney, Samsung, Tesco, Mini, Hotels.com and hundreds more global brands rely on my voice.
                       </p>
                     </div>
                   </div>
@@ -680,7 +679,7 @@ function ServicesSection() {
           </h2>
           <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
-            Live, pre-recorded or last-minute, delivered with calm authority and perfect timing.
+            Live, pre-recorded or last-minute audio, delivered with calm authority and perfect timing, saved individually for ease of use.
           </p>
         </ScrollAnimation>
 
