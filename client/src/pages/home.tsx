@@ -1012,7 +1012,7 @@ function ClientsSection() {
               <img
                 src={`/images/clients/${client.file}`}
                 alt={client.name}
-                className="h-12 w-auto max-w-[120px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                className="h-12 w-auto max-w-[120px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                 loading="lazy"
               />
             </div>
