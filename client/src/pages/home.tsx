@@ -848,7 +848,7 @@ function VideosSection() {
           </h2>
           <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
-            Watch highlights from some of my biggest Voice of God performances at major events and on telly across the UK.
+            Watch highlights from some of my biggest Voice of God performances at major events attended by big names and on television across the UK.
           </p>
         </ScrollAnimation>
 
