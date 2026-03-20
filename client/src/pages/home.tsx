@@ -988,7 +988,7 @@ function ClientsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           />
           <p className="text-gray-500 max-w-xl mx-auto">
-            Brands, broadcasters and live event producers across the UK trust my voice for their biggest moments.
+            Brands, broadcasters and live event producers across the UK trust my Voice of God Voice for their biggest moments.
           </p>
         </ScrollAnimation>
       </div>
@@ -1132,7 +1132,7 @@ function TestimonialsSection() {
   const next = () => setCurrent((i) => (i + 1) % total);
 
   return (
-    <section className="bg-white py-24 md:py-32" data-testid="section-testimonials">
+    <section className="bg-white pt-8 pb-24 md:pb-32" data-testid="section-testimonials">
       <div className="max-w-3xl mx-auto px-6">
         <ScrollAnimation className="text-center mb-12">
           <h2
