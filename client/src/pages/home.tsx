@@ -64,7 +64,7 @@ const CLIENT_LOGOS: { name: string; file: string }[] = [
   { name: "TV Choice Awards", file: "tv-choice-awards-logo-vog.jpg" },
   { name: "B&M", file: "b-and-m-logo-vog.png" },
   { name: "EON", file: "eon-logo-vog.png" },
-  { name: "Purina", file: "purina-Logo-vog.png" },
+  { name: "Purina", file: "purina-Logo-vog.jpg" },
   { name: "CGI", file: "cgi-logo-vog.png" },
   { name: "Amey", file: "amey-vog.png" },
   { name: "WSP Global", file: "wsp-global-logo-vog.png" },
@@ -1012,7 +1012,7 @@ function ClientsSection() {
               <img
                 src={`/images/clients/${client.file}`}
                 alt={client.name}
-                className="h-16 w-auto max-w-[160px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                className="h-20 w-auto max-w-[200px] object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
                 loading="lazy"
               />
             </div>
