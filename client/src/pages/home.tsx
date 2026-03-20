@@ -1019,6 +1019,10 @@ function ClientsSection() {
           ))}
         </div>
       </div>
+
+      <p className="text-center text-gray-400 text-sm mt-10 px-6">
+        Event clients include Network Rail, TV Choice, Butlins, Masked Singer, Bestway, Welcome Break, EON, National History Museum, Muslim Aid, Go Local, IGT Gaming, Yeadon Town Hall, Bradford Theatres and more.
+      </p>
     </section>
   );
 }
@@ -1090,9 +1094,6 @@ function ReviewsBanner() {
               Read Google Reviews
               <ExternalLink className="h-4 w-4" />
             </a>
-            <p className="text-gray-400">
-              Event clients include Network Rail, TV Choice, Butlins, Masked Singer, Bestway, Welcome Break, EON, National History Museum, Muslim Aid, Go Local, IGT Gaming, Yeadon Town Hall, Bradford Theatres and more.
-            </p>
           </div>
         </ScrollAnimation>
       </div>
