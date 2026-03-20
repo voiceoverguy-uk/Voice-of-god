@@ -880,8 +880,7 @@ function AudioSection() {
           </h2>
           <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
           <p className="text-gray-500 max-w-xl mx-auto">
-            Listen to Voice of God demo reels showcasing live event announcements,
-            awards intros and arena tours.
+            Listen to Voice of God demo reels showcasing live event announcements, awards intros, competition spots and arena tours.
           </p>
         </ScrollAnimation>
 
