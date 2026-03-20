@@ -1029,27 +1029,27 @@ function ReviewsBanner() {
       <div className="max-w-5xl mx-auto px-6">
         <ScrollAnimation className="mb-12">
           <div className="flex items-end justify-center gap-3 sm:gap-5 md:gap-6 max-w-full overflow-hidden">
-            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0">
+            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0 group cursor-pointer">
               <img
                 src={guyPhoto1}
                 alt="Guy Harris performing"
-                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-white/10"
+                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_20px_rgba(156,6,11,0.5)]"
                 data-testid="img-guy-photo-1"
               />
             </div>
-            <div className="w-32 sm:w-40 md:w-52 flex-shrink-0 -mb-2">
+            <div className="w-32 sm:w-40 md:w-52 flex-shrink-0 -mb-2 group cursor-pointer">
               <img
                 src={guyPhoto2}
                 alt="Guy Harris portrait"
-                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-white/20 shadow-2xl"
+                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] shadow-2xl transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_28px_rgba(156,6,11,0.6)]"
                 data-testid="img-guy-photo-2"
               />
             </div>
-            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0">
+            <div className="w-28 sm:w-36 md:w-44 flex-shrink-0 group cursor-pointer">
               <img
                 src={guyPhoto3}
                 alt="Guy Harris with microphone"
-                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-white/10"
+                className="w-full aspect-[3/4] object-cover rounded-lg border-2 border-[#9C060B] transition-all duration-300 group-hover:scale-[1.04] group-hover:shadow-[0_0_20px_rgba(156,6,11,0.5)]"
                 data-testid="img-guy-photo-3"
               />
             </div>
