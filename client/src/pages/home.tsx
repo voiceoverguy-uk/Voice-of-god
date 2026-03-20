@@ -38,34 +38,6 @@ import { contactFormSchema, type ContactForm } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 
-import logoAltonTowers from "@assets/voiceoverguy-clients-alton-towers_1772482508721.png";
-import logoApple from "@assets/voiceoverguy-clients-apple_1772482508721.png";
-import logoAsda from "@assets/voiceoverguy-clients-asda_1772482508721.png";
-import logoBarclays from "@assets/voiceoverguy-clients-barclays_1772482508721.png";
-import logoBaxi from "@assets/voiceoverguy-clients-baxi_1772482508722.png";
-import logoBbc2 from "@assets/voiceoverguy-clients-bbc-2_1772482508722.png";
-import logoBbcRadio1 from "@assets/voiceoverguy-clients-bbc-radio-1_1772482508722.png";
-import logoBecks from "@assets/voiceoverguy-clients-becks_1772482508722.png";
-import logoBetfred from "@assets/voiceoverguy-clients-betfred_1772482538649.png";
-import logoBiffa from "@assets/voiceoverguy-clients-biffa_1772482538649.png";
-import logoBoomBeach from "@assets/voiceoverguy-clients-boom-beach_1772482538649.png";
-import logoBoomRadio from "@assets/voiceoverguy-clients-boom-radio_1772482508719.png";
-import logoBupa from "@assets/voiceoverguy-clients-bupa_1772482538649.png";
-import logoButlins from "@assets/voiceoverguy-clients-butlins_1772482538649.png";
-import logoCapital from "@assets/voiceoverguy-clients-capital_1772482538650.png";
-import logoCbeebies from "@assets/voiceoverguy-clients-cbeebies_1772482538650.png";
-import logoCentreParcs from "@assets/voiceoverguy-clients-centre-parcs_1772482538650.png";
-import logoCocaCola from "@assets/voiceoverguy-clients-coca-cola_1772482538650.png";
-import logoDpd from "@assets/voiceoverguy-clients-dpd_1772482538651.png";
-import logoDreamworks from "@assets/voiceoverguy-clients-dreamworks_1772482538651.png";
-import logoEmirates from "@assets/voiceoverguy-clients-emirates_1772482538651.png";
-import logoHeart from "@assets/voiceoverguy-clients-heart_1772482538652.png";
-import logoHotels from "@assets/voiceoverguy-clients-hotels-brand_1772482538652.png";
-import logoItv from "@assets/voiceoverguy-clients-itv_1772482538652.png";
-import logoJustEat from "@assets/voiceoverguy-clients-just-eat_1772482508720.png";
-import logoKelloggs from "@assets/voiceoverguy-clients-kelloggs_1772482538652.png";
-import logoMcDonalds from "@assets/voiceoverguy-clients-mcd_1772482538653.png";
-import logoBooking from "@assets/voiceoverguy-booking-dot-com-brand_1772482508721.png";
 import heroBackground from "@assets/guy-harris-voice-of-god-on-stage_1772493275715.jpg";
 import guyPhoto1 from "@assets/guy-harris-vog-1_1772493713393.jpg";
 import guyPhoto2 from "@assets/guy-harris-vog-2_1772493713393.jpg";
@@ -82,35 +54,42 @@ const NAV_LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const CLIENTS: { name: string; logo: string }[] = [
-  { name: "ITV", logo: logoItv },
-  { name: "BBC Two", logo: logoBbc2 },
-  { name: "BBC Radio 1", logo: logoBbcRadio1 },
-  { name: "CBeebies", logo: logoCbeebies },
-  { name: "Apple", logo: logoApple },
-  { name: "Coca-Cola", logo: logoCocaCola },
-  { name: "McDonald's", logo: logoMcDonalds },
-  { name: "Hotels.com", logo: logoHotels },
-  { name: "Booking.com", logo: logoBooking },
-  { name: "Barclays", logo: logoBarclays },
-  { name: "Emirates", logo: logoEmirates },
-  { name: "DreamWorks", logo: logoDreamworks },
-  { name: "Kellogg's", logo: logoKelloggs },
-  { name: "Just Eat", logo: logoJustEat },
-  { name: "Asda", logo: logoAsda },
-  { name: "DPD", logo: logoDpd },
-  { name: "Heart Radio", logo: logoHeart },
-  { name: "Capital FM", logo: logoCapital },
-  { name: "Boom Radio", logo: logoBoomRadio },
-  { name: "Centre Parcs", logo: logoCentreParcs },
-  { name: "Alton Towers", logo: logoAltonTowers },
-  { name: "Butlins", logo: logoButlins },
-  { name: "Bupa", logo: logoBupa },
-  { name: "Betfred", logo: logoBetfred },
-  { name: "Beck's", logo: logoBecks },
-  { name: "Biffa", logo: logoBiffa },
-  { name: "Baxi", logo: logoBaxi },
-  { name: "Boom Beach", logo: logoBoomBeach },
+const CLIENT_LOGOS: { name: string; file: string }[] = [
+  { name: "Butlins", file: "butlins-logo-vog.png" },
+  { name: "Mercedes-Benz", file: "mercedes-benz-logo-vog.png" },
+  { name: "DPD", file: "dpd-logo-vog.png" },
+  { name: "Iceland", file: "iceland-logo-vog.png" },
+  { name: "Pfizer", file: "pfizer_logo-vog.png" },
+  { name: "Network Rail", file: "network-rail-logo-vog.png" },
+  { name: "TV Choice Awards", file: "tv-choice-awards-logo-vog.png" },
+  { name: "B&M", file: "b-and-m-logo-vog.png" },
+  { name: "EON", file: "eon-logo-vog.png" },
+  { name: "Purina", file: "purina-Logo-vog.png" },
+  { name: "CGI", file: "cgi-logo-vog.png" },
+  { name: "Amey", file: "amey-vog.png" },
+  { name: "WSP Global", file: "wsp-global-logo-vog.png" },
+  { name: "Welcome Break", file: "welcome-break-logo-vog.png" },
+  { name: "Nexia", file: "nexia-logo-vog.png" },
+  { name: "Muslim Aid", file: "muslim-aid-logo-vog.png" },
+  { name: "B. Braun", file: "b-braun-vog.png" },
+  { name: "Etex", file: "etex-logo-vog.png" },
+  { name: "Evotix", file: "evotix-logo-vog.png" },
+  { name: "Hayley Group", file: "hayley-group-logo-vog.png" },
+  { name: "Bestway Retail", file: "bestway-retail-logo-vog.png" },
+  { name: "Go Local", file: "go-local-logo-vog.png" },
+  { name: "Bradford Theatres", file: "bradford-theatres-logo-vog.png" },
+  { name: "DFC", file: "dfc-logo-vog.png" },
+  { name: "Jersey Opera House", file: "jersey-opera-house-Logo-vog.png" },
+  { name: "Colab Live", file: "colab-live-logo-vog.png" },
+  { name: "Awesome Events", file: "awesome-events-Logo-vog.png" },
+  { name: "Duke of Edinburgh", file: "d-of-e-Logo-vog.png" },
+  { name: "IGA Gaming Awards", file: "iga-gaming-awards-logo-vog.png" },
+  { name: "Fragrance Foundation", file: "the-fragrance-foundation-logo-vog.png" },
+  { name: "Teas Awards", file: "teas-awards-logo-vog.png" },
+  { name: "MAB", file: "mab-Logo-vog.png" },
+  { name: "Appreciation Awards", file: "appreciation-awards-logo-vog.png" },
+  { name: "Yeadon Town Hall", file: "yeadon-town-hall-logo-vog.png" },
+  { name: "EMC", file: "EMC-member-bw.png" },
 ];
 
 const SERVICES = [
@@ -987,54 +966,58 @@ function ClientsSection() {
   return (
     <section
       id="clients"
-      className="bg-gray-950 py-28 md:py-36"
+      className="bg-white py-24 md:py-32 overflow-hidden"
       data-testid="section-clients"
     >
-      <div className="max-w-6xl mx-auto px-6">
-        <ScrollAnimation className="text-center mb-16">
+      <div className="max-w-6xl mx-auto px-6 mb-12">
+        <ScrollAnimation className="text-center">
           <p className="text-[#9C060B] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Clients
           </p>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
             Trusted By
           </h2>
-          <motion.div className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4" initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }} />
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Brands and broadcasters across the UK and worldwide trust my voice
-            for their biggest moments.
+          <motion.div
+            className="w-16 h-0.5 bg-[#9C060B] mx-auto mb-4"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          />
+          <p className="text-gray-500 max-w-xl mx-auto">
+            Brands, broadcasters and live event producers across the UK trust my voice for their biggest moments.
           </p>
         </ScrollAnimation>
+      </div>
 
-        <StaggerContainer
-          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-4"
-          staggerDelay={0.03}
-        >
-          {CLIENTS.map((client) => (
-            <StaggerItem key={client.name}>
-              <div
-                className="group relative flex flex-col items-center justify-center h-24 rounded-lg bg-white/5 border border-white/10 p-3 transition-all duration-500 cursor-default"
-                data-testid={`client-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-h-12 max-w-full object-contain transition-all duration-300 group-hover:-translate-y-1 opacity-90 hover:opacity-100"
-                  loading="lazy"
-                  data-testid={`logo-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-                />
-                <span
-                  className="absolute bottom-1.5 left-0 right-0 text-center text-[10px] font-semibold text-gray-400 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
-                  data-testid={`name-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-                >
-                  {client.name}
-                </span>
-              </div>
-            </StaggerItem>
+      <div
+        className="relative"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+        }}
+        data-testid="client-logos-marquee"
+      >
+        <div className="flex gap-16 w-max animate-marquee">
+          {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, i) => (
+            <div
+              key={`${client.name}-${i}`}
+              className="flex items-center justify-center shrink-0"
+              style={{ width: 140 }}
+              data-testid={i < CLIENT_LOGOS.length ? `client-${client.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}` : undefined}
+            >
+              <img
+                src={`/images/clients/${client.file}`}
+                alt={client.name}
+                className="h-12 w-auto max-w-[120px] object-contain opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+                loading="lazy"
+              />
+            </div>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );
