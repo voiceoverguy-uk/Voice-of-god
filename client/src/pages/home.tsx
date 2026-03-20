@@ -926,34 +926,26 @@ function KillerStatement() {
     >
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 max-w-5xl mx-auto px-6">
-        <ScrollAnimation>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-            <p
-              className="text-xl md:text-2xl font-bold text-white leading-snug"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+          {[
+            "Over 200,000 scripts voiced.",
+            `${new Date().getFullYear() - 2000}+ years experience.`,
+            "Over 15,000 happy clients.\nVoice heard worldwide.",
+            "Trusted by ITV, BBC, Apple and the UK's biggest live productions.",
+          ].map((text, i) => (
+            <motion.p
+              key={i}
+              className="text-xl md:text-2xl font-bold text-white leading-snug whitespace-pre-line"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.18 }}
             >
-              Over 200,000 scripts voiced.
-            </p>
-            <p
-              className="text-xl md:text-2xl font-bold text-white leading-snug"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              {`${new Date().getFullYear() - 2000}+ years experience.`}
-            </p>
-            <p
-              className="text-xl md:text-2xl font-bold text-white leading-snug"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              Over 15,000 happy clients.
-            </p>
-            <p
-              className="text-xl md:text-2xl font-bold text-white leading-snug"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              Trusted by ITV, BBC, Apple and the UK's biggest live productions.
-            </p>
-          </div>
-        </ScrollAnimation>
+              {text}
+            </motion.p>
+          ))}
+        </div>
       </div>
     </section>
   );
