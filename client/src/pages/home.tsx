@@ -580,16 +580,16 @@ function AboutSection() {
                 <p className="font-medium text-gray-900 italic">
                   I make your awards feel like the BAFTAs.
                 </p>
-                <p>
-                  Voice of God is part of{" "}
+                <p className="italic text-gray-500">
+                  Guy Harris &mdash;{" "}
                   <a
                     href="https://www.voiceoverguy.co.uk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#9C060B] font-medium hover:underline"
+                    className="text-[#9C060B] hover:underline"
                     data-testid="link-about-main-site"
                   >
-                    VoiceoverGuy.co.uk
+                    VoiceoverGuy
                   </a>
                 </p>
               </div>
