@@ -1075,24 +1075,24 @@ function ReviewsBanner() {
               ))}
             </div>
             <h3
-              className="text-2xl md:text-3xl font-bold text-white mb-2"
+              className="text-2xl md:text-3xl font-bold text-white mb-3"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               Rated {rating.toFixed(1)} on Google by {reviewCount} Happy Clients
             </h3>
-            <p className="text-gray-400 mb-6">
-              Event clients include Network Rail, TV Choice, Butlins, Masked Singer, Bestway, Welcome Break, EON, National History Museum, Muslim Aid, Go Local, IGT Gaming, Yeadon Town Hall, Bradford Theatres and more.
-            </p>
             <a
               href="https://www.google.com/search?q=VoiceoverGuy+Wakefield&ludocid=13238741027900894876#lrd=0x48795b5b8bb4d61d:0xb7a63f64e244a5ec,1"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#9C060B] font-medium text-sm transition-colors"
+              className="inline-flex items-center gap-2 text-[#9C060B] font-medium text-sm transition-colors mb-6"
               data-testid="link-google-reviews"
             >
               Read Google Reviews
               <ExternalLink className="h-4 w-4" />
             </a>
+            <p className="text-gray-400">
+              Event clients include Network Rail, TV Choice, Butlins, Masked Singer, Bestway, Welcome Break, EON, National History Museum, Muslim Aid, Go Local, IGT Gaming, Yeadon Town Hall, Bradford Theatres and more.
+            </p>
           </div>
         </ScrollAnimation>
       </div>
