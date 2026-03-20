@@ -1440,6 +1440,16 @@ function Footer() {
             <div className="flex items-center gap-1 flex-wrap justify-center md:justify-end">
               <span className="text-gray-600 text-xs">Also by Guy:</span>
               <a
+                href="https://www.voiceoverguy.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-500 hover:text-[#9C060B] transition-colors"
+                data-testid="link-footer-voiceoverguy"
+              >
+                VoiceoverGuy
+              </a>
+              <span className="text-gray-700 text-xs">&bull;</span>
+              <a
                 href="https://www.pathevoice.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
