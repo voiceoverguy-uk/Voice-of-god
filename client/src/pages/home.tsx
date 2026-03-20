@@ -918,8 +918,36 @@ function AudioSection() {
 }
 
 function KillerStatement() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
+
+  // Left column slides in from the left, right column from the right
+  // Each item uses a slightly offset scroll window to cascade in one by one
+  const x0 = useTransform(scrollYProgress, [0.0, 0.45], [-80, 0]);
+  const op0 = useTransform(scrollYProgress, [0.0, 0.45], [0, 1]);
+
+  const x1 = useTransform(scrollYProgress, [0.15, 0.6], [80, 0]);
+  const op1 = useTransform(scrollYProgress, [0.15, 0.6], [0, 1]);
+
+  const x2 = useTransform(scrollYProgress, [0.3, 0.75], [-80, 0]);
+  const op2 = useTransform(scrollYProgress, [0.3, 0.75], [0, 1]);
+
+  const x3 = useTransform(scrollYProgress, [0.45, 0.9], [80, 0]);
+  const op3 = useTransform(scrollYProgress, [0.45, 0.9], [0, 1]);
+
+  const stats = [
+    { text: "Over 200,000 scripts voiced.", x: x0, opacity: op0 },
+    { text: `${new Date().getFullYear() - 2000}+ years experience.`, x: x1, opacity: op1 },
+    { text: "Over 15,000 happy clients.\nVoice heard worldwide.", x: x2, opacity: op2 },
+    { text: "Trusted by ITV, BBC, Apple and the UK's biggest live productions.", x: x3, opacity: op3 },
+  ];
+
   return (
     <section
+      ref={sectionRef}
       className="relative py-20 md:py-28 overflow-hidden border-b border-white/10"
       style={{ backgroundImage: `url(${killerBg})`, backgroundSize: "cover", backgroundPosition: "center 35%" }}
       data-testid="section-killer-statement"
@@ -927,20 +955,11 @@ function KillerStatement() {
       <div className="absolute inset-0 bg-black/70" />
       <div className="relative z-10 max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-          {[
-            "Over 200,000 scripts voiced.",
-            `${new Date().getFullYear() - 2000}+ years experience.`,
-            "Over 15,000 happy clients.\nVoice heard worldwide.",
-            "Trusted by ITV, BBC, Apple and the UK's biggest live productions.",
-          ].map((text, i) => (
+          {stats.map(({ text, x, opacity }, i) => (
             <motion.p
               key={i}
               className="text-xl md:text-2xl font-bold text-white leading-snug whitespace-pre-line"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.18 }}
+              style={{ fontFamily: "'Montserrat', sans-serif", x, opacity }}
             >
               {text}
             </motion.p>
