@@ -1001,7 +1001,7 @@ function ClientsSection() {
         }}
         data-testid="client-logos-marquee"
       >
-        <div className="flex gap-16 w-max animate-marquee">
+        <div className="flex gap-16 w-max animate-marquee" style={{ touchAction: "none" }}>
           {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map((client, i) => (
             <div
               key={`${client.name}-${i}`}
