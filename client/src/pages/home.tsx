@@ -1081,9 +1081,7 @@ function ReviewsBanner() {
               Rated {rating.toFixed(1)} on Google by {reviewCount} Happy Clients
             </h3>
             <p className="text-gray-400 mb-6">
-              Event clients include ITV, TV Choice, Butlins, Masked Singer,
-              Bestway, Poundland, EON, National History Museum, IGT Gaming and
-              more.
+              Event clients include Network Rail, TV Choice, Butlins, Masked Singer, Bestway, Welcome Break, EON, National History Museum, Muslim Aid, Go Local, IGT Gaming, Yeadon Town Hall, Bradford Theatres and more.
             </p>
             <a
               href="https://www.google.com/search?q=VoiceoverGuy+Wakefield&ludocid=13238741027900894876#lrd=0x48795b5b8bb4d61d:0xb7a63f64e244a5ec,1"
