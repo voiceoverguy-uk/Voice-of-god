@@ -3,6 +3,10 @@
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "framework": null,
+  "functions": {
+    "api/contact.ts": { "runtime": "nodejs20.x" },
+    "api/reviews.ts": { "runtime": "nodejs20.x" }
+  },
   "redirects": [
     { "source": "/voice-of-god", "destination": "/", "statusCode": 301 },
     { "source": "/about", "destination": "/", "statusCode": 301 },
