@@ -47,10 +47,10 @@ import killerBg from "@assets/guy-harris-voiceover-1200_1772529168284.jpg";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
   { label: "Watch", href: "#videos" },
   { label: "Listen", href: "#demos" },
   { label: "Clients", href: "#clients" },
+  { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -1519,12 +1519,12 @@ export default function Home() {
       <HeroSection />
       <EventsTicker />
       <AboutSection />
-      <ServicesSection />
       <VideosSection />
       <AudioSection />
-      <KillerStatement />
       <ClientsSection />
       <TestimonialsSection />
+      <ServicesSection />
+      <KillerStatement />
       <ReviewsBanner />
       <ContactSection />
       <Footer />
