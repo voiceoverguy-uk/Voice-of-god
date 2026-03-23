@@ -35,7 +35,6 @@ import audioButlins from "@assets/butlins-voice-of-god-guy-harris_1772496115971.
 import audioMaskedSinger from "@assets/the-masked-singer-voice-of-god-guy-harris_1772496115971.mp3";
 import audioBgt from "@assets/bgt-competition-spot-2025-guy-harris_1772496384632.mp3";
 import { contactFormSchema, type ContactForm } from "@shared/schema";
-import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 
 import heroBackground from "@assets/guy-harris-voice-of-god-on-stage_1772493275715.jpg";
@@ -1231,9 +1230,20 @@ function TestimonialsSection() {
   );
 }
 
+function getGreeting(): string {
+  const now = new Date();
+  const day = now.getDay(); // 0=Sun … 5=Fri … 6=Sat
+  const mins = now.getHours() * 60 + now.getMinutes();
+  if (day === 5 && mins >= 18 * 60) return "Have a good evening and weekend";
+  if (mins < 12 * 60) return "Have a good morning";
+  if (mins < 18 * 60) return "Have a good afternoon";
+  return "Have a good evening";
+}
+
 function ContactSection() {
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [greeting, setGreeting] = useState("");
 
   const form = useForm<ContactForm>({
     resolver: zodResolver(contactFormSchema),
@@ -1248,21 +1258,14 @@ function ContactSection() {
 
   const onSubmit = async (data: ContactForm) => {
     setIsSubmitting(true);
+    setSubmitStatus(null);
     try {
       await apiRequest("POST", "/api/contact", data);
-      toast({
-        title: "Enquiry sent ✅",
-        description:
-          "Thanks, I've got it. I'll reply within 24 hours.",
-        duration: 3500,
-      });
+      setGreeting(getGreeting());
+      setSubmitStatus("success");
       form.reset();
     } catch {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again or email me directly.",
-        variant: "destructive",
-      });
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -1428,6 +1431,33 @@ function ContactSection() {
               <p className="text-gray-500 text-sm mt-3" data-testid="text-below-submit">
                 Every enquiry is read personally by Guy, you'll hear back within 24 hours.
               </p>
+
+              {submitStatus === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="mt-4 rounded-lg border border-green-500/30 bg-green-500/10 px-5 py-4"
+                  data-testid="text-success-message"
+                >
+                  <p className="text-green-400 font-semibold mb-1">✅ Enquiry sent!</p>
+                  <p className="text-gray-300 text-sm">Thanks, I've got it. I'll reply within 24 hours.</p>
+                  <p className="text-gray-400 text-sm mt-2 italic">{greeting} 😊</p>
+                </motion.div>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 px-5 py-4"
+                  data-testid="text-error-message"
+                >
+                  <p className="text-red-400 font-semibold mb-1">Something went wrong</p>
+                  <p className="text-gray-300 text-sm">Please try again or email me directly.</p>
+                </motion.div>
+              )}
             </form>
           </ScrollAnimation>
         </div>
