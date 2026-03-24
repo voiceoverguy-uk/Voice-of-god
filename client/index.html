@@ -62,14 +62,20 @@
           "description": "Premium Voice of God voiceover for award ceremonies, arena tours and corporate events across the UK. Epic, cinematic announcing with authority — by Guy Harris.",
           "isPartOf": { "@id": "https://voiceofgod.co.uk/#website" },
           "about": { "@id": "https://voiceofgod.co.uk/#person" },
-          "inLanguage": "en-GB"
+          "inLanguage": "en-GB",
+          "video": [
+            { "@id": "https://voiceofgod.co.uk/#video-masked-singer" },
+            { "@id": "https://voiceofgod.co.uk/#video-takeaway" },
+            { "@id": "https://voiceofgod.co.uk/#video-bgt" },
+            { "@id": "https://voiceofgod.co.uk/#video-tv-choice" }
+          ]
         },
         {
           "@type": "Person",
           "@id": "https://voiceofgod.co.uk/#person",
           "name": "Guy Harris",
           "jobTitle": "Voice of God Announcer",
-          "description": "Professional Voice of God announcer and live event voiceover artist based in the UK, working with ITV, BBC, Butlins, The Masked Singer and more.",
+          "description": "Professional Voice of God announcer and live event voiceover artist with 26+ years experience, working with ITV, BBC, Butlins, The Masked Singer, Britain's Got Talent, Ant & Dec's Saturday Night Takeaway and more.",
           "url": "https://voiceofgod.co.uk/",
           "image": "https://www.voiceoverguy.co.uk/images/guy-harris-profile.jpg",
           "sameAs": [
@@ -83,14 +89,16 @@
             "Award ceremony announcer",
             "Corporate event voiceover",
             "Arena tour announcer",
-            "Pre-recorded event voiceover"
+            "Pre-recorded event voiceover",
+            "Competition voiceover",
+            "Television show announcer"
           ]
         },
         {
           "@type": "Service",
           "@id": "https://voiceofgod.co.uk/#service",
           "name": "Voice of God Announcer",
-          "description": "Professional Voice of God voiceover and live event announcing for award ceremonies, arena tours and corporate events across the UK.",
+          "description": "Professional Voice of God voiceover and live event announcing for award ceremonies, arena tours, television shows and corporate events across the UK.",
           "url": "https://voiceofgod.co.uk/",
           "provider": { "@id": "https://voiceofgod.co.uk/#person" },
           "areaServed": {
@@ -100,7 +108,118 @@
           "serviceType": [
             "Voice of God voiceover",
             "Live event announcing",
-            "Awards ceremony announcing"
+            "Awards ceremony announcing",
+            "Arena tour announcing",
+            "Competition voiceover",
+            "Pre-recorded event audio"
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "120",
+            "bestRating": "5",
+            "worstRating": "1"
+          }
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://voiceofgod.co.uk/#video-masked-singer",
+          "name": "The Masked Singer — Voice of God by Guy Harris",
+          "description": "Guy Harris as Voice of God show announcer for ITV's The Masked Singer.",
+          "thumbnailUrl": "https://img.youtube.com/vi/e0vZ9cxdilo/maxresdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/e0vZ9cxdilo",
+          "url": "https://www.youtube.com/watch?v=e0vZ9cxdilo",
+          "uploadDate": "2024-01-15",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://voiceofgod.co.uk/#person" }
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://voiceofgod.co.uk/#video-takeaway",
+          "name": "Ant & Dec's Saturday Night Takeaway — Arena Tour Voice of God",
+          "description": "Guy Harris as Voice of God announcer for Ant & Dec's Saturday Night Takeaway live arena tour.",
+          "thumbnailUrl": "https://img.youtube.com/vi/W99pMUr6G8Q/maxresdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/W99pMUr6G8Q",
+          "url": "https://www.youtube.com/watch?v=W99pMUr6G8Q",
+          "uploadDate": "2023-06-01",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://voiceofgod.co.uk/#person" }
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://voiceofgod.co.uk/#video-bgt",
+          "name": "Britain's Got Talent Competition Voiceover — Guy Harris",
+          "description": "Guy Harris providing competition spot voiceover for Britain's Got Talent 2025.",
+          "thumbnailUrl": "https://img.youtube.com/vi/4yTnVRDXZfQ/maxresdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/4yTnVRDXZfQ",
+          "url": "https://www.youtube.com/watch?v=4yTnVRDXZfQ",
+          "uploadDate": "2025-01-01",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://voiceofgod.co.uk/#person" }
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://voiceofgod.co.uk/#video-tv-choice",
+          "name": "TV Choice Awards — Voice of God by Guy Harris",
+          "description": "Guy Harris as Voice of God at the annual TV Choice Awards in London.",
+          "thumbnailUrl": "https://img.youtube.com/vi/4Le6P6sk7cs/maxresdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/4Le6P6sk7cs",
+          "url": "https://www.youtube.com/watch?v=4Le6P6sk7cs",
+          "uploadDate": "2024-09-01",
+          "inLanguage": "en-GB",
+          "publisher": { "@id": "https://voiceofgod.co.uk/#person" }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://voiceofgod.co.uk/#audio-demos",
+          "name": "Voice of God Audio Demo Reels — Guy Harris",
+          "description": "Audio demo reels showcasing Voice of God announcing for live events, awards ceremonies, arena tours and competition spots.",
+          "numberOfItems": 4,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "AudioObject",
+                "name": "Ant & Dec's Saturday Night Takeaway on Tour — Voice of God Demo",
+                "description": "Voice of God demo reel from Ant & Dec's Saturday Night Takeaway live arena tour.",
+                "encodingFormat": "audio/mpeg",
+                "creator": { "@id": "https://voiceofgod.co.uk/#person" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "AudioObject",
+                "name": "Butlins Resorts — Voice of God Demo",
+                "description": "Voice of God demo reel for Butlins Resorts live events and shows.",
+                "encodingFormat": "audio/mpeg",
+                "creator": { "@id": "https://voiceofgod.co.uk/#person" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "AudioObject",
+                "name": "The Masked Singer — Voice of God Demo",
+                "description": "Voice of God demo reel from ITV's The Masked Singer.",
+                "encodingFormat": "audio/mpeg",
+                "creator": { "@id": "https://voiceofgod.co.uk/#person" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "AudioObject",
+                "name": "Britain's Got Talent — Competition Spot 2025",
+                "description": "Competition voiceover spot for Britain's Got Talent 2025.",
+                "encodingFormat": "audio/mpeg",
+                "creator": { "@id": "https://voiceofgod.co.uk/#person" }
+              }
+            }
           ]
         },
         {
