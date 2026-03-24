@@ -825,7 +825,7 @@ function VideosSection() {
   return (
     <section
       id="videos"
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-24 md:py-32 overflow-hidden scroll-mt-20"
       data-testid="section-videos"
     >
       <div
