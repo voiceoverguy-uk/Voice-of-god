@@ -1,0 +1,58 @@
+Please audit the Voice of God site for old WordPress URL handling, redirect rules, canonicals, robots directives, and sitemap consistency, then implement only safe fixes where they genuinely help.
+
+Context:
+- The previous site was a small WordPress site.
+- The new site is now live.
+- Google Search Console is reporting a few indexing issues from old/legacy URLs.
+- I have manually checked these three URLs and they currently return 404:
+  - http://voiceofgod.co.uk/voice-over-guy/
+  - http://voiceofgod.co.uk/voiceover-production/
+  - https://voiceofgod.co.uk/hello-world/
+
+Search Console issues currently shown:
+- Page with redirect:
+  - http://voiceofgod.co.uk/
+  - http://www.voiceofgod.co.uk/
+  - http://voiceofgod.co.uk/?page_id=726
+- Not found (404):
+  - http://voiceofgod.co.uk/voice-over-guy/
+- Alternate page with proper canonical tag:
+  - https://www.voiceofgod.co.uk/
+- Duplicate, Google chose different canonical than user:
+  - http://voiceofgod.co.uk/voiceover-production/
+- Crawled – currently not indexed:
+  - https://voiceofgod.co.uk/hello-world/
+- Excluded by noindex:
+  - https://voiceofgod.co.uk/feed/
+
+What I need:
+1. Audit the current routing, redirects, canonical tags, robots directives, and sitemap.
+2. Confirm the site has one clean canonical URL format only, with one-hop redirects where possible:
+   - force https
+   - force the preferred host version consistently
+   - remove unnecessary duplicate URL variants
+3. Check whether old WordPress-style URLs are already handled correctly:
+   - ?page_id=726
+   - /voice-over-guy/
+   - /voiceover-production/
+   - /hello-world/
+   - /feed/
+4. Only add redirects for legacy 404 URLs if there is a genuinely relevant modern equivalent page.
+5. Do not redirect dead junk URLs like /hello-world/ to the homepage just for the sake of it.
+6. Keep /feed/ noindexed or excluded if that is intentional, and make sure it is not in the sitemap.
+7. Confirm canonical tags on live pages point only to the final preferred URL.
+8. Confirm old non-canonical URLs are not being linked internally anywhere.
+9. Confirm only canonical live URLs are present in the sitemap.
+10. Give me a short final report with:
+   - what was already correct
+   - what you changed
+   - which Search Console issues are normal and should settle on their own
+   - which live canonical URLs I should manually submit in Google Search Console using URL Inspection / Request Indexing
+   - which reports are safe to click “Validate Fix” on after deploy
+
+Important:
+- Keep this surgical and minimal.
+- No unnecessary refactors.
+- Prefer one-hop redirects only.
+- Do not break existing live pages.
+- If a legacy URL has no sensible replacement, leave it 404 and say so clearly in the report.
