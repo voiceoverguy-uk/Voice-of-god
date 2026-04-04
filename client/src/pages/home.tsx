@@ -1534,6 +1534,16 @@ function Footer() {
               >
                 SantaGuy
               </a>
+              <span className="text-gray-700 text-xs">&bull;</span>
+              <a
+                href="https://www.movietrailervoice.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-500 hover:text-[#9C060B] transition-colors"
+                data-testid="link-footer-movie-trailer-voice"
+              >
+                MovieTrailerVoice
+              </a>
             </div>
           </div>
         </div>
