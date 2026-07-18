@@ -4,6 +4,8 @@
   "installCommand": "npm install",
   "framework": null,
   "redirects": [
+    { "source": "/guy-harris", "destination": "/", "statusCode": 301 },
+    { "source": "/guy-harris/", "destination": "/", "statusCode": 301 },
     { "source": "/voice-of-god", "destination": "/", "statusCode": 301 },
     { "source": "/voice-of-god/", "destination": "/", "statusCode": 301 },
     { "source": "/about", "destination": "/", "statusCode": 301 },
