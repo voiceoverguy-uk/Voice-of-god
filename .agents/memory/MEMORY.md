@@ -1,0 +1,1 @@
+- [Google reviews verification](google-reviews-verification.md) — Official review URLs may show Google's limited view on signed-out desktop; verify review content, not just identity.

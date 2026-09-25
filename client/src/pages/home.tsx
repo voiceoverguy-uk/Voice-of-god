@@ -1110,7 +1110,7 @@ function ReviewsBanner() {
               Rated {rating.toFixed(1)} on Google by {reviewCount} Happy Clients
             </h3>
             <a
-              href="https://www.google.com/search?q=VoiceoverGuy+Wakefield&ludocid=13238741027900894876#lrd=0x48795b5b8bb4d61d:0xb7a63f64e244a5ec,1"
+              href="https://www.google.com/maps/place//data=!4m4!3m3!1s0x4879672543b8552f:0xa3cdce7ae1235f05!9m1!1b1?g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[#9C060B] font-medium text-sm transition-colors mb-6"
