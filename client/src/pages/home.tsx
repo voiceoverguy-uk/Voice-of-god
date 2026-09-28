@@ -1147,6 +1147,11 @@ const TESTIMONIALS = [
     name: "Steve Horne",
     title: "Producer, Stoneapple Productions Ltd",
   },
+  {
+    quote: "I have worked with Guy on numerous projects, and he consistently exceeds expectations. His professionalism, reliability, and commitment to delivering high-quality voiceovers make him an invaluable partner.\n\nI would not hesitate to recommend Guy to anyone looking for a voiceover professional who combines outstanding quality, flexibility, and exceptional customer service",
+    name: "Rebecca Sharpe",
+    title: "Quadrant Events",
+  },
 ];
 
 function TestimonialsSection() {
@@ -1181,7 +1186,7 @@ function TestimonialsSection() {
               data-testid={`testimonial-${TESTIMONIALS[current].name.toLowerCase().replace(/\s+/g, "-")}`}
             >
               <div className="text-[#9C060B]/20 text-7xl font-serif leading-none mb-2 select-none">&ldquo;&rdquo;</div>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed italic mb-8">
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed italic mb-8 whitespace-pre-line">
                 &ldquo;{TESTIMONIALS[current].quote}&rdquo;
               </p>
               <div className="flex items-end justify-between gap-4">
