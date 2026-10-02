@@ -102,6 +102,11 @@ test("unmatched FAQPage and its references are absent", () => {
   assert.equal(nodes.some((node) => node["@id"] === `${base}#faq`), false);
 });
 
+test("no static AggregateRating or Review schema claims", () => {
+  assert.equal(nodes.some(node => hasType(node, "AggregateRating") || hasType(node, "Review")), false);
+  assert.equal(nodes.some(node => "aggregateRating" in node), false);
+});
+
 test("Takeaway schema thumbnail returns a real provider JPEG", {
   skip: process.env.VERIFY_PROVIDER_THUMBNAIL !== "1"
     ? "Opt-in network check: set VERIFY_PROVIDER_THUMBNAIL=1"

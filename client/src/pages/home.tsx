@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { GoogleRatingValue, GoogleReviewSummary } from "@/components/google-reviews";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -115,7 +115,7 @@ const SERVICES = [
 const STATS = [
   { value: `${new Date().getFullYear() - 2000}+`, label: "Years Experience", icon: Award },
   { value: "200k+", label: "Scripts Voiced", icon: FileText },
-  { value: "5.0", label: "Google Rating", icon: Star },
+  { value: <GoogleRatingValue />, label: "Google Rating", icon: Star },
   { value: "15k+", label: "Happy Clients", icon: Users },
 ];
 
@@ -1035,13 +1035,6 @@ function ClientsSection() {
 }
 
 function ReviewsBanner() {
-  const { data: reviewData } = useQuery<{ rating: number; reviewCount: number }>({
-    queryKey: ["/api/reviews"],
-    staleTime: 24 * 60 * 60 * 1000,
-  });
-  const reviewCount = reviewData?.reviewCount ?? 119;
-  const rating = reviewData?.rating ?? 5.0;
-
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -1094,21 +1087,7 @@ function ReviewsBanner() {
 
         <ScrollAnimation variant="scale">
           <div className="text-center">
-            <div className="flex items-center justify-center gap-1 mb-4">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="h-6 w-6 text-yellow-400"
-                  fill="currentColor"
-                />
-              ))}
-            </div>
-            <h3
-              className="text-2xl md:text-3xl font-bold text-white mb-3"
-              style={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              Rated {rating.toFixed(1)} on Google by {reviewCount} Happy Clients
-            </h3>
+            <GoogleReviewSummary />
             <a
               href="https://www.google.com/maps/place//data=!4m4!3m3!1s0x4879672543b8552f:0xa3cdce7ae1235f05!9m1!1b1?g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
               target="_blank"

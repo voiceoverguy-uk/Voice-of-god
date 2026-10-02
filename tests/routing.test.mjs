@@ -112,7 +112,7 @@ for (const mode of ["development", "production"]) {
     await t.test("real API handlers still receive requests without sending email", async () => {
       const reviews = await get("/api/reviews");
       assert.equal(reviews.status, 200);
-      assert.equal(typeof (await reviews.json()).reviewCount, "number");
+      assert.deepEqual(await reviews.json(), { available: false });
       const invalid = await get("/api/contact", {
         method: "POST", headers: { "Content-Type": "application/json" }, body: "{}",
       });
