@@ -131,18 +131,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const toEmail = process.env.CONTACT_TO_EMAIL || "enquiries@voiceoverguy.co.uk";
       const fromEmail = process.env.CONTACT_FROM_EMAIL || "noreply@voiceoverguy.co.uk";
       try {
-        await resend.emails.send({
+        const { data, error } = await resend.emails.send({
           from: fromEmail,
           to: toEmail,
           subject: `Voice of God enquiry${eventType ? `: ${eventType}` : ""}`,
           html: buildEnquiryEmail({ name, email, phone, eventType, message, timestamp, ip }),
           replyTo: email,
         });
+        // Acceptance by the provider is required; it does not prove inbox delivery.
+        if (error || typeof data?.id !== "string" || !data.id.trim()) {
+          console.warn("Resend did not confirm email acceptance.");
+          return res.status(502).json({ error: "Unable to send your enquiry. Please try again." });
+        }
       } catch (emailError) {
         console.warn("Resend email failed (submission logged):", emailError);
+        return res.status(502).json({ error: "Unable to send your enquiry. Please try again." });
       }
     } else {
       console.warn("RESEND_API_KEY not set — email not sent.");
+      return res.status(503).json({ error: "Email sending is currently unavailable. Please try again later." });
     }
 
     return res.status(200).json({ success: true, id });

@@ -121,18 +121,25 @@ export async function registerRoutes(
         const ip = (Array.isArray(forwardedFor) ? forwardedFor[0] : (forwardedFor?.split(",")[0]))?.trim() || req.ip;
 
         try {
-          await resend.emails.send({
+          const { data, error } = await resend.emails.send({
             from: fromEmail,
             to: toEmail,
             subject: `Voice of God enquiry${eventType ? `: ${eventType}` : ""}`,
             html: buildEnquiryEmail({ name, email, phone, eventType, message, timestamp, ip: ip || "" }),
             replyTo: email,
           });
+          // Acceptance by the provider is required; it does not prove inbox delivery.
+          if (error || typeof data?.id !== "string" || !data.id.trim()) {
+            console.warn("Resend did not confirm email acceptance.");
+            return res.status(502).json({ error: "Unable to send your enquiry. Please try again." });
+          }
         } catch (emailError) {
-          console.warn("Resend email failed (submission saved to DB):", emailError);
+          console.warn("Resend email failed (submission retained in memory only):", emailError);
+          return res.status(502).json({ error: "Unable to send your enquiry. Please try again." });
         }
       } else {
-        console.warn("RESEND_API_KEY not set — email not sent, submission saved to database only.");
+        console.warn("RESEND_API_KEY not set — email not sent, submission retained in memory only.");
+        return res.status(503).json({ error: "Email sending is currently unavailable. Please try again later." });
       }
 
       res.json({ success: true, id: submission.id });
