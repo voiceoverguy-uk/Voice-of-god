@@ -32,6 +32,8 @@ export async function registerRoutes(
   const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
   const OLD_WORDPRESS_PATHS = [
+    "/guy-harris",
+    "/guy-harris/",
     "/voice-of-god",
     "/voice-of-god/",
     "/about",

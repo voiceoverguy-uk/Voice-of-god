@@ -32,6 +32,12 @@ export async function setupVite(server: Server, app: Express) {
   app.use(vite.middlewares);
 
   app.use("/{*path}", async (req, res, next) => {
+    // Vite has already had the opportunity to serve real assets and modules.
+    // Only the homepage is an application entry point, not arbitrary URLs.
+    // Express strips the mount path from req.path inside this catch-all.
+    if (req.originalUrl.split("?")[0] !== "/" || !["GET", "HEAD"].includes(req.method)) {
+      return res.status(404).type("text/plain").send("Not Found");
+    }
     const url = req.originalUrl;
 
     try {
