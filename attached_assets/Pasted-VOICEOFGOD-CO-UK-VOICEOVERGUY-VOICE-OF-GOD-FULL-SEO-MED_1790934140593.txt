@@ -1,0 +1,156 @@
+VOICEOFGOD.CO.UK + VOICEOVERGUY VOICE OF GOD — FULL SEO / MEDIA / STRUCTURED DATA / CROSS-SITE AUDIT — AUDIT ONLY
+Do not change, create, delete, refactor, publish, deploy, sync or commit any code. This task is investigation and reporting only.
+The primary site to audit is https://voiceofgod.co.uk/. It is a specialist service/marketing site for Guy Harris's Voice of God/live event announcer work. It is not a separate person or unrelated business.
+IMPORTANT: also audit the relationship with these existing VoiceoverGuy pages:
+- https://www.voiceoverguy.co.uk/voice-of-god
+- https://www.voiceoverguy.co.uk/
+VoiceoverGuy is Guy Harris's main voiceover website. VoiceOfGod.co.uk is a specialist spin-off designed to promote this particular service, similar in principle to the owner's other specialist sites.
+Do not recommend consolidation, redirects, cross-canonicalisation or removal merely because the sites overlap. Instead determine whether they currently have sufficiently distinct search intent, content and purpose, and identify any genuine keyword/entity/canonical conflict.
+1. Crawl and technical inventory
+Audit every indexable route on VoiceOfGod.co.uk plus robots.txt and sitemap(s). Report status codes, redirect chains, canonical URLs, indexability, titles, meta descriptions, H1s, initial server HTML and rendered content.
+Specifically check apex/www and HTTP/HTTPS behaviour, unknown-route handling, sitemap URLs/lastmod accuracy, robots sitemap declaration, direct static-file behaviour and any catch-all routes returning false 200 responses.
+Do not fix anything.
+2. Initial HTML versus JavaScript
+Establish exactly what Google receives before client JavaScript.
+Report whether important headings, service copy, demos, audio names/descriptions, videos, testimonials/reviews, experience statements, event credits, contact/booking information and internal links exist in initial HTML or are inserted only after JavaScript.
+3. Search intent and cross-site relationship
+Compare:
+- VoiceOfGod.co.uk homepage
+- VoiceoverGuy /voice-of-god
+- VoiceoverGuy homepage Voice of God section
+Identify the primary search intent each currently serves.
+Assess overlap around phrases including:
+- voice of god voice over / voiceover
+- voice of god announcer
+- live voice of god
+- live event announcer
+- awards voiceover / awards announcer
+- event voiceover
+- award ceremony announcer
+- corporate event announcer
+Do not simply count keyword occurrences. Assess whether the pages complement one another or unnecessarily compete.
+Recommend a sensible role for each property while preserving both websites.
+4. Guy Harris entity/identity audit
+Audit all Person, Organization, Brand, WebSite, WebPage, Service and other identity/schema nodes.
+Determine whether the graph clearly communicates that:
+- Guy Harris is the performer/voice artist.
+- VoiceoverGuy is Guy Harris's established voiceover identity/business/service.
+- VoiceOfGod.co.uk is a specialist Voice of God service/site operated by Guy Harris, not another performer.
+Report all existing @id, url, sameAs, isPartOf, about, mainEntity, provider/performer/creator relationships and inconsistencies.
+Do not invent entity relationships merely to increase schema.
+5. COMPLETE VIDEO INVENTORY
+This is a high-priority evidence audit.
+Inventory every visible and structured video on VoiceOfGod.co.uk.
+For each video report:
+- visible title
+- YouTube/video ID
+- watch URL
+- embed URL
+- thumbnail URL
+- visible description/context
+- where it appears
+- whether initial HTML exposes it
+- corresponding VideoObject, if any
+- VideoObject @id
+- name
+- description
+- thumbnailUrl
+- uploadDate
+- duration
+- creator
+- author
+- publisher
+- contentUrl/embedUrl
+- duplication
+Verify YouTube/provider metadata independently where possible.
+Never invent an upload date, time, timezone, creator, publisher, duration or ownership relationship.
+If YouTube provides only an evidenced calendar publication date, record that factual date separately from any exact timestamp.
+Flag fabricated fallback dates, duplicated VideoObjects, broken thumbnails, mismatched titles/descriptions and unsupported creator/publisher claims.
+Remember the recently established implementation principle: factual provider-evidenced date-only uploadDate values may be preferable to fabricated timestamps if exact time is unavailable. Do not implement anything during this audit.
+6. COMPLETE AUDIO INVENTORY
+Inventory every audio/demo file.
+For each report visible title, filename/URL, MIME type, measured duration where technically possible, visible description, AudioObject data, @id, contentUrl, duration, uploadDate, creator/author/publisher and whether the audio is exposed in initial HTML.
+Decode/measure local audio files if available rather than guessing durations.
+Flag unsupported publication dates and other invented metadata.
+7. Structured-data audit
+Inventory every JSON-LD node on every relevant route.
+Check factual accuracy and relationships rather than simply maximising schema quantity.
+Specifically inspect:
+- Person
+- WebSite
+- WebPage
+- Organization/Brand
+- Service
+- VideoObject
+- AudioObject
+- Review
+- AggregateRating
+- BreadcrumbList
+- FAQPage
+- Event, if present
+Do not recommend FAQPage merely for Google rich results. Do not invent Event schema for portfolio examples of past events.
+Report what should remain, what is inaccurate, what is duplicated and what is genuinely missing.
+8. Reviews and testimonials
+Determine the source of every visible rating/review count and every Review/AggregateRating schema item.
+Check initial versus rendered values, caching/fallback behaviour and whether any fixed fallback count can become stale.
+Distinguish genuine Google reviews from hand-written testimonials.
+Do not manufacture rating schema.
+9. Live Voice of God positioning
+Audit how clearly the site distinguishes:
+- live, in-room Voice of God announcing
+- remotely delivered/pre-recorded Voice of God
+- awards ceremonies
+- corporate events/conferences
+- arena/stage productions
+- television/entertainment-related work
+Identify opportunities to make live event announcing clearer without weakening the broader Voice of God positioning that already ranks.
+The owner has just completed a genuine live Voice of God booking at The Print Industry Awards 2026, with Hal Cruttenden as host and Guy Harris providing the live Voice of God announcements.
+Available new assets include:
+- several original landscape photographs from Guy's technical/announcer position overlooking the event
+- photographs of the Print Industry Awards stage/room
+- photographs of Guy with host Hal Cruttenden
+- several original portrait videos filmed at the event
+- videos include Hal introducing Guy and Guy then reading nominees live
+- some clips use iPhone picture-in-picture showing the stage and Guy performing simultaneously
+Do NOT add these yet.
+Recommend how this genuine recent work could best be used: existing homepage section, case study, news item, dedicated portfolio page, video feature, or a combination. Consider SEO value, conversion value and avoiding unnecessary duplicate pages.
+10. Existing proof and credits
+Inventory all named Voice of God/event credits and claims, including ITV, BBC, Butlins, The Masked Singer, Ant & Dec, Britain's Got Talent, TV Choice Awards and other named events/brands.
+Distinguish what is demonstrably supported by existing site media/pages from unsupported marketing assertions.
+Do not remove genuine credits simply because independent third-party confirmation is unavailable; instead classify the evidence source.
+11. Internal and cross-site linking
+Audit links between VoiceOfGod.co.uk and VoiceoverGuy.co.uk.
+Report existing anchor text, destination pages and direction of links.
+Recommend a natural internal/cross-site architecture that makes the relationship understandable to users and search engines without excessive reciprocal keyword links.
+Include relevant VoiceoverGuy news/case-study pages already supporting Voice of God work.
+12. Images and media accessibility
+Audit filenames, dimensions, file size, format, ALT text, width/height attributes, lazy loading and whether important media causes layout shift.
+Check video poster accessibility and keyboard behaviour.
+Check whether video embeds are deferred until activation.
+13. Conversion audit
+Assess whether somebody landing after searching for a live awards/event announcer can quickly understand:
+- who Guy is
+- what a Voice of God announcer does
+- that Guy performs live as well as pre-recorded
+- relevant credits
+- what he sounds like
+- how to book/check availability
+Identify genuine friction rather than speculative redesign.
+14. Mobile/performance/accessibility
+Test at approximately 390px width.
+Check horizontal overflow, menu accessibility, buttons, audio/video controls, forms, keyboard operation, reduced-motion handling and obvious Core Web Vitals risks.
+15. OUTPUT
+Produce a detailed audit report only.
+Divide findings into:
+CRITICAL — factual/indexing/schema errors
+HIGH — worthwhile SEO/discoverability/conversion improvements
+MEDIUM — useful improvements
+LOW — polish only
+NO CHANGE — things already working and that should be protected
+Finish with a proposed conservative implementation sequence:
+Pass 1: factual/technical corrections
+Pass 2: media/schema discoverability
+Pass 3: content/live-event opportunity, including the Print Industry Awards 2026 material if justified.
+For every proposed change explain what evidence supports it.
+DO NOT IMPLEMENT ANYTHING. DO NOT DEPLOY. DO NOT SYNC. DO NOT COMMIT.
+Return the complete report to me for owner review first.
