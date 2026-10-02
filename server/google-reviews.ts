@@ -1,4 +1,4 @@
-import { isFreshGoogleReviews, validReviewNumbers, type GoogleReviews } from "../shared/google-reviews";
+import { isFreshGoogleReviews, validReviewNumbers, type GoogleReviews } from "../shared/google-reviews.js";
 
 const GOOGLE_PLACE_ID = "ChIJL1W4QyVneUgRBV8j4XrOzaM";
 let cache: GoogleReviews | null = null;

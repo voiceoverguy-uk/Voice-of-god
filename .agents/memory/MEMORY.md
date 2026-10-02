@@ -1,1 +1,2 @@
 - [Google reviews verification](google-reviews-verification.md) — Official review URLs may show Google's limited view on signed-out desktop; verify review content, not just identity.
+- [Shared Google reviews](shared-google-reviews.md) — Guy/VoiceoverGuy owns the shared review source; keep attribution explicit and test native serverless ESM.

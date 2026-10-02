@@ -143,9 +143,11 @@ function renderClient(data, isError = false) {
 
 test("client displays validated fresh rating/count in both numeric locations", () => {
   const html = renderClient({ rating: 4.7, reviewCount: 137, fetchedAt: initialTime });
-  assert.match(html.summary, /Rated 4\.7 on Google by 137 Happy Clients/);
+  assert.match(html.summary, /Rated 4\.7 on Google · 137 reviews/);
+  assert.match(html.summary, /Google reviews for Guy Harris \/ VoiceoverGuy, shared here\./);
   assert.match(html.summary, /width:70/); // partial final star, not a fixed five-star claim
-  assert.equal(html.stat, "4.7");
+  assert.match(html.stat, /^4\.7<span/);
+  assert.match(html.stat, /Guy \/ VoiceoverGuy/);
 });
 
 test("client loading, unavailable, malformed, expired, future and error states hide numeric claims", () => {
@@ -159,7 +161,7 @@ test("client loading, unavailable, malformed, expired, future and error states h
     assert.match(html.summary, />Google Reviews</);
     assert.doesNotMatch(html.summary, /Rated |Happy Clients/);
     assert.match(html.summary, /invisible/);
-    assert.equal(html.stat, "—");
+    assert.match(html.stat, /^—<span/);
   }
 });
 

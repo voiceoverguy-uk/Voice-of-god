@@ -24,7 +24,10 @@ function useFreshReviews() {
 
 export function GoogleRatingValue() {
   const review = useFreshReviews();
-  return <>{review ? review.rating.toFixed(1) : "—"}</>;
+  return <>
+    {review ? review.rating.toFixed(1) : "—"}
+    <span className="block text-xs font-normal text-gray-500">Guy / VoiceoverGuy</span>
+  </>;
 }
 
 export function GoogleReviewSummary() {
@@ -45,9 +48,12 @@ export function GoogleReviewSummary() {
       <h3 className="text-2xl md:text-3xl font-bold text-white mb-3"
         style={{ fontFamily: "'Montserrat', sans-serif" }}>
         {review
-          ? `Rated ${review.rating.toFixed(1)} on Google by ${review.reviewCount} Happy Clients`
+          ? `Rated ${review.rating.toFixed(1)} on Google · ${review.reviewCount} reviews`
           : "Google Reviews"}
       </h3>
+      <p className="text-sm text-gray-400 mb-3">
+        Google reviews for Guy Harris / VoiceoverGuy, shared here.
+      </p>
     </>
   );
 }
