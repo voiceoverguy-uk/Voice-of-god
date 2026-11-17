@@ -1131,6 +1131,11 @@ const TESTIMONIALS = [
     name: "Rebecca Sharpe",
     title: "Quadrant Events",
   },
+  {
+    quote: "We have used Guy on our awards ceremony for many years, he has been superb everytime, always prompt, professional and ready to help. Would highly recommend.",
+    name: "Colin Thompson",
+    title: "Clever Duck Media Ltd",
+  },
 ];
 
 function TestimonialsSection() {
